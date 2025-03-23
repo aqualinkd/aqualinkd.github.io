@@ -1,4 +1,3 @@
-# aqualinkd.github.io
 AqualinkD.
 
 Linux daemon to control Jandy Aqualink RS pool controllers. Provides web UI, MQTT client & HTTP API endpoints. Control your pool equipment from any phone/tablet or computer.  Is also compatible with most Home control systems including Apple HomeKit, Home Assistant, Samsung, Alexa, Google, etc.
