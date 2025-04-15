@@ -5,7 +5,7 @@ Linux daemon to control Jandy Aqualink RS pool controllers. Provides web UI, MQT
 Quick rundown of all the AqualinkD resources.
 
 ##
-[AqualinkD information & repo](https://github.com/sfeakes/AqualinkD)
+[AqualinkD information & repo](https://github.com/aqualinkd/AqualinkD)
 
 AqualinkD software is designed to be run on any SBC like a Raspbery Pi (or docker). It comes pre-compiled for any 16 or 32 bit ARM machine and ovbiously source is available to compile for any linux machine of your choice. (Windows is not and will never be supported, but you can run the AqualinkD Docker image on a windows machine)
 
@@ -27,6 +27,11 @@ Radxa OS is not perfectly setup for AqualinkD the below has information on that.
 
 ##
 Raspberry Pi Zero W is also very good HW, but like all Raspberry Pi's and it's clones, suffers from CF card corruption. This can be easily solved using a RO Root file system.
+
+##
+[AqualinkD Homebridge plugin](https://github.com/aqualinkd/homebridge-aqualinkd)
+
+Homebridge plugin.  Integrate AqualinkD into Apple homekit.
 
 
 
