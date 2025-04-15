@@ -3,5 +3,5 @@ plugins:
 - jekyll-remote-theme
 github:
   repository_url: "https://github.com/aqualinkd"
-title: [AqualinkD]
-description: [Control Jandy RS Aqualink pool equiptment]
+title: AqualinkD
+description: Control Jandy RS Aqualink pool equiptment
