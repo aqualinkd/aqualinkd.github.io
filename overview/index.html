@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+
+
+  <section class="standalone">
+    <div class="grid">
+      <div class="unit whole article_large">
+        <article class="article_large">
+          <div class="improve right hide-on-mobiles"></div>
+          <p><b>AqualinkD</b> Linux daemon to control Jandy Aqualink RS pool controllers. Provides web UI, MQTT client &amp; HTTP API
+            endpoints. Control your pool equipment from any phone/tablet or computer. Is also compatible with most Home
+            control systems including Apple HomeKit, Home Assistant, Samsung, Alexa, Google, etc.</p>
+          <ul>
+            <li>
+              AqualinkD is highly optimized and grate care is taken to keep it small and highly stable, it takes very
+              little resources, it is well renounced for it's rock solid stability and runs for years without any
+              issues.
+            </li>
+          </ul>
+          <p>Quick rundown of all the AqualinkD resources.</p>
+        </article>
+        &nbsp
+        <article class="article_large">
+          <ul>
+            <li><a href="https://github.com/aqualinkd/AqualinkD">AqualinkD information &amp; repo</a></li>
+          </ul>
+          <p>AqualinkD software is designed to be run on any SBC like a Raspbery Pi (or docker). It comes pre-compiled
+            for any 16 or 32 bit ARM machine and ovbiously source is available to compile for any linux machine of your
+            choice. (Windows is not and will never be supported, but you can run the AqualinkD Docker image on a windows
+            machine)</p>
+        </article>
+        &nbsp
+        <article class="article_large">
+          <ul>
+            <li><a href="https://github.com/chrisdaun/pi-zero-serial-hat">AqualinkD serial HAT</a></li>
+          </ul>
+
+          <p>AqualinkD required a RS485 connection, this can be done with a USB2RS485 adapter or the official AqualinkD
+            hat.</p>
+        </article>
+        &nbsp
+        <article class="article_large">
+          <ul>
+            <li><a href="https://github.com/aqualinkd/AqualinkD-Cases">AqualinkD cases</a></li>
+          </ul>
+          <p>3D printable Cases for AqualinkD with HAT.</p>
+        </article>
+        &nbsp
+        <article class="article_large">
+          <ul>
+            <li><a href="https://github.com/aqualinkd/AqualinkD-Radxa-zero3">AqualinkD-Radxa</a></li>
+          </ul>
+
+          <p>Radxa Zero W is the preferred hardware because it’s Pi Zero form factor and uses eMMC rather than an SD
+            card. (eMMC makes it far more stable over an SD card)
+            Radxa OS is not perfectly setup for AqualinkD the below has information on that.</p>
+
+          <p>
+          <ul>
+            <li>
+              Raspberry Pi Zero W is also very good HW, but like all Raspberry Pi’s and it’s clones, suffers from CF
+              card
+              corruption. This can be easily solved using a RO Root file system.</li>
+            <li>Pi zero W is the smallest and least powerful of all SBC's (1GHz, single-core CPU with 512MB RAM), This
+              is way more than enough for AqualinkD, so if you are going Raspberry Pi (or clone) route there is no need
+              for anything more powerful. ie you don't need to Pi Zero 2W / Pi 3, 4, 5 etc. 36bit over 16bit also has no
+              advantage for AqualinkD</li>
+          </ul>
+          </p>
+        </article>
+        &nbsp
+        <article class="article_large">
+          <ul>
+            <li><a href="https://github.com/aqualinkd/homebridge-aqualinkd">AqualinkD Homebridge plugin</a></li>
+          </ul>
+
+
+          <p>Homebridge plugin. Integrate AqualinkD into Apple homekit.</p>
+        </article>
+
+        <div class="clear"></div>
+      </div>
+  </section>
+
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+
+
+</body>
+
+</html>

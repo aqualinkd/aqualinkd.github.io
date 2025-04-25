@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+
+</head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const emailButton = document.getElementById('emailButton');
+    const emailLinkContainer = document.getElementById('emailLinkContainer');
+    const emailLink = document.getElementById('emailLink');
+    const noscriptElement = document.querySelector('noscript');
+
+    const charCodes = [[116, 104, 104, 101, 112, 107, 122],
+                     [104, 111, 100, 109, 113],
+                     [100, 113, 112]];
+  
+  function assembleEmail() {
+  let email = "";
+  for (let j=0; j< 3; j++) {
+    for (let i = 0; i < charCodes[j].length; i++) {
+      email += String.fromCharCode(charCodes[j][i]-(i+1));
+    }
+    switch(j) {
+      case 0:
+        email += String.fromCharCode(64);
+      break;
+      case 1:
+        email += String.fromCharCode(46);
+      break;
+    }
+  }
+  return email;
+  }
+
+    emailButton.addEventListener('click', function() {
+      const fullEmail = assembleEmail();
+      emailLink.href = "mailto:" + fullEmail;
+      emailLink.textContent = fullEmail;
+      emailLinkContainer.style.display = 'block'; // Show the link
+      emailButton.style.display = 'none';      // Hide the button
+    });
+
+    // Hide the noscript message if JavaScript is enabled
+    if (noscriptElement) {
+      noscriptElement.style.display = 'none';
+    }
+  });
+</script>
+
+<body class="wrap">
+  <header id="header"></header>
+
+  <section class="standalone">
+    <div class="grid">
+      <div class="unit whole">
+        <article>
+          <h2>How can I get one</h2>
+          <li>First you can use any generic hardware listed in the <a href="\details">Details Page</a></li>
+          <ul>
+            <li>Remember </li>
+          </ul>
+          <li>We get small runs of units made, and offer them at cost to the community, costs are below</li>
+          Please note
+          <ul>
+            <li>This is not a business, we are not making money, do not expect "business" like support / guarantee /
+              warranty.</li>
+            <li>if you want the above, please purchase elsewhere</li>
+          </ul>
+          <ul>
+          </ul>
+        </article>
+        &nbsp;
+        <article>
+          <li>Prices change for each run we do, Below prices are for the current inventory</li>
+          <ul>
+            <li>AqualinkD Serial Hat (all soldered / tested ready to go)</li>
+            <ul>
+              <li>$25</li>
+            </ul>
+            <li>AqualinkD Case $15 (Printed in quality PETG includes all hardware needed)</li>
+            <ul>
+              <li>$15</li>
+            </ul>
+            <li>AqualinkD Complete Unit ready to go (Radxa Zero 3W / Hat / Case / OS loaded & AqualinkD installed)</li>
+            <ul>
+              <li><s>$150</s> &nbsp Sold Out</li>
+            </ul>
+            <li>Shipping to contentional US (USPS Priority Mail, flat rate, irrelevant of what you purchase)</li>
+            <ul>
+              <li>$12</li>
+            </ul>
+          </ul>
+          <h4>To Check Availability please contact us below.</h4>
+          <button id="emailButton">Show Contact Information</button>
+          <div id="emailLinkContainer">
+            <a id="emailLink" href=""></a>
+          </div>
+          <noscript>Please enable JavaScript to see our email address.</noscript>
+        </article>
+      </div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+</body>
+
+</html>
