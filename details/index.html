@@ -15,11 +15,14 @@
 
 <body class="wrap">
   <header id="header"></header>
-
-  <section class="standalone">
+  <section>
     <div class="grid">
-      <div class="unit whole">
+      <!--
+      ******** REQUIRMENTS ********      
+-->
+      <div class="unit four-fifths">
         <article>
+          <div id="Requirements"></div>
           <h2>Requirements</h2>
           You can be up an running for as little as $20 with generic off the shelf hardware.<br>
           AqualinkD requires the following :-
@@ -29,26 +32,103 @@
               <li>Radxa Zero 3W preferred</li>
               <li>Raspberry Pi Zero W is next best choice</li>
               <li>Any Pi clone running linux will also be perfectly suitable</li>
-              
             </ul>
-            
             <li>Wired RS485 Connection to the Jandy control panel</li>
             <ul>
               <li>AqualinkD Serial HAT is preferred</li>
               <li>Any USB2RS485 dongle will also work</li>
             </ul>
-          <li>Alternatives to the above</li>
-          <ul>
-            <li><a href="https://hub.docker.com/r/sfeakes/aqualinkd">Docker container</a> is also available</li>
-            <li>Wireless RS485 connections like the EW11 will <em><B>sometimes</B></em> work. Highly dependent on your WiFi network, most consumer grade wifi routers will <em><B>NOT</B></em> be up to the task</li>
+            <li>Alternatives to the above</li>
+            <ul>
+              <li><a href="https://hub.docker.com/r/sfeakes/aqualinkd">Docker container</a> is also available</li>
+              <li>Wireless RS485 connections like the EW11 will <em><B>sometimes</B></em> work. Highly dependent on your
+                WiFi network, most consumer grade wifi routers will <em><B>NOT</B></em> be up to the task</li>
+            </ul>
           </ul>
-        </ul>
         </article>
       </div>
+      <div class="unit one-fifth hide-on-mobiles">
+        <aside>
+          <h4>Index</h4>
+          <ul>
+            <li class="current"><a href="#Requirements">Requirements</a></li>
+            <li><a href="#Hardware">SBC Hardware</a></li>
+            <li><a href="#RS485">RS485 HAT</a></li>
+        </aside>
+      </div>
+      &nbsp;
+      <!--
+      ******** HARDWARE ********      
+-->
+      <div class="unit four-fifths">
+        <article>
+          <div id="Hardware"></div>
+          <h2>Hardware</h2>
+          Raspberry / CF card / RO Root / eMMC & Radxa
+          <ul>
+            <li>Bullet</li>
+            <ul>
+              <li>Bullet</li>
+              <li>Bullet</li>
+              <li>Bullet</li>
+            </ul>
+          </ul>
+        </article>
+      </div>
+      <div class="unit one-fifth hide-on-mobiles">
+        <aside>
+          <h4>Index</h4>
+          <ul>
+            <li><a href="#Requirements">Requirements</a></li>
+            <li class="current"><a href="#Hardware">SBC Hardware</a></li>
+            <li><a href="#RS485">RS485 HAT</a></li>
+        </aside>
+      </div>
+      &nbsp;
+<!--
+    ******** HARDWARE ********      
+-->
+      <div class="unit four-fifths">
+        <article>
+          <div id="RS485"></div>
+          <h2>RS485</h2>
+          Why the HAT / Power / RS485 issues
+          <ul>
+            <li>Bullet</li>
+            <ul>
+              <li>Bullet</li>
+              <li>Bullet</li>
+              <li>Bullet</li>
+            </ul>
+          </ul>
+          Show Image on Pi Zero<br>
+          <img class="expandImage" src="https://github.com/aqualinkd/aqualinkd-zero-hat/blob/main/images/v2.1_stack_top.jpeg?raw=true" width="300" onclick="expandImage(this)">
+          <br>
+          Show Image on full size Pi.
+          <br>
+          <img class="expandImage" src="https://github.com/aqualinkd/aqualinkd-zero-hat/blob/main/images/v2.1_stack_top.jpeg?raw=true" width="300" onclick="expandImage(this)">
+        </article>
+      </div>
+      <div class="unit one-fifth hide-on-mobiles">
+        <aside>
+          <h4>Index</h4>
+          <ul>
+            <li><a href="#Requirements">Requirements</a></li>
+            <li><a href="#Hardware">SBC Hardware</a></li>
+            <li  class="current"><a href="#RS485">RS485 HAT</a></li>
+        </aside>
+      </div>
+      <!--
+      ******** END / FOOTER ********      
+-->
+      <div class="clear"></div>
     </div>
   </section>
   <footer id="footer"></footer>
   <script src="/js/header.js"></script>
+  <script src="/js/expandImages.js"></script>
 </body>
 
 </html>
+
+

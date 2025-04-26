@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+
+  <section class="standalone">
+    <div class="grid">
+      <div class="unit whole">
+        <article>
+          <h2>Requirements</h2>
+          You can be up an running for as little as $20 with generic off the shelf hardware.<br>
+          AqualinkD requires the following :-
+          <ul>
+            <li>Raspberry Pi or equivalent SBC style computer</li>
+            <ul>
+              <li>Radxa Zero 3W preferred</li>
+              <li>Raspberry Pi Zero W is next best choice</li>
+              <li>Any Pi clone running linux will also be perfectly suitable</li>
+              
+            </ul>
+            
+            <li>Wired RS485 Connection to the Jandy control panel</li>
+            <ul>
+              <li>AqualinkD Serial HAT is preferred</li>
+              <li>Any USB2RS485 dongle will also work</li>
+            </ul>
+          <li>Alternatives to the above</li>
+          <ul>
+            <li><a href="https://hub.docker.com/r/sfeakes/aqualinkd">Docker container</a> is also available</li>
+            <li>Wireless RS485 connections like the EW11 will <em><B>sometimes</B></em> work. Highly dependent on your WiFi network, most consumer grade wifi routers will <em><B>NOT</B></em> be up to the task</li>
+          </ul>
+        </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+</body>
+
+</html>
