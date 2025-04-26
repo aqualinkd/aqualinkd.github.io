@@ -64,15 +64,37 @@
         <article>
           <div id="Hardware"></div>
           <h2>Hardware</h2>
-          Raspberry / CF card / RO Root / eMMC & Radxa
+          <p>Radxa Zero 3W is the preferred hardware because it is a Pi Zero form factor and uses eMMC rather than an SD
+            card. (eMMC is far more stable than an SD card).
           <ul>
-            <li>Bullet</li>
-            <ul>
-              <li>Bullet</li>
-              <li>Bullet</li>
-              <li>Bullet</li>
-            </ul>
+            <li>Radxa OS is not perfectly setup for AqualinkD the <a href=""
+                https://github.com/aqualinkd/AqualinkD-Radxa-zero3">AqualinkD Radxa repo</a>
+              has information on that, and a script to modify the OS image for you</li>
+            <li>There are other OS's that work on the Radxa Zero 3W like Armbian, DietPi and others. But at the time of
+              writing this they are missing a lot,
+              the Radxa OS modified with the above is the preferred OS to use.</li>
           </ul>
+          </p>
+
+          </p>
+          <p>Raspberry Pi Zero W is also very good HW, but like all Raspberry Pi’s and its clones, suffers from CF
+            card corruption. This can be easily solved using a RO Root file system.</p>
+          <ul>
+            <li>
+              There is plenty of information on the net about RO Root filesystem in a Pi, so the details on now to do
+              that are not in any AqualinkD documentation.
+            </li>
+            <li>
+              If you do use a RO root filesystem, AqualinkD will detect this and change the RO to RW root on the very
+              few occasions it does write to the filesystem, it will obviously change it back.
+            </li>
+            <li>
+              Pi zero W is the smallest and least powerful of all SBC's (1GHz, single-core CPU with 512MB RAM), This
+              is way more than enough for AqualinkD, so if you are going Raspberry Pi (or clone) route there is no need
+              for anything more powerful. ie you don't need to Pi Zero 2W / Pi 3, 4, 5 etc. 64bit over 32bit also has no
+              advantage for AqualinkD</li>
+          </ul>
+          </p>
         </article>
       </div>
       <div class="unit one-fifth hide-on-mobiles">
@@ -85,28 +107,43 @@
         </aside>
       </div>
       &nbsp;
-<!--
+      <!--
     ******** HARDWARE ********      
 -->
       <div class="unit four-fifths">
         <article>
           <div id="RS485"></div>
           <h2>RS485</h2>
-          Why the HAT / Power / RS485 issues
+          <p>
+          AqualinkD needs to communicate with the Jandy control panel, and it does this through RS485 serial connection
+          (Same as all other Pool equipment).
+        </p>
+        <p>
+          To make this connection you can either use a USB2RS485 dongle, or a the Serial RS458 HAT. Complete details
+          of the RS485 and how finicky that connection can be are in the <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485-adapters">AqualinkD Wiki</a>.
+        </p>
+        <p> 
+          There are a few RS485 HAT's on the market, but the one designed for AqualinkD is unique in that it can also power the SBC as well & has configurable termination.
+          So all you need to do is connect the 4 RS485 wires in the same way you would for any other Jandy Interface Panel (Like All Button or OneTouch) 
+        </p>
           <ul>
-            <li>Bullet</li>
+            <li>AqualinkD RS485 HAT features that make it unique from any other option</li>
             <ul>
-              <li>Bullet</li>
-              <li>Bullet</li>
-              <li>Bullet</li>
+              <li>Power board and Pi from Jandy's RS485 wires.</li>
+              <li>Built in selectable termination.</li>
+              <li>Same footprint as Pi Zero, and will also work on full size Pi</li>
             </ul>
           </ul>
           Show Image on Pi Zero<br>
-          <img class="expandImage" src="https://github.com/aqualinkd/aqualinkd-zero-hat/blob/main/images/v2.1_stack_top.jpeg?raw=true" width="300" onclick="expandImage(this)">
+          <img class="expandImage"
+            src="https://github.com/aqualinkd/aqualinkd-zero-hat/blob/main/images/v2.1_stack_top.jpeg?raw=true"
+            width="300" onclick="expandImage(this)">
           <br>
           Show Image on full size Pi.
           <br>
-          <img class="expandImage" src="https://github.com/aqualinkd/aqualinkd-zero-hat/blob/main/images/v2.1_stack_top.jpeg?raw=true" width="300" onclick="expandImage(this)">
+          <img class="expandImage"
+            src="https://github.com/aqualinkd/aqualinkd-zero-hat/blob/main/images/v2.1_stack_top.jpeg?raw=true"
+            width="300" onclick="expandImage(this)">
         </article>
       </div>
       <div class="unit one-fifth hide-on-mobiles">
@@ -115,7 +152,7 @@
           <ul>
             <li><a href="#Requirements">Requirements</a></li>
             <li><a href="#Hardware">SBC Hardware</a></li>
-            <li  class="current"><a href="#RS485">RS485 HAT</a></li>
+            <li class="current"><a href="#RS485">RS485 HAT</a></li>
         </aside>
       </div>
       <!--
@@ -130,5 +167,3 @@
 </body>
 
 </html>
-
-
