@@ -3095,8 +3095,14 @@ ol div.highlighter-rouge {
   cursor: zoom-in;
   border: 2px solid #adadad;
 }
+
+.expandedImage{
+  cursor: pointer;
+  max-width: 100%;
+}
+/*
 .pointer{
   cursor: pointer;
 }
-
+*/
 /*# sourceMappingURL=screen.css.map */

@@ -8,7 +8,8 @@ try {
   const contentDiv = document.createElement('div');
   contentDiv.classList.add("modal-content");
   contentDiv.innerHTML = "<span class=\"close\">&times;</span>"+
-                         "<img class=\"pointer\" src=\"\" id=\"modal-image\" width=\"90%\" height=\"90%\"/>";
+                         "<img class=\"expandedImage\" src=\"\" id=\"modal-image\"/>";
+  //                       "<img class=\"pointer\" src=\"\" id=\"modal-image\" width=\"90%\" height=\"90%\"/>";
   
   mainDiv.appendChild(contentDiv);             
   body.appendChild(mainDiv);
