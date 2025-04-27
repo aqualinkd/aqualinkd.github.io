@@ -3093,6 +3093,7 @@ ol div.highlighter-rouge {
 
 .expandImage{
   cursor: zoom-in;
+  border: 2px solid #adadad;
 }
 .pointer{
   cursor: pointer;
