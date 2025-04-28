@@ -3074,6 +3074,7 @@ ol div.highlighter-rouge {
 
 .modal-image {
   display: inline-block;
+  /*display: block;*/
   cursor: pointer;
 }
 
@@ -3097,8 +3098,19 @@ ol div.highlighter-rouge {
 }
 
 .expandedImage{
+  /* Try to center the image, keep it's MAX width & height to be screen dimentions or image size, 
+     which ever is smallest */
+  position:absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
   max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto; /* Alternatively, can use height: auto; to maintain aspect ratio */
+  object-fit: contain; /* Optional, but recommended for preserving aspect ratio */
+  
 }
 /*
 .pointer{
