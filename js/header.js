@@ -111,5 +111,5 @@ try {
 const script = document.createElement('script');
 script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
 script.defer = true;
-script.setAttribute('data-cf-beason', '{"token": "b4dd62e89df4456f8df2e97ab636a41b"}');
+script.setAttribute('data-cf-beacon', '{"token": "b4dd62e89df4456f8df2e97ab636a41b"}');
 document.body.appendChild(script);
