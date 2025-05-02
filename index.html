@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="canonical" href="https://aqualinkd.github.io/">
   <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/css/style.css" as="style">
@@ -23,10 +27,23 @@
   <section class="unit whole">
     <div class="grid">
       <div class="unit whole center-on-mobiles">
-        <p>Control your pool from web, mobile and any home automation hub e.g. HomeKit, Home Assistant, Domoticz etc</p>
+        <p>Control your pool from web, mobile and any home automation hub e.g. HomeKit, Home Assistant, Domoticz</p>
+        <section id="features">
+          <h2>Key Features</h2>
+          <ul>
+            <li>Real-time monitoring of pool status</li>
+            <li>Customizable scheduling for pumps, lights, and heaters</li>
+            <li>Remote control via a web interface</li>
+            <li>Integration with home automation platforms (e.g., Homekit, Home Assistant)</li>
+            <li>Open and extensible architecture</li>
+            <li>All Jandy RS revisions supported (no more ~$1k Jandy panel upgrades)</li>
+            <li>Everything, software & hardware is open source and free</li>
+          </ul>
+        </section>
       </div>
     </div>
   </section>
+  <!--
   <section class="unit whole">
     <div class="grid">
       <div class="unit whole center-on-mobiles">
@@ -34,6 +51,7 @@
       </div>
     </div>
   </section>
+-->
   <section class="features center-on-mobiles">
     <div class="grid">
       <div class="unit one-third">
@@ -55,7 +73,7 @@
           Plugins for many home automation hubs, open & well documented API's and MQTT for integrating into anything you
           like.
         </p>
-      </p><a href="https://github.com/aqualinkd/AqualinkD/wiki">Documentation &rarr;</a>
+        </p><a href="https://github.com/aqualinkd/AqualinkD/wiki">Documentation &rarr;</a>
       </div>
       <div class="clear"></div>
     </div>
@@ -66,13 +84,15 @@
       <div class="unit one-third">
         <h3>Great web UI</h3>
         <p>Web & Mobile app work identical to Homekit</p>
-        <img class="expandImage" src="https://github.com/aqualinkd/AqualinkD/raw/master/extras/web_ui2.png?raw=true" width="300" onclick="expandImage(this)">
+        <img class="expandImage" src="https://github.com/aqualinkd/AqualinkD/raw/master/extras/web_ui2.png?raw=true"
+          width="300" onclick="expandImage(this)">
         </p>
       </div>
       <div class="unit one-third">
         <h3>Home Assistant</h3>
         <p>Every sensor / detail / information is exposed to integrations like HA</p>
-        <img class="expandImage" src="https://github.com/aqualinkd/AqualinkD/raw/master/extras/HASSIO.png?raw=true" width="300" onclick="expandImage(this)">
+        <img class="expandImage" src="https://github.com/aqualinkd/AqualinkD/raw/master/extras/HASSIO.png?raw=true"
+          width="300" onclick="expandImage(this)">
         </p>
       </div>
       <div class="unit one-third">
@@ -112,6 +132,33 @@
         </div>
       </div>
       <div class="clear"></div>
+    </div>
+  </section>
+
+  <!-- Maybe expand in the future -->
+
+  <section class="standalone">
+    <div class="grid">
+      <div class="unit whole">
+        <article>
+          <div class="improve right hide-on-mobiles"></div>
+          <h2>Features continued</h2>
+          <ul>
+            <li class="tightList">Real-time monitoring of pool status</li>
+            <li class="tightList">Customizable scheduling for pumps, lights, and heaters, full calendar year schedule and schedule items Jandy can't.</li>
+            <li class="tightList">Remote control via a web interface, mobile app, your own home automation hub</li>
+            <li class="tightList">Integration with home automation platforms (e.g., Homekit, Home Assistant, Domoticz)</li>
+            
+            <li class="tightList">Provides more functionality than Jandy iAqualink, AqualinkTouch</li>
+            <li class="tightList">Full support for all devices. Salt Water Generator, Variable Speed Pumps, Heap pump/chiller, Water Chemistry etc</li>
+            <li class="tightList">Reads devices directly, providing way more information than Jandy. (eg Pressure Curve for VSP, Status of SWG)</li>
+            
+            <li class="tightList">Open and extensible architecture</li>
+            <li class="tightList">All Jandy RS panel revisions supported (no more ~$1k Jandy panel upgrades)</li>
+          </ul>
+          </div>
+       </article>
+      </div>
     </div>
   </section>
 

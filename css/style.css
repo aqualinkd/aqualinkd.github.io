@@ -3112,6 +3112,13 @@ ol div.highlighter-rouge {
   object-fit: contain; /* Optional, but recommended for preserving aspect ratio */
   
 }
+
+.tightList {
+  margin: 0;
+  /*line-height: 1em;*/
+  margin-bottom: 0.0em;
+  /*padding: 0.2em;*/
+}
 /*
 .pointer{
   cursor: pointer;
