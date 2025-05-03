@@ -3110,7 +3110,6 @@ ol div.highlighter-rouge {
   width: auto;
   height: auto; /* Alternatively, can use height: auto; to maintain aspect ratio */
   object-fit: contain; /* Optional, but recommended for preserving aspect ratio */
-  
 }
 
 .tightList {
@@ -3118,6 +3117,10 @@ ol div.highlighter-rouge {
   /*line-height: 1em;*/
   margin-bottom: 0.0em;
   /*padding: 0.2em;*/
+}
+
+.reduceText {
+  font-size: smaller;
 }
 /*
 .pointer{
