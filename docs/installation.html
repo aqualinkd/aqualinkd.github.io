@@ -22,13 +22,9 @@
       <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
       <div class="unit four-fifths">
         <article>
-          <h1>Under Construction</h1>
-          &nbsp;
-          <H3>Assuming you have a RS485 link to your Jandy Control Panel.</H3>
-          <li>If not see see <a href="/docs/panelconnection.html">Connecting to Panel</a> or <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">Wiki - connecting RS485 to
-              control panel</a></li>
-          <h2>Quickstart</h2>
-          <li>Install AqualinkD.
+          <p>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></p>
+          <h2>Install AqualinkD</h2>
+          <li>On Pi, use the below command to install AqualinkD.
             <div class="language-sh highlighter-rouge">
               <div class="highlight">
                 <!--<pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve</code></pre>-->
@@ -37,14 +33,26 @@
               </div>
             </div>
           </li>
-          <li>Browse to <a href="http://ip.of.machine" target="_blank">http://ip.of.aqualinkd</a></li>
+          <li>AqualinkD will install and start, it will be trying to connect to your control panel and self configure</li>
+          <li>In a web browser go to <a href="http://pool/" target="_blank">http://ip-of-machine.running.aqualinkd</a>.
+            <ul class="tightList"><li>If you have MDNS in your device, then you can use <i>http://machine-name/</i> since AqualinkD will create a MDNS entry</li></ul></li>
           &nbsp;
           <li>Go to aqmanager by selecting the 3 lines in top left corner</li>
           <img src="/img/aqualinkd-main.png" width="652">
           &nbsp;
+          
           <li>In aqmanager, once AqualinkD has finished self configuring, expand the "Config" section and select "edit config"</li>
           <img src="/img/aqmanager.png" width="652">
-          
+          <li>If you have no connection or errors, you may need to change the serial interface</li>
+          <ul class="tightList">
+            <li>Toggle the <i>advanced</i> settings, and change <i>serial port</i> appropriately</li>
+          </ul>
+          <li>Check your <i>panel type</i> is correct.</li>
+          <ul class="tightList">
+            <li>If you change the panel type you must hit save and reload config before changing anything else</li>
+          </ul>
+          <li>Go down to the button section and configure your circuits / buttons</li>
+          <li>Check / change and other values and select "Save" (even if you didn't change anything)</li>
           &nbsp;
 
 

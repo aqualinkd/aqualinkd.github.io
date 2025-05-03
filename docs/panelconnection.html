@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,6 +11,7 @@
   <link rel="preload" href="/css/style.css" as="style">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" type="image/x-icon" href="/img/icon.png">
+
 </head>
 
 <body class="wrap">
@@ -19,12 +21,24 @@
       <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
       <div class="unit four-fifths">
         <article>
-          <h1>Under Construction</h1>
           <p>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></p>
-          <!-- ADD DETAILS HERE -->
+          You will need a wired serial RS485 connection to the Jandy Power Center (Control Panel).
+          <ul>
+          <li>If you have an inside controller / keypad mounted on your wall this is usually the best place.</li>
+          <li>If not, The outside control panel is the next best place.</li>
+          </ul>
+          <img src="/img/AquaLink RS485 connector.png"/><br>
+          If your installer followed the Jandy wiring, below are the colors, and where to connect them to on a USB2RS485 adapter, or AqualinkD RS485 HAT.
+          <table>
+          <tr><th>RS Power Center</th><th>Description</th><th>USB Adapter</th><th>RS485 Hat</th></tr>
+          <tr><td>Pin #1 Red</td><td>Power +</td><td>Do not connect</td><td>Pin #1 (+)</td></tr>
+          <tr><td>Pin #2 Black</td><td>Data +</td><td>A</td><td>Pin #3 (A)</td></tr>
+          <tr><td>Pin #3 Yellow</td><td>Data -</td><td>B</td><td>Pin #4 (B)</td></tr>
+          <tr><td>Pin #4 Green</td><td>Power +</td><td>Do not connect</td><td>Pin #2 (-)</td></tr>
+          </table>
         </article>
       </div>
-      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- REGULAR MENU HERE --></div>
       <div class="clear"></div>
     </div>
   </section>
@@ -32,14 +46,5 @@
   <script src="/js/header.js"></script>
   <script src="/js/docsMenu.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
