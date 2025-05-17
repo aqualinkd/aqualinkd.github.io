@@ -2281,7 +2281,7 @@ article h2:first-child {
 }
 
 pre,
-code {
+/*code*/ {   /* NSF modified */
   white-space: pre;
   display: inline-block;
   margin: 0;
@@ -2298,6 +2298,7 @@ code {
   }
 }
 
+code, /* NSF modified */
 .highlight,
 .highlighter-rouge .highlight,
 a>code,
@@ -2322,6 +2323,11 @@ h5>code,
     0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3),
     0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
+
+  /*white-space: break-spaces;*/
+  display: inline-block; 
+  font-size: 85%;  
+  
 }
 
 a>code {
@@ -3122,6 +3128,36 @@ ol div.highlighter-rouge {
 .reduceText {
   font-size: smaller;
 }
+
+
+.ssh {
+  background: rgba(0, 0, 0, 0)!important;
+  margin: 0!important;
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+.ssh .code {
+  font-size: 11px;
+  display: contents;
+}
+
+.file {
+  background-color: black;
+  white-space: break-spaces;
+}
+
+/*
+code {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    background-color: rgba(163, 170, 182, 0.2);
+    border-radius: 6px;
+}
+    */
 /*
 .pointer{
   cursor: pointer;
