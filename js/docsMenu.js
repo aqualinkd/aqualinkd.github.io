@@ -10,7 +10,8 @@
 let gsMenu = [[ "TLDR - Quickstart", "/docs/" ], 
               [ "Connecting to Panel", "/docs/panelconnection.html" ],
               [ "Installation", "/docs/installation.html" ], 
-              [ "Quick Configuring", "/docs/construction.html" ],
+              [ "Quick Configuration", "/docs/construction.html" ],
+              [ "Radxa Kit: WiFi", "/docs/radxa-get-started.html" ],
              ];
 
 let cfgMenu = [[ "Device ID's", "/docs/construction.html" ], 

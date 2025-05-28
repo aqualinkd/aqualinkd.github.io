@@ -12,6 +12,22 @@
   <link rel="icon" type="image/x-icon" href="/img/icon.png">
 </head>
 
+
+<!----------------
+
+
+#Document
+# set time zone
+
+# set locals
+
+# USB port has to be #2 port
+
+
+-->
+
+
+
 <body class="wrap">
   <header id="header"></header>
   <!--<section class="docs">-->
@@ -22,9 +38,9 @@
         <article>
           <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
           <!-- ADD DETAILS HERE -->
-           If you have bought the <b><i>AqualinkD complete Radxa kit</i></b>, this comes with everything you need pre built & installed, and ready to go. 
-           You will however need to connect it to your WiFi!<br>
-           Since this is a complete Linux computer, you will need some way to get your WiFi information on the device, this can be done in one of three ways :-
+           If you have bought the <b><i>AqualinkD complete Radxa kit</i></b>: This comes with everything you need pre built & installed, and is ready to go. 
+           You will however need to connect it to your WiFi!<br><br>
+           Since this is a complete Linux computer, you will need some way to get your WiFi information on the device, This can be done in one of three ways :-
            <br><br>
            <ul>
             <li class="tightList"><a href="#option1">Connect a USB drive with WiFi information to the Radxa</a></li>
@@ -33,7 +49,7 @@
             -or-
             <li class="tightList"><a href="#option3">Connect a USB 2 Ethernet adapter to the Radxa and plug it into one of your routers/switch ethernet port</a></li>
            </ul>
-           <h3>WARNING during these steps you may be using different cables & adapter is is VERY important to</h3>
+           <h3>WARNING during these steps you may be using different cables & adapter it is VERY important to</h3>
            <h3 style="color:red">Never connect the Radxa to both USB power and RS485 power at the same time</h3>
         </article>
         &nbsp;
@@ -41,21 +57,21 @@
           <h3>Connect a USB drive with wifi information</h3>
           You will need the following
           <ul class="tightList">
-            <li class="tightList">USB stick or equiv (ie CF card & CF card reader)</li>
+            <li class="tightList">USB stick or equivalent (ie CF card & CF card reader)</li>
             <li class="tightList">USB-C to USB adapter cable (if above is not USB-C)</li>
             <li class="tightList">optional - USB-C power source</li>
           </ul>
           <br>
           <b><i>AqualinkD complete Radxa kit</i></b> comes with software pre-installed that will detect a USB drive when it's inserted, 
-          mount it look for WiFi configuration files, and if found create a WiFi connection.
+          mount it, look for WiFi configuration files, and when found create a WiFi connection.
           <br><br>
           Steps are as follows
           <ol>
           <li>On a computer, format your USB stick in exFAT or FAT32.</li>
-          <li>create a plane text file on the USB stick called <code>nmcli.conf</code> <font size="smaller">(if using windows make sure .txt is not added to the file name)</font></li>
+          <li>Create a plain text file on the USB stick called <code>nmcli.conf</code> <font size="smaller">(if using windows make sure .txt is <b>not</b> added to the file name)</font></li>
             <ul>
-              <li>Preferable download the file from here (add link)</li>
-          <li>Contents of this file should be as below, changing the values appropiatly for your specific wifi settings</li>
+              <li>Or you can download the file from <a href="https://raw.githubusercontent.com/aqualinkd/AqualinkD-Radxa-zero3/refs/heads/main/wifi-mount/nmcli.conf">here</a> </li>
+          <li>Contents of this file should be as below, change the values appropriately for your specific wifi settings</li>
           <!--<pre style="font-size: smaller; background-color: black;">-->
             <p><code class="file">
  SSID="YOUR_SSID"
@@ -65,16 +81,16 @@
           <li>It is important to only change the text inside the quotes YOUR_SSID and YOUR_PASSWORD</li>
             </ul>
           <li>Eject the USB stick from your computer</li>
-          <li>Remove the Radxa from the case by removing the 4 screws on the underside of the case, and lifting it out holding the case top</li>
-          <li>Connect Radxa box to power. and wait a minute for it to fully boot.</li>
-          <li>Insert your USB stick into one of the Radxa USB-C ports, and wait 10~20 seconds</li>
+          <li>Remove the Radxa from the case by removing the 4 screws on the underside of the case, and lift it out holding the case top</li>
+          <li>Connect Radxa box to power and wait a minute for it to fully boot.</li>
+          <li>Insert your USB stick into the Radxa USB-C port (2nd port, show link), and wait 10~20 seconds</li>
           <li>Remove the USB stick</li>
           </ol>
-          If everything worked, your Radxa will not be connected to your wifi network.  
+          If everything worked, your Radxa will now be connected to your wifi network.  
           <br><br>
 
-          <p>The output of the wifi connection will be written to a file called <code>auto-wifi-connect.log</code> on the USB stick,<br> 
-          you can view that file for the IP address your router gave out, or go to your routers DHCP page to view the IP.</p>
+          <p>The output of the wifi connection will be written to a file called <code>auto-wifi-connect.log</code> on the USB stick.<br> 
+          You can view that file for the IP address your router gave out or go to your routers DHCP page to view the IP.</p>
           <br>
           <code>http://ip.address/</code> or if your device supports mDNS you can use <code><a href="http://aqualinkd.local">http://aqualinkd.local</a></code>
         </article>
@@ -84,17 +100,17 @@
           You will need the following
           <ul class="tightList">
             <li class="tightList">USB Keyboard (USB-C or USB-C adapter)</li>
-            <li class="tightList">HDMI Monitor, cable for Micro HDMI(Type-D) to Monitor</li>
+            <li class="tightList">HDMI Monitor and cable for Micro HDMI(Type-D) to Monitor</li>
           </ul>
         
         &nbsp;
         Steps are same as any Linux computer.
         <ol>
-          <li>Remove Radxa from case, remove 4 screws for case bottom, lift up on case top to remove Radxa & HAT</li>
+          <li>Remove Radxa from case, remove 4 screws for case bottom. carefully lift up on case top to remove Radxa & HAT</li>
           <li>Connect Screen and keyboard to Radxa</li>
-          <li>Power up Radxa (either from USB-C port or RS485 connector</li>
-          <li>Login to machine (Default user/password is xxxxx yyyyy</li>
-          <li>Run nmcli to list WiFi connection, then again to connect</li>
+          <li>Power up Radxa (either from USB-C port or RS485 connecto)r</li>
+          <li>Login to machine (Default user/password is radxa radxa)</li>
+          <li>Run nmcli to list WiFi connection then again to connect</li>
           <ul>
             <li class="tightList"><code>sudo nmcli radio wifi on</code></li>
             <li class="tightList"><code>sudo nmcli device wifi list</code></li>
@@ -157,11 +173,11 @@
           </ul>
 
           <ol>
-            <li>Remove Radxa from case, remove 4 screws for case bottom, lift up on case top to remove Radxa & HAT</li>
+            <li>Remove Radxa from case, remove 4 screws for case bottom. carefully lift up on case top to remove Radxa & HAT</li>
             <li>Connect the USB to Ethernet adapter to the Radxa</li>
-            <li>Power up Radxa (either from USB-C port or RS485 connector</li>
+            <li>Power up Radxa (either from USB-C port or RS485 connector)</li>
             <li>Find the IP address of the radxa from your router</li>
-            <li>Use your SSH tool to SSH to the Radxa IP, login with user / password</li>
+            <li>Use your SSH tool to SSH to the Radxa IP. Login with user / password</li>
             <li>Follow the <pre>nmcli</pre> commands listed in <a href="#option2">Connect a screen and keyboard to the Radxa</a></li>
           </ol>
         </article>
@@ -176,8 +192,8 @@
           <br>
           Steps
           <ol>
-            <li>Remove 4 screws for case bottom.<br>Add picture</li>
-            <li>lift up on case top to remove Radxa & HAT<br>Add picture</li>
+            <li>Remove 4 screws from case bottom.<br>Add picture</li>
+            <li>Carefully lift up on case top to remove Radxa & HAT<br>Add picture</li>
           </ol>
         </article>
       </div>
