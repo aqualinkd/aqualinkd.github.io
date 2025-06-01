@@ -6,6 +6,12 @@
   };
 
 
+let kitMenu = [
+               [ "Radxa Kit: Start", "/docs/radxa-kit-get-started.html" ],
+               [ "Connecting to Panel", "/docs/radxa-kit-panelconnection.html" ],
+               [ "Configure WiFi", "/docs/radxa-kit-wifi.html" ],
+               [ "AqualinkD Configuration", "radxa-kit-configuration.html" ],
+              ];
 
 let gsMenu = [[ "TLDR - Quickstart", "/docs/" ], 
               [ "Connecting to Panel", "/docs/panelconnection.html" ],
@@ -26,6 +32,7 @@ let cfgMenu = [[ "Device ID's", "/docs/construction.html" ],
               ];
 
 var menuitems = {};
+menuitems["AqualinkD Kit"] = kitMenu;
 menuitems["Getting Started"] = gsMenu;
 menuitems["Configuration"] = cfgMenu;
 

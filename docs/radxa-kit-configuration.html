@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description"
+    content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          
+          <li>AqualinkD it will be trying to connect to your control panel and self configure</li>
+          <li>In a web browser go to <a href="http://aqualinkd.local/" target="_blank">http://aqualinkd.local/</a> or <b>http://ip-of-machine.running.aqualinkd</b> depending on your network configuration.
+            <ul class="tightList"><li>i.e If you your device/computer supports MDNS, then you can use <i>http://aqualinkd.local/</i> since AqualinkD will create a MDNS entry</li></ul></li>
+          &nbsp;
+          <li>Go to aqmanager by selecting the 3 lines in top left corner</li>
+          <img src="/img/aqualinkd-main.png" width="652">
+          &nbsp;
+          
+          <li>In aqmanager, once AqualinkD has finished self configuring, expand the "Config" section and select "edit config"</li>
+          <img src="/img/aqmanager.png" width="652">
+          <li>If you have no connection or errors, you may need to change the serial interface</li>
+          <ul class="tightList">
+            <li>Toggle the <i>advanced</i> settings, and change <i>serial port</i> appropriately</li>
+          </ul>
+          <li>Check your <code>panel type</code> is correct.</li>
+          <ul class="tightList">
+            <li>Must be in format <i>XX-N YYYY</i> (XX=RS or PD, N=Circuits, YYYY=Combo or Only or Dual) example <i>RS-6 Combo</i></li>
+            <ul class="tightList">
+              <li class="tightList">Panel size: (or circuits). ie 4, 6, 8, 12 or 16 relates to RS4, RS6, RS8, RS12 or RS16.</li>
+              <li class="tightList">Panel style: Combo=Pool & Spa, Only=Pool or Spa, Dual=Pool & Spa as separate water bodies</li>
+              <li class="tightList">Examples :-</li>
+              <ul class="tightList">
+                <li class="tightList">RS-8 Combo</li>
+                <li class="tightList">RS-2/14 Dual</li>
+                <li class="tightList">RS-8 Only</li>
+              </ul>
+            </ul>
+            <li>If you change the <i>panel type</i> to you panel you must hit save and reload config before changing anything else</li>
+          </ul>
+          <li>Go down to the button section and configure your circuits / buttons, labeling them as you see fit</li>
+          <li>Check / change and other values and select "Save" (even if you didn't change anything)</li>
+          <li>Select <code>Restart AqualinkD</code></li>
+          &nbsp;
+
+
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles">
+      </div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+
+</html>

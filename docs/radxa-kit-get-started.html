@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+
+<!----------------
+
+
+#Document
+# set time zone
+
+# set locals
+
+# USB port has to be #2 port
+
+
+-->
+
+
+
+<body class="wrap">
+  <header id="header"></header>
+  <!--<section class="docs">-->
+    <section>
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          <!-- ADD DETAILS HERE -->
+           If you have bought the <b><i>AqualinkD complete Radxa kit</i></b>: This comes with everything you need pre built & installed, and is ready to go. 
+           You will however need to connect it to your WiFi!<br><br>
+           Since this is a complete Linux computer, there are a few steps to complete
+           <br><br>
+           <ul>
+            <li class="tightList"><a href="/docs/radxa-kit-panelconnection.html">Connect to your Jandy Panel</a></li>
+   
+            <li class="tightList"><a href="/docs/radxa-kit-wifi.html">Connect to your WiFi</a></li>
+     
+            <li class="tightList"><a href="/docs/radxa-kit-configuration.html">Configure AqualinkD</a></li>
+           </ul>
+        </article>
+         &nbsp;
+        <article id="option1">
+          <h3>Managing Linux Computer</h3>
+          <h4>If you are familiar with basic linux computer, please ignore the below.</h4>
+          <br>
+          Something about ssh, setting time, dist upgrade
+        </article>
+
+        <!--
+        &nbsp;
+        <article id="option1">
+          <h3>Connect a USB drive with wifi information</h3>
+          You will need the following
+          <ul class="tightList">
+            <li class="tightList">USB stick or equivalent (ie CF card & CF card reader)</li>
+            <li class="tightList">USB-C to USB adapter cable (if above is not USB-C)</li>
+            <li class="tightList">optional - USB-C power source</li>
+          </ul>
+          <br>
+          <b><i>AqualinkD complete Radxa kit</i></b> comes with software pre-installed that will detect a USB drive when it's inserted, 
+          mount it, look for WiFi configuration files, and when found create a WiFi connection.
+          <br><br>
+          Steps are as follows
+          <ol>
+          <li>On a computer, format your USB stick in exFAT or FAT32.</li>
+          <li>Create a plain text file on the USB stick called <code>nmcli.conf</code> <font size="smaller">(if using windows make sure .txt is <b>not</b> added to the file name)</font></li>
+            <ul>
+              <li>Or you can download the file from <a href="https://raw.githubusercontent.com/aqualinkd/AqualinkD-Radxa-zero3/refs/heads/main/wifi-mount/nmcli.conf">here</a> </li>
+          <li>Contents of this file should be as below, change the values appropriately for your specific wifi settings</li>
+            <p><code class="file">
+ SSID="YOUR_SSID"
+ PASSWORD="YOUR_PASSWORD" 
+          </code></p>
+          <li>It is important to only change the text inside the quotes YOUR_SSID and YOUR_PASSWORD</li>
+            </ul>
+          <li>Eject the USB stick from your computer</li>
+          <li>Remove the Radxa from the case by removing the 4 screws on the underside of the case, and lift it out holding the case top</li>
+          <li>Connect Radxa box to power and wait a minute for it to fully boot.</li>
+          <li>Insert your USB stick into the Radxa USB-C port (2nd port, show link), and wait 10~20 seconds</li>
+          <li>Remove the USB stick</li>
+          </ol>
+          If everything worked, your Radxa will now be connected to your wifi network.  
+          <br><br>
+
+          <p>The output of the wifi connection will be written to a file called <code>auto-wifi-connect.log</code> on the USB stick.<br> 
+          You can view that file for the IP address your router gave out or go to your routers DHCP page to view the IP.</p>
+          <br>
+          <code>http://ip.address/</code> or if your device supports mDNS you can use <code><a href="http://aqualinkd.local">http://aqualinkd.local</a></code>
+        </article>
+        &nbsp;
+        <article id="option2">
+          <h3>Connect a screen and keyboard</h3>
+          You will need the following
+          <ul class="tightList">
+            <li class="tightList">USB Keyboard (USB-C or USB-C adapter)</li>
+            <li class="tightList">HDMI Monitor and cable for Micro HDMI(Type-D) to Monitor</li>
+          </ul>
+        
+        &nbsp;
+        Steps are same as any Linux computer.
+        <ol>
+          <li>Remove Radxa from case, remove 4 screws for case bottom. carefully lift up on case top to remove Radxa & HAT</li>
+          <li>Connect Screen and keyboard to Radxa</li>
+          <li>Power up Radxa (either from USB-C port or RS485 connecto)r</li>
+          <li>Login to machine (Default user/password is radxa radxa)</li>
+          <li>Run nmcli to list WiFi connection then again to connect</li>
+          <ul>
+            <li class="tightList"><code>sudo nmcli radio wifi on</code></li>
+            <li class="tightList"><code>sudo nmcli device wifi list</code></li>
+            <ul><li class="tightList">Make sure your WiFi network is listed.</li></ul>
+            <li class="tightList"><code>sudo nmcli device wifi connect "YOUR_SSID" password "YOUR_PASSWORD"</code></li>
+          </ul>
+          </ol>
+          <div class="quickstart ssh"">
+          <div class="code">
+          <p class="title">Radxa-Zero3</p>
+            <div class="shell">
+              <p class="line">
+                <span class="path">~</span>
+                <span class="prompt">$</span>
+                <span class="command">sudo nmcli radio wifi on</span>
+              </p>
+              <p class="line">
+                <span class="path">~</span>
+                <span class="prompt">$</span>
+                <span class="command">sudo nmcli device wifi list</span>
+              </p> 
+              <p class="line">
+                <span style="white-space: pre;"; class="command">IN-USE  BSSID              SSID         MODE   CHAN  RATE        SIGNAL  BARS  SECURITY </span>
+              </p> 
+              <p class="line">
+                <span style="white-space: pre;"; class="command">        7A:81:C2:BC:80:79  YOUR_SSID    Infra  36    270 Mbit/s  100     ▂▄▆█  WPA2    </span>
+              </p>
+              <p class="line">
+                <span style="white-space: pre;"; class="command">        40:EE:00:17:15:E4  another_ssid Infra  6     270 Mbit/s  19      ▂___  WPA2    </span>
+              </p>
+              <p class="line">
+                <span class="path">~</span>
+                <span class="prompt">$</span>
+                <span class="command"></span>
+              </p>
+              <p class="line">
+                <span class="path">~</span>
+                <span class="prompt">$</span>
+                <span class="command">sudo nmcli device wifi connect "YOUR_SSID" password "YOUR_PASSWORD"</span>
+              </p>
+              
+            </div>  
+          </div>
+        </div>          
+        </article>
+        &nbsp;
+        <article id="option3">
+          <h3>Connect a USB 2 Ethernet adapter and plug it into your network</h3>
+          You will need the following
+          <ul class="tightList">
+            <li class="tightList">USB to Ethernet adapter</li>
+            <li class="tightList">Ethernet cable</li>
+            <li class="tightList">Computer with a SSH tool</li>
+          </ul>
+
+          <ol>
+            <li>Remove Radxa from case, remove 4 screws for case bottom. carefully lift up on case top to remove Radxa & HAT</li>
+            <li>Connect the USB to Ethernet adapter to the Radxa</li>
+            <li>Power up Radxa (either from USB-C port or RS485 connector)</li>
+            <li>Find the IP address of the radxa from your router</li>
+            <li>Use your SSH tool to SSH to the Radxa IP. Login with user / password</li>
+            <li>Follow the <pre>nmcli</pre> commands listed in <a href="#option2">Connect a screen and keyboard to the Radxa</a></li>
+          </ol>
+        </article>
+
+        &nbsp;
+        <article id="option4">
+          <h3>Removing the Radxa from the case</h3>
+          You will need the following
+          <ul class="tightList">
+            <li class="tightList">Small phillips screwdiver </li>
+          </ul>
+          <br>
+          Steps
+          <ol>
+            <li>Remove 4 screws from case bottom.<br>Add picture</li>
+            <li>Carefully lift up on case top to remove Radxa & HAT<br>Add picture</li>
+          </ol>
+        </article>
+      -->
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>

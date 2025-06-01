@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          You will need a wired serial RS485 connection to the Jandy Power Center (Control Panel).
+          <ul>
+          <li>If you have an inside controller / keypad mounted on your wall this is usually the best place.</li>
+          <li>If not, The outside control panel is the next best place.</li>
+          <ul><li>Note. The AqualinkD Radxa Kit is not waterproof or suitable for extreme climates, However it can be mounted outside in a waterproof box in mild climates.</li></ul>
+          </ul>
+          <img src="/img/AquaLink RS485 connector.png"/><br>
+          <br>
+          If your installer followed the Jandy wiring, below are the colors, and where to connect them to on a USB2RS485 adapter, or AqualinkD RS485 HAT.
+          <h5>Note the pinouts are different between RS Power Center and RS485 HAT</h5>
+          <table>
+          <tr><th>RS Power Center</th><th>Description</th><th>AqualinkD RS485 Hat</th></tr>
+          <tr><td>Pin #1 Red</td><td>Power +</td><td>Pin #1 (+)</td></tr>
+          <tr><td>Pin #2 Black</td><td>Data +</td><td>Pin #3 (A)</td></tr>
+          <tr><td>Pin #3 Yellow</td><td>Data -</td><td>Pin #4 (B)</td></tr>
+          <tr><td>Pin #4 Green</td><td>Ground</td><td>Pin #2 (-)</td></tr>
+          </table>
+          <br>
+          4 Core, 24AWG twisted par cable is recommended. <a href="https://github.com/aqualinkd/AqualinkD/wiki#note-on-wire">More Information & product links</a>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- REGULAR MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+
+</html>
