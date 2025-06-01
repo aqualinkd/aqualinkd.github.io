@@ -22,22 +22,30 @@
       <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
       <div class="unit four-fifths">
         <article>
-          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki">AqualinkD wiki</a></h3>
           
-          <li>AqualinkD it will be trying to connect to your control panel and self configure</li>
+          <li>Once powered on, AqualinkD will be trying to connect to your control panel and self configure</li>
+          <br>
+          <li>In a web browser go to <code><a href="http://aqualinkd.local">http://aqualinkd.local</a></code> if that doesn't work, your device/network doesn't support MDNS and you will need to use the machine IP address eg <code>http://ip.address/</code></li>
+          <ul class="tightList"><li>If you don't know the IP address please go back to <a href="/docs/radxa-kit-wifi.html">Configure WiFi</a> stage and look how to obtain that</li></ul><ul></ul>
+          <!--
           <li>In a web browser go to <a href="http://aqualinkd.local/" target="_blank">http://aqualinkd.local/</a> or <b>http://ip-of-machine.running.aqualinkd</b> depending on your network configuration.
             <ul class="tightList"><li>i.e If you your device/computer supports MDNS, then you can use <i>http://aqualinkd.local/</i> since AqualinkD will create a MDNS entry</li></ul></li>
+          -->
           &nbsp;
           <li>Go to aqmanager by selecting the 3 lines in top left corner</li>
           <img src="/img/aqualinkd-main.png" width="652">
-          &nbsp;
-          
+          <br>
+          <br>
           <li>In aqmanager, once AqualinkD has finished self configuring, expand the "Config" section and select "edit config"</li>
           <img src="/img/aqmanager.png" width="652">
-          <li>If you have no connection or errors, you may need to change the serial interface</li>
+          <br>
+          <br>
+          <li>If you have no connection or errors, you may need to check your wiring to the Jandy Panel</li>
           <ul class="tightList">
             <li>Toggle the <i>advanced</i> settings, and change <i>serial port</i> appropriately</li>
           </ul>
+          <br>
           <li>Check your <code>panel type</code> is correct.</li>
           <ul class="tightList">
             <li>Must be in format <i>XX-N YYYY</i> (XX=RS or PD, N=Circuits, YYYY=Combo or Only or Dual) example <i>RS-6 Combo</i></li>
@@ -51,10 +59,13 @@
                 <li class="tightList">RS-8 Only</li>
               </ul>
             </ul>
-            <li>If you change the <i>panel type</i> to you panel you must hit save and reload config before changing anything else</li>
+            <li>If you change the <i>panel_type</i> you must hit save and reload config before changing anything else</li>
           </ul>
-          <li>Go down to the button section and configure your circuits / buttons, labeling them as you see fit</li>
-          <li>Check / change and other values and select "Save" (even if you didn't change anything)</li>
+          <li>Go down to the button section and configure your circuits/buttons, labeling them as you see fit</li>
+           <br>
+          <li>Check & change and other values and select "Save" (even if you didn't change anything)</li>
+          <ul><li>Complete configuration details are in the <a href="https://github.com/aqualinkd/AqualinkD/wiki#Configuration">AqualinkD wiki</a></li></ul>
+           <br>
           <li>Select <code>Restart AqualinkD</code></li>
           &nbsp;
 
