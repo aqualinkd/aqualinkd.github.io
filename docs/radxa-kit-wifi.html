@@ -81,8 +81,12 @@
           <li>It is important to only change the text inside the quotes YOUR_SSID and YOUR_PASSWORD</li>
             </ul>
           <li>Eject the USB stick from your computer</li>
-          <li>Remove the Radxa from the case by removing the 4 screws on the underside of the case, and lift it out holding the case top</li>
-          <li>Connect Radxa box to power and wait a minute for it to fully boot.</li>
+          <li>Remove the Radxa & HAT from the case <a href="#removingcase">details here</a></li>
+          <li>Power up Radxa and wait a minute for it to fully boot.</li>
+          <ul>
+            <li class="tightList">You can use either RS485 <B><I>OR</I></B> USB-C to power the board but NEVER both!</li>
+            <li class="tightList">See <a href="#boardlayout">Connector information</a> for USB port to use</li>
+          </ul>
           <li>Insert your USB stick into the Radxa USB-C port (2nd port, show link), and wait 10~20 seconds</li>
           <li>Remove the USB stick</li>
           </ol>
@@ -106,9 +110,13 @@
         &nbsp;
         Steps are same as any Linux computer.
         <ol>
-          <li>Remove Radxa from case, remove 4 screws for case bottom. carefully lift up on case top to remove Radxa & HAT</li>
+          <li>Remove the Radxa & HAT from the case <a href="#removingcase">details here</a></li>
           <li>Connect Screen and keyboard to Radxa</li>
-          <li>Power up Radxa (either from USB-C port or RS485 connecto)r</li>
+          <li>Power up Radxa</li>
+          <ul>
+            <li class="tightList">You can use either RS485 <B><I>OR</I></B> USB-C to power the board but NEVER both!</li>
+            <li class="tightList">See <a href="#boardlayout">Connector information</a> for USB port to use</li>
+          </ul>
           <li>Login to machine (Default user/password is radxa radxa)</li>
           <li>Run nmcli to list WiFi connection then again to connect</li>
           <ul>
@@ -173,9 +181,13 @@
           </ul>
 
           <ol>
-            <li>Remove Radxa from case, remove 4 screws for case bottom. carefully lift up on case top to remove Radxa & HAT</li>
+            <li>Remove the Radxa & HAT from the case <a href="#removingcase">details here</a></li>
             <li>Connect the USB to Ethernet adapter to the Radxa</li>
-            <li>Power up Radxa (either from USB-C port or RS485 connector)</li>
+            <li>Power up Radxa</li>
+            <ul>
+              <li class="tightList">You can use either RS485 <B><I>OR</I></B> USB-C to power the board but NEVER both!</li>
+              <li class="tightList">See <a href="#boardlayout">Connector information</a> for USB port to use</li>
+            </ul>
             <li>Find the IP address of the radxa from your router</li>
             <li>Use your SSH tool to SSH to the Radxa IP. Login with user / password</li>
             <li>Follow the <pre>nmcli</pre> commands listed in <a href="#option2">Connect a screen and keyboard to the Radxa</a></li>
@@ -183,7 +195,7 @@
         </article>
 
         &nbsp;
-        <article id="option4">
+        <article id="removingcase">
           <h3>Removing the Radxa from the case</h3>
           You will need the following
           <ul class="tightList">
@@ -192,9 +204,24 @@
           <br>
           Steps
           <ol>
-            <li>Remove 4 screws from case bottom.<br>Add picture</li>
+            <li>Remove 4 screws from underside of the case.<br>Add picture</li>
             <li>Carefully lift up on case top to remove Radxa & HAT<br>Add picture</li>
           </ol>
+          <!--<img src="/img/Radxa Exploded2.png"></img>-->
+          <img src="/img/Radxa Exploded4.png" width="400"></img>
+        </article>
+
+        &nbsp;
+        <article id="boardlayout">
+          <h3>Radxa Board Layout / USB Ports</h3>
+          <img src="/img/Radxa Zero 2W Ports.png"></img>
+           <br><br><br>
+            Notes on ports
+          <ul class="tightList">
+            <li class="tightList">When connecting any USB device (like USB stick / Ethernet Adapter / KEyboard, you can ONLY use the port labeled "USB 3.0 Host Type C port"</li>
+            <li class="tightList">You can power the Radxa through the port labeled "USB 2.0 OTG Type C port". <B>NEVER power board with the RS486 HAT also connected to the panel</B></li>
+          </ul> 
+          <img style="background-color:rgb(152, 152, 152);" src="/img/Radxa Board Layout.png"></img>
         </article>
       </div>
       <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
