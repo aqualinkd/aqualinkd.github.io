@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+.rectangle {
+  width: 60px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+}
+</style>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -32,11 +39,11 @@
           If your installer followed the Jandy wiring, below are the colors, and where to connect them to on a USB2RS485 adapter, or AqualinkD RS485 HAT.
           <h5>Note the pinouts are different between RS Power Center and RS485 HAT</h5>
           <table>
-          <tr><th>RS Power Center</th><th>Description</th><th>USB Adapter</th><th>RS485 Hat</th></tr>
-          <tr><td>Pin #1 Red</td><td>Power +</td><td>Do not connect</td><td>Pin #1 (+)</td></tr>
-          <tr><td>Pin #2 Black</td><td>Data +</td><td>A</td><td>Pin #3 (A)</td></tr>
-          <tr><td>Pin #3 Yellow</td><td>Data -</td><td>B</td><td>Pin #4 (B)</td></tr>
-          <tr><td>Pin #4 Green</td><td>Ground</td><td>Do not connect</td><td>Pin #2 (-)</td></tr>
+          <tr><th>RS Power Center</th><th>Description</th><th>Color</th><th>USB Adapter</th><th>RS485 Hat</th></tr>
+          <tr><td>Pin #1 Red</td><td>Power +</td><td><div class="rectangle" style="background-color: red"></div></td><td>Do not connect</td><td>Pin #1 (+)</td></tr>
+          <tr><td>Pin #2 Black</td><td>Data +</td><td><div class="rectangle" style="background-color: black"></div></td><td>A</td><td>Pin #3 (A)</td></tr>
+          <tr><td>Pin #3 Yellow</td><td>Data -</td><td><div class="rectangle" style="background-color: yellow"></div></td><td>B</td><td>Pin #4 (B)</td></tr>
+          <tr><td>Pin #4 Green</td><td>Ground</td><td><div class="rectangle" style="background-color: green"></div></td><td>Do not connect</td><td>Pin #2 (-)</td></tr>
           </table>
           <br>
           4 Core, 24AWG twisted par cable is recommended. <a href="https://github.com/aqualinkd/AqualinkD/wiki#note-on-wire">More Information & product links</a>
