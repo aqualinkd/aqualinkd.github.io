@@ -60,8 +60,7 @@
           You will need the following
           <ul class="tightList">
             <li class="tightList">USB stick or equivalent (ie CF card & CF card reader)</li>
-            <li class="tightList">USB-C to USB adapter cable (if above is not USB-C)</li>
-            <li class="tightList">optional - USB-C power source</li>
+            <li class="tightList">USB-C to USB adapter cable (One should be included in the kit)</li>
           </ul>
           <br>
           <b><i>AqualinkD complete Radxa kit</i></b> comes with software pre-installed that will detect a USB drive when it's inserted, 
@@ -85,6 +84,30 @@
           <li>It is important to only change the text inside the quotes YOUR_SSID and YOUR_PASSWORD</li>
             </ul>
           <li>Eject the USB stick from your computer</li>
+          <li>If your case has an exposed USB port, continue, if not go to <a href="#Alternate">Case without exposed USB port</a></li>
+          <li>Power up Radxa by connecting the RS485 cable and wait a minute for it to fully boot.</li>
+          <li>Insert the USB stick (or USB-C to USB cable with USB stick attached) to the USB port on the side of the case</li>
+          <li>wait 10~20 seconds</li>
+          <li>Remove the USB stick</li>
+          
+          </ol>
+          If everything worked, your Radxa will now be connected to your wifi network.  
+          <br><br>
+
+          <p>The output of the wifi connection will be written to a file called <code>auto-wifi-connect.log</code> on the USB stick.<br> 
+          You can view that file for the IP address your router gave out. Or use your routers DHCP page to view the IP.<br>
+          <b>Also view this file for any errors IF the WiFi did not connect</b>
+          </p>
+          <br>
+          Now please go to the below in a web browser to see AqualinkD<br>
+          <br>
+          <code>http://ip.address/</code> or if your device supports mDNS you can use <code><a href="http://aqualinkd.local">http://aqualinkd.local</a></code>
+          <br>
+          <br>
+          <hr>
+          <div id="Alternate"></div>
+          <h2>Case without exposed USB port</h2>
+          <ol start="6">
           <li>Remove the Radxa & HAT from the case <a href="#removingcase">details here</a></li>
           <li>Power up Radxa and wait a minute for it to fully boot.</li>
           <ul>
@@ -94,13 +117,7 @@
           <li>Insert your USB stick into the Radxa USB-C port (2nd port, show link), and wait 10~20 seconds</li>
           <li>Remove the USB stick</li>
           </ol>
-          If everything worked, your Radxa will now be connected to your wifi network.  
-          <br><br>
 
-          <p>The output of the wifi connection will be written to a file called <code>auto-wifi-connect.log</code> on the USB stick.<br> 
-          You can view that file for the IP address your router gave out or go to your routers DHCP page to view the IP.</p>
-          <br>
-          <code>http://ip.address/</code> or if your device supports mDNS you can use <code><a href="http://aqualinkd.local">http://aqualinkd.local</a></code>
         </article>
         &nbsp;
         <article id="option2">
