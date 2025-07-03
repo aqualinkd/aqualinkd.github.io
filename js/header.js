@@ -48,8 +48,8 @@ try {
     "<div class='center-on-mobiles'>" +
     "<h1>" +
     "<a href='/' class='logo'>" +
-    "<span class='sr-only'>AqualinkD</span>" +
-    "AqualinkD" +
+    //"<span class='sr-only'>AqualinkD</span>" +
+    "<span style=\"font-family: 'Arial'\">AqualinkD</span>" +
     "</a>" +
     "</h1>" +
     "</div> " +

@@ -53,14 +53,47 @@
         </article>
          &nbsp;
         <article id="option1">
+          <h3>General information not covered in above links TLDR; summary</h3>
+          <li>Default user and password are not changed and are <code>radxa</code> and <code>radxa</code></li>
+          <li>Default root and password is <code>radxa</code></li>
+          <li>As with all systems, please change passwords to your liking</li>
+          <li>LED's (can be seen through the vent holes in case)</li>
+          <ul>
+            <li class="tightList">Solid RED - Power</li>
+            <li class="tightList">Flashing RED - TX/RX (RS485 communication)</li>
+            <li class="tightList">Solid Green - Radxa startup (If Green never goes to flashing, the Radxa board has failed to boot)</li>
+            <li class="tightList">Flashing Green - Radxa booting / in normal mode</li>
+          </ul>
+          <li>Radxa OS comes with a utility <code>rsetup</code> that allows you to do many things including</li>
+          <ul>
+            <li class="tightList">Change overlays (ie enable / disable external antenna)</li>
+            <li class="tightList">Change time zone</li>
+            <li class="tightList">Change WiFi</li>
+            <li class="tightList">System upgrade WARNING below</li>
+          </ul>
+          <li>WARNING Upgrading system with <code>rsetup</code> or <code>apt dist upgrade</code> will change how the Radxa Boots.</li>
+          <ul>
+            <li class="tightList">If you do run either of the above to update system, please run <code>sudo radxa-serial-patch</code> afterwards and before re-booting</li>
+          
+          <li>By default the Radxa (along with many other Linux devices) will default to outputting boot information to a serial console and reading any serial input to
+              interrupt boot (along with any attached screen), since AqualinkD HAT is attached to serial pins and the Jandy panel is constantly sending information,
+              this will interrupt the boot process unless serial is disabled during boot. The system comes with that disabled, but upgrading will usually enable it, 
+              so please use the above mentioned command to disable it again</li>
+          </ul>
+          <hr>
           <h3>Managing Linux Computer</h3>
           <h4>If you are familiar with basic linux computer, please ignore the below.</h4>
-          <br>
-          Add information about
-          <li>Default user and password are not changed and are <code>radxa</code> and <code>radxa</code></li>
-          <li>SSH and gaining terminal access</li>
-          <li>Setting Time</li>
-          <li>Nots on <code>apt dist upgrade</code> and how it will effect booting</li>
+          You will need terminal access to the Radxa for time to time to perform tasks. SSH is enabled by default so all you need is an SSH tool.
+          <ul>
+            <li>Apple Mac open a terminal and type <code>ssh radxa@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>Windows 10 and above open a cmd prompt and type <code>ssh radxa@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>All Windows, download a SSH tool like Putty and use <code>ssh radxa@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+          </ul>
+          <h4>Setting Time</h4>
+          <li>The Linux OS will keep perfect time with an online time server (NTP) and AqualinkD will keep the Jandy control panel synced with the Linux OS. 
+              ie Automatically updating for daylight savings, and overcoming the terrible internal clock on the Jandy control panel.</li>
+          <li>By default the Radxa Kit comes with the time zone set to the address the unit was shipped to, if you need to change that, the easiest way is to SSH to AqualinkD unit and set timezone. 
+            <code>sudo rsetup</code> select Localization->Change Timezone->(select time zone)</li>
         </article>
 
         <!--

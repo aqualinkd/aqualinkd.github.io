@@ -1497,6 +1497,11 @@ header .flexbox>* {
 
 header .logo {
   display: block;
+  color: #F0F1F0;  /* Slightly off white, but brighter (match Bambu PETG HF) */
+  font-family: Arial;
+  font-weight: 400;
+  letter-spacing: 3px;
+  /*background-color: black; */
 }
 
 header .logo img {
@@ -3125,10 +3130,40 @@ ol div.highlighter-rouge {
   /*padding: 0.2em;*/
 }
 
+.tightTable {
+  font-size: smaller;
+  table-layout: fixed;/* width: 100%;*/
+  width: auto !important;
+  margin-left: auto;  
+  margin-right: auto;
+}
+.tightTable td {
+  padding: 0.2em 0.2em;
+}
+
 .reduceText {
   font-size: smaller;
 }
 
+samp{
+  /*font: 400 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  padding: 1px 4px;
+  text-shadow: none;
+  margin: 20px 2px;
+  color: #fff;
+  background-color: #2c2c2c;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+
+  white-space: pre;
+  /*display: inline-block;*/
+  font: 14px/1.625em Menlo, Consolas, "Courier New", Courier, "Liberation Mono", monospace;
+  /*padding: 0 0.5em;*/
+}
 
 .ssh {
   background: rgba(0, 0, 0, 0)!important;

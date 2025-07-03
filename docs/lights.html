@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          If you have Colored Lights or Dimmers they needs some extra configuration. There are 2 types of configuration for colored lights, they both have advantages and disadvantages.
+          <ul>
+            <li><b>Jandy Panel programmed</b> - Your lights work identically with usual Jandy limitations.
+              <ol>
+                <li>depending on light manufacturer, limitations on supported colors and shows</li>
+                <li>Light runs through programming cycle every time turned on</li>
+              </ol>
+            <li><b>AqualinkD programed</b></li>
+              <ol>
+                <li>Only AqualinkD and supported interfaces can change light color & modes, Jandy interfaces can only turn on or off</li>
+                <li>Light is only programmed on color or mode change, NOT every time it's turned on</li>
+                <li>Any light manufacturer is supported, and all colors & modes</li>
+                <li>Considerable setup required</li>
+              </ol>
+          </ul>
+          <br>
+          Go to the appropriate button section in the configuration, and add the appropriate <samp>light mode</samp>. Table of supported light types are below.
+          <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+      <thead>
+<tr><td>0</td><td>AqualinkD programmed</td></tr>
+<tr><td>1</td><td>Jandy Color</td></tr>
+<tr><td>2</td><td>Jandy LED</td></tr>
+<tr><td>3</td><td>SAm/SAL</td></tr>
+<tr><td>4</td><td>Color Logic</td></tr>
+<tr><td>5</td><td>Intellibrite</td></tr>
+<tr><td>6</td><td>Haywood Universal Color</td></tr>
+<tr><td>10</td><td>Dimmer (0%, 25%,50%,75%,100%)</td></tr>
+<tr><td>11</td><td>Dimmer (full range 0 to 100%)</td></tr>
+</thead>
+</table>
+        example would be
+        <br>
+        <samp>button_03_lightmode=2</samp>
+        <br>
+        <br>
+        If you selected <samp>lightmode=0</samp> continue reading, it not go to next step.<br>
+        <h4>AqualinkD programmed light</h4>
+
+        All lights work with an on/off pulse to set the mode and advance to the next mode, but the timings of these pulses are different between manufactures.<br>
+        Find your light manufacturer installation / setup guide and look at the programming timings and pulses.<br>
+        <ol>
+          <li>Delete the colored light from Jandy's configuration, simply go bck to normal circuit</li>
+          <li>Set the below aqualinkd config options to the appropriate information to your light manufacturer</li>
+          <ul>
+            <li><samp>light_programming_mode</samp> The wait between each pulse, 0.6 is usually good. (you can set to 0 and AqualinkD will wait for the light conformation this is safest options but also slowest) </li>
+            <li><samp>light_programming_initial_on</samp> The seconds to wait after turning the light on, before turning it off and going to next step (Default is 15)</li>
+            <li><samp>light_programming_initial_off</samp> The seconds to wait after turning the light off before turning it on and start to program (Default is 12)</li>
+          </ul>
+          
+          <li>Set the light colors and shows in aqualinkd config using <samp>light_program_0?</samp> in order of pulses, append <samp> - Show</samp> if the light mode is a show vs solid color.</li>
+          </ol>
+          Below is complete example of all configuration options needed to control Haywood Color Logic lights.
+            <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+               <thead>
+<tr><td>light_programming_mode=0</td></tr>
+<tr><td>light_programming_initial_on=15</td></tr>
+<tr><td>light_programming_initial_off=12</td></tr>
+<tr><td>light_program_01 = Voodoo Lounge - Show</td></tr>
+<tr><td>light_program_02 = Blue Sea</td></tr>
+<tr><td>light_program_03 = Royal Blue</td></tr>
+<tr><td>light_program_04 = Afternoon Skies</td></tr>
+<tr><td>light_program_05 = Aqua Green</td></tr>
+<tr><td>light_program_06 = Emerald</td></tr>
+<tr><td>light_program_07 = Cloud White</td></tr>
+<tr><td>light_program_08 = Warm Red</td></tr>
+<tr><td>light_program_09 = Flamingo</td></tr>
+<tr><td>light_program_10 = Vivid Violet</td></tr>
+<tr><td>light_program_11 = Sangria</td></tr>
+<tr><td>light_program_12 = Twilight - Show</td></tr>
+<tr><td>light_program_13 = Tranquility - Show</td></tr>
+<tr><td>light_program_14 = Gemstone - Show</td></tr>
+<tr><td>light_program_15 = USA - Show</td></tr>
+<tr><td>light_program_16 = Mardi Gras - Show</td></tr>
+<tr><td>light_program_17 = Cool Cabaret - Show</td></tr>
+</thead>
+</table>
+          
+        
+
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>

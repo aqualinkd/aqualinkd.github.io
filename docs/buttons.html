@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          You will need to configure your buttons or circuits, there is one for each circuit on the Panel, plus Heater(s).
+          You will also need to set VSP / Color or Dimmable Lights to these circuits, which are covered in following sections, for now getting the right one assigned is important
+          <br>
+          Below you will see a table for commonly used panels, if yours is not there, it should be easy to work out.
+<table border="1" cellpadding="0" cellspacing="0" class="tightTable">
+  <thead>
+    <tr>
+      <th></th>
+      <th>RS-4 Combo</th>
+      <th>RS-6 Combo</th>
+      <th>RS-6 Only</th>
+      <th>RS-8 Combo</th>
+      <th>RS-2/6 Dual</th>
+      <th>RS-2/10 Dual</th>
+      <th>RS-16 Combo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Button_01</td><td>Filter Pump</td><td>Filter Pump</td><td>Filter Pump</td><td>Filter Pump</td><td>Filter Pump</td><td>Filter Pump</td><td>Filter Pump</td></tr>
+    <tr><td>Button_02</td><td>Spa</td><td>Spa</td><td>Aux_1</td><td>Spa</td><td>Spa</td><td>Spa</td><td>Spa</td></tr>
+    <tr><td>Button_03</td><td>Aux 1</td><td>Aux 1</td><td>Aux 2</td><td>Aux 1</td><td>Aux 1</td><td>Aux 1</td><td>Aux 1</td></tr>
+    <tr><td>Button_04</td><td>Aux 2</td><td>Aux 2</td><td>Aux 3</td><td>Aux 2</td><td>Aux 2</td><td>Aux 2</td><td>Aux 2</td></tr>
+    <tr><td>Button_05</td><td>Aux 3</td><td>Aux 3</td><td>Aux 4</td><td>Aux 3</td><td>Aux 3</td><td>Aux 3</td><td>Aux 3</td></tr>
+    <tr><td>Button_06</td><td>Pool Heater</td><td>Aux 4</td><td>Aux 5</td><td>Aux 4</td><td>Aux 4</td><td>Aux 4</td><td>Aux 4</td></tr>
+    <tr><td>Button_07</td><td>Spa Heater</td><td>Aux 5</td><td>Temp 1</td><td>Aux 5</td><td>Aux 5</td><td>Aux 5</td><td>Aux 5</td></tr>
+    <tr><td>Button_08</td><td>Extra Aux</td><td>Pool Heater</td><td>Temp 2</td><td>Aux 6</td><td>Aux 6</td><td>Aux 6</td><td>Aux 6</td></tr>
+    <tr><td>Button_09</td><td></td><td>Spa Heater</td><td>Extra Aux</td><td>Aux 7</td><td>Pool Heater</td><td>Aux B1</td><td>Aux 7</td></tr>
+    <tr><td>Button_10</td><td></td><td>Extra Aux</td><td></td><td>Pool Heater</td><td>Spa Heater</td><td>Aux B2</td><td>Aux B1</td></tr>
+    <tr><td>Button_11</td><td></td><td></td><td></td><td>Spa Heater</td><td>Extra Aux</td><td>Aux B3</td><td>Aux B2</td></tr>
+    <tr><td>Button_12</td><td></td><td></td><td></td><td>Extra Aux</td><td></td><td>Aux B4</td><td>Aux B3</td></tr>
+    <tr><td>Button_13</td><td></td><td></td><td></td><td></td><td></td><td>Pool Heater</td><td>Aux B4</td></tr>
+    <tr><td>Button_14</td><td></td><td></td><td></td><td></td><td></td><td>Spa Heater</td><td>Aux B5</td></tr>
+    <tr><td>Button_15</td><td></td><td></td><td></td><td></td><td></td><td>Extra Aux</td><td>Aux B6</td></tr>
+    <tr><td>Button_16</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Aux B7</td></tr>
+    <tr><td>Button_17</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Aux B8</td></tr>
+    <tr><td>Button_18</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Pool Heater</td></tr>
+    <tr><td>Button_19</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Spa Heater</td></tr>
+    <tr><td>Button_20</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Extra Aux</td></tr>
+  </tbody>
+</table>
+<br>
+        Simply go to the Button section of the AqualinkD configuration page and change the labels appropriately for your setup.
+        <ul><li> use <b>NONE</b> if you do not want to see the button in the UI.</li></ul>
+        Below is an example :-<br><br>
+     <table border="0" cellpadding="0" cellspacing="0" class="tightTable">
+      <thead>
+     <tr><td>button_01_label=Filter Pump</td></tr>
+<tr><td>button_02_label=Spa</td></tr>
+<tr><td>button_03_label=Cleaner</td></tr>
+<tr><td>button_04_label=Waterfall</td></tr>
+<tr><td>button_05_label=Spa Blower</td></tr>
+<tr><td>button_06_label=Pool Light</td></tr>
+<tr><td>button_07_label=Spa Light</td></tr>
+<tr><td>button_08_label=NONE</td></tr>
+<tr><td>button_09_label=NONE</td></tr>
+<tr><td>button_10_label=Pool Heater</td></tr>
+<tr><td>button_11_label=Spa Heater</td></tr>
+<tr><td>button_12_label=NONE</td></tr>
+</thead>
+</table>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>

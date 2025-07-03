@@ -19,15 +19,17 @@ let gsMenu = [[ "TLDR - Quickstart", "/docs/" ],
               [ "Quick Configuration", "/docs/construction.html" ],
              ];
 
-let cfgMenu = [[ "Device ID's", "/docs/construction.html" ], 
+let cfgMenu = [[ "Device ID's", "/docs/device-ids.html" ], 
+               [ "Buttons / Circuits", "/docs/buttons.html" ], 
+               [ "Variable Speed Pumps", "/docs/variable-speed-pumps.html" ], 
+               [ "Lights", "/docs/lights.html" ], 
                [ "MQTT", "/docs/construction.html" ], 
                [ "Reading & forcing RS485 devices", "/docs/construction.html" ], 
                [ "Scheduler", "/docs/construction.html" ], 
-               [ "Miscellaneous", "/docs/construction.html" ], 
-               [ "Buttons", "/docs/construction.html" ], 
-               [ "Virtual Buttons", "/docs/construction.html" ], 
-               [ "Lights", "/docs/construction.html" ], 
+               [ "Miscellaneous", "/docs/construction.html" ],    
+               [ "Virtual Buttons", "/docs/construction.html" ],      
                [ "Sensors", "/docs/construction.html" ],
+               [ "Serial Logger", "/docs/serial-logger.html" ],
               ];
 
 var menuitems = {};

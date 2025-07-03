@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          To set RPM,GMP and read accurate RPM,GPM,Watts,Pressure Curve and many other parameters from your VSP, you will need to configure it. Each pump is assigned to a 
+          <a href="./buttons.html">Button</a> or <a href="./virtual-buttons.html">Virtual Button</a>. 
+          <br><br>
+          The configuration options are as follows. (Where ?? is the number ie 01, and replace button_?? with virtual_button_?? if using virtual button)
+          <ul>
+            <li><samp>button_??_pumpID</samp> The RS485 ID of the VSP.   Running <a href="./serial-logger.html">serial logger</a> will give you this information if you don't know.</li>
+              <ul>
+                <li>Pentair ID's start at 0x60</li>
+                <li>Jandy ID's start at 0x78</li>
+              </ul>
+            <li><samp>button_??_pumpIndex</samp> If your panel rev is prior to Yg, then you can get this number from the pump information shown your Jandy display ie <b>Intelliflow VS 1</b> (ignore if you panel rev is Yg is newer)</li>
+            <li><samp>Button_??_pumpName</samp> If your panel rev is Yg or newer, then this is the name of your pump. ie <b></b>(ignore if panel rev is older than Yg)</li>
+            <li><samp>button_??_pumpType</samp>The Type of pump (<b>JANDY ePUMP, Pentair VF, Pentair VS</b>)</li>
+          </ul>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>
