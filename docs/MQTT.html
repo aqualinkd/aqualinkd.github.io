@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          AqualinkD integrates with HomeKit, Home Assistant & Domoticz through MQTT. Prerequisite to this section is you have MQTT broker running on your network.
+          <ul>
+            <li>The main MQTT server is configured with below options on AqualinkD config</li>
+            <ul>
+              <li><samp>mqtt_address</samp> host:port example <b>localhost:1883</b></li>
+              <li><samp>mqtt_user</samp> Optional username</li>
+              <li><samp>mqtt_passwd</samp> Optional password</li>
+              <li><samp>mqtt_aq_topic</samp> Topic for AqualinkD, default=<b>aqualink</b></li>
+            </ul>
+            <li>If you want AqualinkD to configure Homeassistant through discovery, then add the below</li>
+            <ul>
+              <li><samp>mqtt_hassio_discover_topic</samp> the HA discovery topic, default=<b>homeassistant</b></li>
+            </ul>
+            <li>If you use Domoticz, then configure the pub and sub topics</li>
+            <ul>
+              <li><samp>mqtt_dz_pub_topic</samp> Domoticz pub topic, default=<b>domoticz/in</b></li>
+              <li><samp>mqtt_dz_sub_topic</samp> Domoticz sub topic, default=<b>domoticz/out</b></li>
+            </ul>
+            <li>Most home automation hubs default to receiving units in metric (ie deg C) and will convert to what ever the user has selected. The below will handle this for you</li>
+            <ul>
+              <li><samp>convert_mqtt_temp_to_c = yes</samp> REQUIRED for Homekit/bridge, highly desirable for HomeAssistant</li>
+              <li><samp>convert_dz_temp_to_c = yes</samp> For Domoticz depending on it's configuration</li>
+            </ul>
+            <li>For all automation hubs, PLEASE make sure you have forced you devices on <a href="./reading-devices.html">described in this section</a></li>
+          </ul>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>

@@ -16,18 +16,18 @@ let kitMenu = [
 let gsMenu = [[ "TLDR - Quickstart", "/docs/" ], 
               [ "Connecting to Panel", "/docs/panelconnection.html" ],
               [ "Installation", "/docs/installation.html" ], 
-              [ "Quick Configuration", "/docs/construction.html" ],
+              //[ "Quick Configuration", "/docs/construction.html" ],
              ];
 
 let cfgMenu = [[ "Device ID's", "/docs/device-ids.html" ], 
                [ "Buttons / Circuits", "/docs/buttons.html" ], 
                [ "Variable Speed Pumps", "/docs/variable-speed-pumps.html" ], 
                [ "Lights", "/docs/lights.html" ], 
-               [ "MQTT", "/docs/construction.html" ], 
-               [ "Reading & forcing RS485 devices", "/docs/construction.html" ], 
-               [ "Scheduler", "/docs/construction.html" ], 
+               [ "Reading RS485 devices", "/docs/reading-devices.html" ],
+               [ "Home Automation MQTT", "/docs/MQTT.html" ], 
+               [ "Scheduler", "/docs/scheduler.html" ], 
                [ "Miscellaneous", "/docs/construction.html" ],    
-               [ "Virtual Buttons", "/docs/construction.html" ],      
+               [ "Virtual Buttons", "/docs/virtual-buttons.html" ],
                [ "Sensors", "/docs/construction.html" ],
                [ "Serial Logger", "/docs/serial-logger.html" ],
               ];

@@ -20,7 +20,45 @@
       <div class="unit four-fifths">
         <article>
           <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
-          <!-- ADD DETAILS HERE -->
+          Virtual Buttons are similar to <a href="./buttons.html">buttons</a> in that they create a device on the web UI and in Home Automation hubs, but the difference is there is now circuit defined to the Button.
+          <br>
+          They are used for Variable Speed Pumps that are not assigned to a circuit, HeatPumps / Chillers, OneTouch buttons etc.
+          <br>
+          Configuration options are similar to Standard Buttons, list is below.
+          <ul>
+            <li><samp>virtual_button_??_label</samp> (Mandatory) The Label for the button</li>
+            <li><samp>virtual_button_??_lightmode</samp> (optional) See <a href="/lights.html">Lights</a></li>
+            <li><samp>virtual_button_??_pumpIndex</samp> (optional) See <a href="/variable-speed-pumps.html">Variable Speed Pumps</a></li></li>
+            <li><samp>virtual_button_??_pumpName</samp> (optional) See <a href="/variable-speed-pumps.html">Variable Speed Pumps</a></li></li>
+            <li><samp>virtual_button_??_pumpType</samp> (optional) See <a href="/variable-speed-pumps.html">Variable Speed Pumps</a></li></li>
+            <li><samp>virtual_button_??_onetouchID</samp> (optional) The ID if a OneTouch button (1 to 6)</li>
+            <li><samp>virtual_button_??_altLabel</samp> (optional) If the name changes depending on mode, like a HeatPump/Chiller. Example</li>
+            <ul>
+              <li><samp>virtual_button_01_label=Heat Pump</samp></li>
+              <li><samp>virtual_button_01_altLabel=Chiller</samp></li>
+            </ul>
+          </ul>
+          Some examples are below.
+          <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+            <thead>
+              <tr><td>virtual_button_01_label = Clean Mode</td></tr>
+<tr><td>virtual_button_01_onetouchID = 3</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>virtual_button_02_label = Spa Mode</td></tr>
+<tr><td>virtual_button_02_onetouchID = 2</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>virtual_button_03_label = All OFF</td></tr>
+<tr><td>virtual_button_03_onetouchID = 1</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>virtual_button_04_label = Heat Pump</td></tr>
+<tr><td>virtual_button_04_altlabel = Chiller</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>virtual_button_05_label = Fountain Pump</td></tr>
+<tr><td>virtual_button_05_pumpIndex = 2</td></tr>
+<tr><td>virtual_button_05_pumpType = Pentair VF</td></tr>
+<tr><td>virtual_button_05_pumpID = 0x61</td></tr>
+            </thead>
+          </table>
         </article>
       </div>
       <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>

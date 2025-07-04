@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          <h4>Reading devices</h4>
+          AqualinkD can read a lot more information from your RS485 devices that Jandy control panel does not show or display, things like 
+          <ul>
+            <li>Full and correct status of SWG, VSP, Heaters ie "Needs Cleaning" rather than "General Fault"</li>
+            <li>Full RPM, GPM, Watts of all VSP's</li>
+            <li>VSP Pressure curve, Status, Modes</li>
+          </ul>
+          To make use of these please set the appropriate options below depending on your devices.
+          <ul>
+          <li><samp>read_RS485_swg = yes</samp> for all manufacturers Salt Water Generators</li>
+          <li><samp>read_RS485_ePump = yes</samp> for Jandy ePumps</li>
+          <li><samp>read_RS485_vsfPump = yes</samp> for all Pentair pumps</li>
+          <li><samp>read_RS485_JXi = yes</samp> for Jandy JXi heater</li>
+          <li><samp>read_RS485_LX = yes</samp> for Jandy LX heaters</li>
+          <li><samp>read_RS485_Chem = yes</samp> for Jandy Chem feeders</li>
+          <li><samp>read_RS485_HeatPump = yes</samp> for supported Heatpumps</li>
+          <li><samp>read_RS485_iAqualink = yes</samp> If you have Jandy Aqualink WiFi (1,2 or 3)</li>     
+          </ul>
+          <br><br>
+          <h4>Forcing devices</h4>
+          AqualinkD will detect certain devices and settings and will configure these devices and provide different options appropriately. But it they are not available at startup, it can create
+          problems for other integrations such as Homekit & Homeassistant.
+          <br>
+          Example would be a SWG is only on when the filter pump is running, so if the filter pump is off when
+          AqualinkD starts it will not create the appropriate SWG services. This can be annoying for home hub integrations as buttons / options will disappear and re-appear.
+          To fix this, you should force on any devices you have.
+          <ul>
+          <li><samp>force_swg = yes</samp> for Salt Water Generators</li>
+          <li><samp>force_ps_setpoints = yes</samp> for pool or/and spa Heaters </li>
+          <li><samp>force_frzprotect_setpoints = yes</samp> If you have freeze protect enabled</li>
+          <li><samp>force_chiller = yes</samp> for chillers</li>
+          </ul>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>
