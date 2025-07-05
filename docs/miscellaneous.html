@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          AqualinkD has many configuration options not listed in these pages, see the wiki (linked above) for complete list.  Below are a few of the most common ones.
+          <ul>
+            <li><samp>log_level</samp> Level of logging valid values are (DEBUG, INFO, NOTICE, WARNING)</li>
+            <li><samp>socket_port</samp> Port for web server default=80</li>
+            <li><samp>serial_port</samp> Port for RS485 adapter Examples (/dev/ttyUSB0. /dev/ttyS0, /dev/serial0</li>
+            <li><samp>rs485_frame_delay</samp> Some Jandy panels are slow (PDA for example), and you need to slow down AqualinkD in how it quickly it reply's to RS485 messages in milliseconds. 20 would be MAX, 0 min.</li>
+            <li><samp>sync_panel_time</samp>  Keep the Jandy panel time synced with systemtime. Make sure to set systemtime / NTP correctly. </li>
+          </ul>
+          Jandy control panel will turn off the pump sometimes when you don't want it to, 
+          ie If the following events happen Freeze protect turned off, Boost turned off, System Powered off/on, during the normal pump on hours, the pump will turn off until the next on cycle.
+          The below options will detect the event override / force the pump on.
+          <ul>
+            <li><samp>event_poweron_check_pump = YES</samp> System powered on (power outage)</li>
+            <li><samp>event_freezeprotectoff_check_pump = YES</samp> Freeze protect turned off</li>
+            <li><samp>event_boostoff_check_pump = YES</samp> Boot ended</li>
+            <li>For the above events, you can set the time the pump should be on.</li>
+            <li><samp>event_check_use_scheduler_times</samp> Look in AqualinkD scheduler for pump on / pump off times</li>
+            <li>If you don;t use the above, use the below.</li>
+            <li><samp>event_check_pumpon_hour</samp> Set a specific on time</li>
+            <li><samp>event_check_pumpoff_hour</samp> Set a specific off time</li>
+          </ul>
+
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>

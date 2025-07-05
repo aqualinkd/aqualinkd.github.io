@@ -12,6 +12,9 @@
   <link rel="icon" type="image/x-icon" href="/img/icon.png">
 </head>
 
+mqtt_ha_discover_use_mac=YES
+mqtt_timed_update=YES
+
 <body class="wrap">
   <header id="header"></header>
   <section class="docs">
@@ -32,6 +35,7 @@
             <li>If you want AqualinkD to configure Homeassistant through discovery, then add the below</li>
             <ul>
               <li><samp>mqtt_hassio_discover_topic</samp> the HA discovery topic, default=<b>homeassistant</b></li>
+              <li><samp>mqtt_ha_discover_use_mac</samp> In HA you can group entities to one device, this will set that for you</li>
             </ul>
             <li>If you use Domoticz, then configure the pub and sub topics</li>
             <ul>
@@ -42,6 +46,10 @@
             <ul>
               <li><samp>convert_mqtt_temp_to_c = yes</samp> REQUIRED for Homekit/bridge, highly desirable for HomeAssistant</li>
               <li><samp>convert_dz_temp_to_c = yes</samp> For Domoticz depending on it's configuration</li>
+            </ul>
+            <li>Some Automation hubs will consider a device dead if it doesn't frequently get updates. AqualinkD defaults to "don't send update nothing has changed", this setting forces AqualinkD to send ALL information every 5 minutes even if nothing has changed</li>
+            <ul>
+              <li><samp>mqtt_timed_update = yes</samp> REQUIRED for HomeAssistant</li>
             </ul>
             <li>For all automation hubs, PLEASE make sure you have forced you devices on <a href="./reading-devices.html">described in this section</a></li>
           </ul>

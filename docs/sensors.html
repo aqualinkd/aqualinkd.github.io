@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          AqualinkD can read system & external sensor information and also post that to your home hub (and web UI). 
+          <br>
+          Any sysfs information is supported, ie CPU Temp, MB Temp, GPIO and many more etc.
+          There are two simple steps in supporting this, you must know the file where the information is and the multiplier. This will differ from board to board.
+          <br><br>
+          Configuration options are below.
+          <ul>
+            <li><samp>sensor_??_label</samp> The Label you want to use for this sensor</li>
+            <li><samp>sensor_??_path</samp> That path to the system file/sensor to read</li>
+            <li><samp>sensor_??_factor</samp> Any multiplication you want to use on the sensor value. ie system temperatures are usually in millidegrees Celsius so you need to divide by 1000 to get DegC. (or divide by 0.001)</a></li>
+          </ul>
+          Some examples are below.
+          <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+            <thead>
+              <tr><td>&nbsp;</td></tr>
+              <tr><td>sensor_01_label=CPU</td></tr>
+              <tr><td>sensor_01_path=/sys/class/thermal/thermal_zone0/temp</td></tr>
+              <tr><td>sensor_01_factor=0.001000</td></tr>
+              <tr><td>&nbsp;</td></tr>
+              <tr><td>sensor_02_label=GPIO 4</td></tr>
+              <tr><td>sensor_02_path=/sys/class/gpio/gpio4/value</td></tr>
+              <tr><td>sensor_02_factor=1</td></tr>
+              <tr><td>&nbsp;</td></tr>
+            </thead>
+          </table>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>
