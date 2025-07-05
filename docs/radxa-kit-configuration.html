@@ -41,35 +41,30 @@
           <img src="/img/aqmanager.png" width="652">
           <br>
           <br>
+          <div id="paneldetails"> <!-- Hidden if radxa-kit-configuration.html -->
           <li>If you have no connection or errors, you may need to check your wiring to the Jandy Panel</li>
           <ul class="tightList">
             <li>Toggle the <i>advanced</i> settings, and change <i>serial port</i> appropriately</li>
           </ul>
           <br>
-          <li>Check your <code>panel type</code> is correct.</li>
+          <li>AqualinkD should have auto configured your Panel Type & Size, and appropriate DEvice ID's</li>
           <ul class="tightList">
-            <li>Must be in format <i>XX-N YYYY</i> (XX=RS or PD, N=Circuits, YYYY=Combo or Only or Dual) example <i>RS-6 Combo</i></li>
-            <ul class="tightList">
-              <li class="tightList">Panel size: (or circuits). ie 4, 6, 8, 12 or 16 relates to RS4, RS6, RS8, RS12 or RS16.</li>
-              <li class="tightList">Panel style: Combo=Pool & Spa, Only=Pool or Spa, Dual=Pool & Spa as separate water bodies</li>
-              <li class="tightList">Examples :-</li>
-              <ul class="tightList">
-                <li class="tightList">RS-8 Combo</li>
-                <li class="tightList">RS-2/14 Dual</li>
-                <li class="tightList">RS-8 Only</li>
-              </ul>
-            </ul>
-            <li>If you change the <i>panel_type</i> you must hit save and reload config before changing anything else</li>
+            <li>Please check the <code>panel type</code> is correct. If not see <a href="/docs/opening-config.html#paneldetails">Configuration</a></li>
           </ul>
-          <li>Go down to the button section and configure your circuits/buttons, labeling them as you see fit</li>
-           <br>
-          <li>Check & change and other values and select "Save" (even if you didn't change anything)</li>
+
+          <li>Check & change values and select "Save" (even if you didn't change anything)</li>
+          <ul class="tightList">
+             <li>The values shown at this point are suggested values, and have not saved to the configuration</li>
+          </ul>
+          <br>
+          <li>Please go onto configuring the rest of AqualinkD</li>
           <ul>
-            <li>Quick details are in the <a href="./device-ids.html">Configuration</a> section</li>
+            <li>Configuring <a href="/docs/buttons.html">Buttons/Circuits</a> should be done next </li>
+            <li>Quick details of all conf options are in the <a href="/docs/device-ids.html">Configuration</a> section</li>
             <li>Complete configuration details are in the <a href="https://github.com/aqualinkd/AqualinkD/wiki#Configuration">AqualinkD wiki</a></li>
           </ul>
            <br>
-          <li>Select <code>Restart AqualinkD</code></li>
+          <li>Once configuration is complete, Select <code>Restart AqualinkD</code></li>
           &nbsp;
         </article>
       </div>
