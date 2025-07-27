@@ -27,9 +27,11 @@
           <br><br>
           Configuration options are below.
           <ul>
+            <li><samp>sensor_poll_time</samp> How often to poll the sensors in seconds</li>
             <li><samp>sensor_??_label</samp> The Label you want to use for this sensor</li>
             <li><samp>sensor_??_path</samp> That path to the system file/sensor to read</li>
             <li><samp>sensor_??_factor</samp> Any multiplication you want to use on the sensor value. ie system temperatures are usually in millidegrees Celsius so you need to divide by 1000 to get DegC. (or divide by 0.001)</a></li>
+            <li><samp>sensor_??_uom</samp>The Unit Of Measure</li>
           </ul>
           Some examples are below.
           <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
@@ -38,13 +40,44 @@
               <tr><td>sensor_01_label=CPU</td></tr>
               <tr><td>sensor_01_path=/sys/class/thermal/thermal_zone0/temp</td></tr>
               <tr><td>sensor_01_factor=0.001000</td></tr>
+              <tr><td>sensor_01_uom=°C</td></tr>
               <tr><td>&nbsp;</td></tr>
               <tr><td>sensor_02_label=GPIO 4</td></tr>
               <tr><td>sensor_02_path=/sys/class/gpio/gpio4/value</td></tr>
               <tr><td>sensor_02_factor=1</td></tr>
+              <tr><td>sensor_02_uom=On</td></tr>
               <tr><td>&nbsp;</td></tr>
             </thead>
           </table>
+          <br><br>
+          <h4>Advanced options.</h4>
+          Some sensors like 1-wire or cpu loads have multiple pieces of information in the file, for this you will need to understand the format and write a regular expression.
+          <br><br>
+          Example for external 1-wire temperature sensor (DS18B20)
+          <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+            <thead>
+              <tr><td>&nbsp;</td></tr>
+              <tr><td>sensor_03_label=CPU Load</td></tr>
+              <tr><td>sensor_03_path=/proc/loadavg</td></tr>
+              <tr><td>sensor_03_factor=100</td></tr>
+              <tr><td>sensor_03_uom=%</td></tr>
+              <tr><td>sensor_03_regexp=([0-9|\.]*)\s</td></tr>
+              <tr><td>&nbsp;</td></tr>
+            </thead>
+          </table>
+          Example for CPU load average (1 minute average)
+          <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+            <thead>
+              <tr><td>&nbsp;</td></tr>
+              <tr><td>sensor_04_label=Panel Temp</td></tr>
+              <tr><td>sensor_04_path=/sys/bus/w1/devices/28-011564c516ff/w1_slave</td></tr>
+              <tr><td>sensor_04_factor=0.001</td></tr>
+              <tr><td>sensor_04_uom=°C</td></tr>
+              <tr><td>sensor_04_regexp=.*t=([0-9|\.]*)</td></tr>
+              <tr><td>&nbsp;</td></tr>
+            </thead>
+          </table>
+          <br><br>
         </article>
       </div>
       <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
