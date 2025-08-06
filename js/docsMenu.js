@@ -11,11 +11,13 @@ let kitMenu = [
                [ "Connecting to Panel", "/docs/radxa-kit-panelconnection.html" ],
                [ "Configure WiFi", "/docs/radxa-kit-wifi.html" ],
                [ "AqualinkD Configuration", "/docs/radxa-kit-configuration.html" ],
+               [ "Installing Mobile App", "/docs/radxa-kit-web-app.html"],
               ];
 
 let gsMenu = [[ "TLDR - Quickstart", "/docs/" ], 
               [ "Connecting to Panel", "/docs/panelconnection.html" ],
               [ "Installation", "/docs/installation.html" ], 
+              [ "Mobile App", "/docs/web-app.html"],
               //[ "Quick Configuration", "/docs/construction.html" ],
              ];
 
