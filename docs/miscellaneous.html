@@ -35,11 +35,21 @@
             <li><samp>event_freezeprotectoff_check_pump = YES</samp> Freeze protect turned off</li>
             <li><samp>event_boostoff_check_pump = YES</samp> Boot ended</li>
             <li>For the above events, you can set the time the pump should be on.</li>
-            <li><samp>event_check_use_scheduler_times</samp> Look in AqualinkD scheduler for pump on / pump off times</li>
+            <li><samp>event_check_use_scheduler_times = Yes</samp> Look in AqualinkD scheduler for pump on / pump off times</li>
             <li>If you don;t use the above, use the below.</li>
-            <li><samp>event_check_pumpon_hour</samp> Set a specific on time</li>
-            <li><samp>event_check_pumpoff_hour</samp> Set a specific off time</li>
+            <li><samp>event_check_pumpon_hour</samp> Set a specific on time (0 to 24)</li>
+            <li><samp>event_check_pumpoff_hour</samp> Set a specific off time (0 to 24)</li>
           </ul>
+          In the example below if there was a power outage or freeze protect turned off between 6am and 9pm, and that event caused the Pump to switch off, then AqualinkD would turn the pump on.
+          <table border="0" cellpadding="0" cellspacing="0" class="tightTable" style="width: auto !important;">
+            <thead>
+<tr><td>event_poweron_check_pump = YES</td></tr>
+<tr><td>event_freezeprotectoff_check_pump = YES</td></tr>
+<tr><td>event_check_use_scheduler_times = NO</td></tr>
+<tr><td>event_check_pumpon_hour=6</td></tr>
+<tr><td>event_check_pumpoff_hour=21</td></tr>
+            </thead>
+          </table>
 
         </article>
       </div>
