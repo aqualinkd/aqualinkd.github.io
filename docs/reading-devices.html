@@ -21,7 +21,7 @@
         <article>
           <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
           <h4>Reading devices</h4>
-          AqualinkD can read a lot more information from your RS485 devices that Jandy control panel does not show or display, things like 
+          AqualinkD can read a lot more information from your RS485 devices that the the Jandy control panel does not show or display, things like 
           <ul>
             <li>Full and correct status of SWG, VSP, Heaters ie "Needs Cleaning" rather than "General Fault"</li>
             <li>Full RPM, GPM, Watts of all VSP's</li>
@@ -43,8 +43,8 @@
           AqualinkD will detect certain devices and settings and will configure these devices and provide different options appropriately. But if they are not available at startup, it can create
           problems for other integrations such as Homekit & Homeassistant.
           <br>
-          Example would be a SWG is only on when the filter pump is running, so if the filter pump is off when
-          AqualinkD starts it will not create the appropriate SWG services, then when the pump is on the SWG will be detected and appropriate services created. This can be annoying for home hub integrations as buttons / options will disappear and re-appear.
+          An example would be a SWG is only on when the filter pump is running, so if the filter pump is off when
+          AqualinkD starts it will not create the appropriate SWG services, then when the pump is on the SWG will be detected and appropriate services created. This can be annoying for home hub integrations as buttons/options will disappear and re-appear.
           To fix this, you should force on any devices you have.
           <ul>
           <li><samp>force_swg = yes</samp> for Salt Water Generators</li>

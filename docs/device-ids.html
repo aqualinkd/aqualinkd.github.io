@@ -22,18 +22,18 @@
           <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
           AqualinkD is set to autoconfigure by default, so unless that didn't work, or you want to manually change ID's, you can skim over this part.
           <br><br>
-          AqualinkD needs a list of device ID's it can use against the Jandy Control Panel. Jandy has introduced many different protocols that 
+          AqualinkD needs a list of device ID's it can use against the Jandy Control Panel. Jandy has introduced many different protocols 
           over the years to support different interfaces, and some are faster that others at doing particular tasks. Since there is not one 
-          "perfect protocol", AqualinkD will use as many as it can (depending on what your panel supports) and will decide on which to use for 
-          what tasks appropriately. <a href="https://github.com/aqualinkd/AqualinkD/wiki#Aqualink-Protocols">More details here</a>
+          "perfect protocol", AqualinkD will use as many as it can (depending on what your panel supports) and will decide on which to use, for 
+          what tasks, appropriately. <a href="https://github.com/aqualinkd/AqualinkD/wiki#Aqualink-Protocols">More details here:</a>
           <br><br>
-          These configuration options are below. <b>It is important to note these ID's CAN NOT conflict with the ID's your Jandy keypads/interfaces are using</b>
+          Configuration options are below. <b>It is important to note these ID's CANNOT conflict with the ID's your Jandy keypads/interfaces are using</b>
           <ul>
             <li><samp>device_id</samp> (Mandatory) The main ID of AqualinkD. Set this to <B>0xFF</B> and AqualinkD will try to auto configure all the below.
                Valid RS ID's are <b>0x0a 0x0b 0x09 0x08</b></li>
             <li><samp>rssa_device_id</samp>(Optional, highly desirable) RSSerialAdapter Valid is is <b>0x48</b> </li>
             <li><samp>extended_device_id</samp>(Optional) Best ID's are AqualinkTouch <b>(0x30, 0x31, 0x32 & 0x33)</b>, if not supported then use OneTouch <b>(0x40, 0x41, 0x42 & 0x43)</b></li>
-            <li><samp>enable_iaqualink</samp>(Optional) If using a AqualinkTouch ID above, and you DO NOT have an iAqualink device (WiFi interface), then set this to <b>YES</b>
+            <li><samp>enable_iaqualink</samp>(Optional) If using AqualinkTouch ID above, and you DO NOT have an iAqualink device (WiFi interface), then set this to <b>YES</b>
                 <br>If you have a Jandy iAqualink device this must always be set to <b>NO.</b></li>
           </ul>
           <img src="">
