@@ -16,6 +16,7 @@ let kitMenu = [
 
 let gsMenu = [[ "TLDR - Quickstart", "/docs/" ], 
               [ "Connecting to Panel", "/docs/panelconnection.html" ],
+              [ "AqualinkD HAT setup", "/docs/hat-diy.html" ],
               [ "Installation", "/docs/installation.html" ], 
               [ "Mobile App", "/docs/web-app.html"],
               //[ "Quick Configuration", "/docs/construction.html" ],

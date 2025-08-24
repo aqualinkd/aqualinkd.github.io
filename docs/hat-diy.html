@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>
+          
+          <span style="color: red;"><b>WARNING</b></span>  Never plug the HAT into the RS485 connector while also powering the SBC through another source (like USB power).
+          <br>
+          Like any device, trying to power it from two separate sources will end up in something bad happening.
+          <ul class="tightList">
+            <li class="tightList">If you want to power the SBC via USB while also connected to the RS485 bus, simply remove the 2 power wires (+ & -) from the RS485 terminal block.</li>
+          </ul>
+          <br><br>
+          The AqualinkD HAT uses GPIO pins <b>8</b> and <b>10</b> for the serial connection. On a Raspberry Pi this is simple to setup, but can get complicated on other OS's and Boards.
+
+          <h2>Raspberry Pi</h2> Raspberry is special in that it uses its own bootloader that is very sophisticated and specific to the Pi.
+
+            <thead>
+            <br>
+            <h4>On Raspberry Pi (using OS scripts).</h4>
+<code class="commands">
+* Run <code class="HLcommand">sudo raspi-config</code>
+  - Navigate to <code class="HLcommand">Interface Options</code>, Select <code class="HLcommand">Serial Port</code>
+  - Disable login shell over serial
+  - Enable Serial hardware
+</code>
+
+<br><br>
+<h4>On Raspberry Pi manual).</h4>
+<code class="commands">
+* Edit <code class="HLcommand">/boot/config.txt</code>
+  - add line <code class="HLcommand">enable_uart=1</code> (usually at end of file)
+* Edit <code class="HLcommand">/boot/cmdline.txt</code>
+  - Remove the part of the bootup line that has <code class="HLcommand">console=serial0,115200</code>
+  - This can be replaced with <code class="HLcommand">console=tty1</code> or equiv.
+</code>
+<br><br>
+
+Reboot and you will end up with a device <code>/dev/ttyS0</code> that you can use as your serial port ie <code>serial_port=/dev/ttyS0</code> in <code>aqualinkd.conf</code><br>
+<br>
+Note Some Raspberry Pi boards (Like CM4 / Pi4) can have some bluetooth issues interfering with serial port (even if you don't use / connect bluetooth devices), if you get any issues please use the below to turn off and disable bluetooth.<br>
+<br>
+<code class="commands">
+* Add <code class="HLcommand">dtoverlay=disable-bt</code> to <code class="HLcommand">/boot/config.txt</code>
+* run - <code class="HLcommand">sudo systemctl stop ModemManager</code>
+* run - <code class="HLcommand">sudo systemctl disable ModemManager</code>
+</code>
+<br><br>
+<br><br>
+ 
+         <h4>On any other SBC / OS</h4>
+
+          On anything other than a Pi running RaspberryOS you will need to do multiple things.
+
+          <ul class="tightList">
+            <li class="tightList">Disable U_BOOT waiting for input.</li>
+              <ul><li class="tightList">All use `U_BOOT` or something similar as a generic bootloader. By default this will print out boot options in a serial terminal `ie Select 1 to boot Linux, 2 to boot Linux in X mode`, and will pause for X seconds waiting for user input, if no input is detected, it will continue with normal boot. (BTW This is usually why other SBC's take longer to boot than a Pi). Since your serial is connected to the RS485 cables of the Jandy Control panel, it will detect input (while garbage) and just sit there indefinably. So the first thing to do is look at how to turn this off on your specific SBC / OS.</li></ul>
+            <li class="tightList">Kernel Debug / Console</li>
+              <ul><li class="tightList">Most OS's will also use this TTY serial after the bootloader for debug or other system messages. Again, you need to turn this off for your selected OS as this will confuse both Jandy and AqualinkD.  Hint if it kind-a looks like it's working but you get a ton of bad packet messages, this is probably the cause.</li></ul>
+            <li class="tightList">Enable UART overlay</li>
+              <ul><li class="tightList">You will need to enable the specific UART for the GPIO chip your board has.  Again, this is specific to OS / SBC. Usually there is a config tool to do this. Basically all that tool does is edit the appropriate boot file and add a line like <code>fdtoverlays  /boot/dtbo/rk3568-uart2-m0.dtbo</code></li></ul>
+          </ul>
+<br>
+How to do all of the above, will depend on SBC and OS, you should search those forums as it's a normal thing to do. 
+<br><br>
+The aqualinkd-radxa repo has a script to do this for you on the Radxa OS.
+<br><br>
+Once you have done the steps above you should end up with a device /dev/ttyS? (? = 0, 1, 2 or 3), depending on the GPIO setup of your board.
+          <ul class="tightList">
+            <li class="tightList">Raspberry Pi is <code>/dev/ttyS0</code> or <code>/dev/serial0</code> depending on OS release</li>
+            <li class="tightList">Radxa is <code>/dev/ttyS2</code></li>
+            <li class="tightList">Banana Pi Zero is <code>/dev/ttyS3</code></li>
+          </ul>
+<br>
+Other service that might interfere with the HAT are:
+<ul class="tightList">
+<li class="tightList">agetty</li>
+          </ul>
+
+Below commands will turn that off (Change ttyS0 to what's appropriate for your system)
+<br><br>
+<code class="commands">
+systemctl stop serial-getty@ttyS0.service
+systemctl disable serial-getty@ttyS0.service
+systemctl mask serial-getty@ttyS0.service
+</code>
+<br>
+<br>
+If you are having issues, it's probably due to some console or logging to the serial terminal. To check what process are using the serial port you can use the below command. If anything other that AqualinkD is listed, turn it off.<br>
+<code>
+sudo lsof /dev/ttyS0
+</code>
+
+
+        </article>
+        &nbsp;
+        <article id="boardlayout">
+          <h3>AqualinkD HAT layout</h3>   
+          <img src="/img/RS485 HAT Detail.png"></img>
+           <br><br>
+            AqualinkD HAT has white labels on the board noting the important components.
+          <ul class="tightList">
+            <li class="tightList">3 LED's</li>
+            <ul>
+              <li class="tightList">Power RED LED - bright</li>
+              <li class="tightList">TX RED LED - Will flash when board is transmitting data</li>
+              <li class="tightList">RX RED LED - Will flash when board is receiving data</li>
+            </ul>
+            <li class="tightList">Termination switch</li>
+            <ul>
+              <li class="tightList">OFF = Default</li>
+              <li class="tightList">ON = Set to ON if you need to terminate the RS485 buss, (ie Only component connected to RS485 wires)</li>
+            </ul>
+            <li class="tightList">Input voltage and data</li>
+            <ul>
+              <li class="tightList">The board can be powered from any voltage between 9 and 21v (Vin+ and Vin-)</li>
+              <li class="tightList">Data is labeled A and B (A=Data -), (B=Data +) </li>
+              <li class="tightList">Please note the pin order is DIFFERENT from RS485 pin order at the Jandy Panel, <a href="https://aqualinkd.feakes.cc/docs/radxa-kit-panelconnection.html">Details</a></li>
+            </ul>
+          </ul> 
+        </article>
+
+        &nbsp;
+        <article id="boardlayout">
+          <h3>Board Layout / USB Ports</h3>
+          Below is an example with Radxa Zero W3, but just about all Zero form factor SBC follow similar layout & rules.
+          <img src="/img/Radxa Zero 2W Ports.png"></img>
+           <br><br><br>
+            Notes on ports
+          <ul class="tightList">
+            <li class="tightList">When connecting any USB device (like USB stick, Ethernet Adapter, Keyboard, you can ONLY use the port labeled "USB 3.0 Host Type C port"</li>
+            <li class="tightList">You can power the Radxa through the port labeled "USB 2.0 OTG Type C port". <B>NEVER power the board while the RS486 HAT is also connected to the panel</B></li>
+          </ul> 
+          <img style="background-color:rgb(152, 152, 152);" src="/img/Radxa Board Layout.png"></img>
+        </article>
+
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>

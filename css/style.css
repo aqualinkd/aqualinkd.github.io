@@ -3173,7 +3173,7 @@ samp{
   box-shadow: none!important;
 }
 
-.ssh .code {
+.ssh .code{
   font-size: 11px;
   display: contents;
 }
@@ -3181,6 +3181,25 @@ samp{
 .file {
   background-color: black;
   white-space: break-spaces;
+}
+
+.commands {
+  /*background-color: black;*/
+  /*font-size: 12px;*/
+  padding: 0em 1em 1em 1em;
+  line-height: 1.4;
+  white-space: break-spaces;
+  font-size: 80%;
+}
+
+.HLcommand {
+  @extend .commands;
+  font-weight: 400 !important;
+  /*font-style: italic;*/
+  color: #F0F1F0;
+  background-color: #191919;
+  font-size: 100%;
+  padding: 0.0em 0.2em 0.0em 0.2em;
 }
 
 /*
