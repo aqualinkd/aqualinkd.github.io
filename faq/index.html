@@ -71,16 +71,18 @@
         <article name="FAQ" class="faq_article">
           <div id="FAQ"></div>
           <h2>Frequently Asked Questions</h2>
-          <font size="+1"><B>RTFM</B></font>&nbsp;&nbsp;&nbsp;Without meaning to sound harsh. We have take an extremely large about of time to write detailed documentation
-          for AqualinkD. This is NOT a business it’s done in spare time. It is exceptionally frustrating when people ask
-          questions that are clearly documented. The more time answering questions that are clearly documented is time
-          is taken away from active development and enhancing the product.
+          <font size="+1"><B>RTFM</B></font>&nbsp;&nbsp;&nbsp;Without meaning to sound harsh. We have taken an extremely large amount of time to write detailed documentation
+          for AqualinkD. This is NOT a business. It is something done in our spare time and it is exceptionally frustrating when people ask
+          questions that are clearly documented. The more time spent answering those questions takes time
+          away from active development and enhancing the product.
           <br><br>
-          Purpos of this FAQ is to answer questions not mentioned in the 
+          The purpose of this FAQ is to answer questions that are currently not mentioned in the 
           <a href="/docs/">Documents</a> 
           or
           <a href="https://github.com/aqualinkd/AqualinkD/wiki">Wiki</a> 
           sections.
+          <br><br>
+          We will continue to add to this section, so please check back.
         </article>
       </div>
       <div class="unit one-fifth hide-on-mobiles">
@@ -100,13 +102,13 @@
           <ul>
             <li>AqualinkD needs to be connected to the RS485 wires of the panel.</li>
               <ul>
-                <li>The Panel connection wiring is detailed <a href="/docs/panelconnection.html">docs -> connection to panel</a></li>
-                <li>Most pool installs have an indoor keypad that is directly wired to the connection shown above, the preferred way to wire is to
+                <li>The Panel connection wiring is detailed in <a href="/docs/panelconnection.html">docs -> connection to panel</a></li>
+                <li>Most pool installations have an indoor keypad that is directly wired to the connection shown above, the preferred way to wire is to
                     connect AqualinkD to the indoor keypad. Daisy-chain off an indoor keypad is ideal</li>
               </ul>
             <li>4 core 24AWG twisted pair wire is preferred. Details of wire type and places to buy are linked at the bottom of this page <a href="/docs/panelconnection.html">docs -> connection to panel</a></li>
             <li>Anything under 100ft is fine. </li>
-            <li>Preferred install is to daisy-chain off an Inside keypad.</li>
+            <li><b>Preferred install is to daisy-chain off an Inside keypad.</b></li>
           </ul>
         </article>
       </div>
@@ -124,20 +126,20 @@
         <article name="AqualinkD Outside" class="faq_article">
           <div id="AqualinkD Outside"></div>
           <h2>Running AqualinkD hardware outside</h2>
-          <h4>Wait a few months</h4>
+          <h4>Not recommended due to climate exposure....but....</h4>
             <ul><li>We are currently testing a kit designed for outdoors based on an industrial SBC, These will probably end up being double the price of normal Radxa kit (so not a cheap option)</li></ul>
-          <h4>I don’t have RS485 wires inside, can I place a unit outside</h4>
+          <h4>I don’t have RS485 wires inside, can I place a unit outside?</h4>
             <ul>
             <li>Highly recommended to run wires inside the house.</li>
             <li>From our complete kit perspective we only support inside installations</li>
-            <li>Many people have SBC’s running AqualinkD outside. There are however a few things to consider.  Needs to be in a weather proof box, but also allow airflow. External temperatures in hot states like AZ/TX/NM can get too high without active cooling, Cool extremes also have a similar problem. <Add links to examples></li>
+            <li>Many people have SBC’s running AqualinkD outside. There are however a few things to consider.  Needs to be in a weather proof box, but also allow airflow. External temperatures in hot states like AZ/TX/NM etc can get too high without active cooling, Cool extremes also have a similar problem. <Add links to examples></li>
             <li>Here are some links to external DIY solutions <a href="https://www.troublefreepool.com/threads/aqualink-improvements.266077/#post-2330551">Link1</a> 
                                                               <a href="https://www.reddit.com/r/pools/comments/1ijo7gt/my_aqualinkd_setup/">Link2</a> 
                                                               <a href="https://github.com/aqualinkd/AqualinkD/issues/19">Link3</a> </li>
 
-            <li>Thermal specifications/considerations on the Radxa Zero 3W (SBC that comes with the AqualinkD full kit) are below. <font size="-1">These might sound high, but CPU temperature limits can easily be reached when placed outside in hot climates with poor ventilation.</font> </li>
+            <li>Thermal specifications/considerations on the Radxa Zero 3W (SBC that comes with the AqualinkD full kit) are below. These might sound high, but CPU temperature limits can easily be reached when placed outside in hot climates with poor ventilation. </li>
               <ul>
-                <li class="tightList">Recommended ambient operating temperature range is 0 to 50 degrees celcius (32 to 122f)</li>
+                <li class="tightList">Recommended ambient operating temperature range is 0 to 50 degrees celsius (32 to 122f)</li>
                 <li class="tightList">Normal operating temperature max 60c (140f)</li>
                 <li class="tightList">Max operating temperature 80c (176f)</li>
                 <li class="tightList">At 80c The internal governor will throttle back both the CPU speed and voltage to make sure the CPU temperature never exceeds 85 degrees C.</li>
@@ -148,9 +150,9 @@
             <li>Wireless RS485 adapters are not recommended as they introduce too much latency and will create issues.</li>
             <ul><li class="tightList">The Jandy panel will send a message and expect a reply in under 20 milliseconds. This is a lot when you consider the chain of devices.<br>
                <font size="-1">(panel)->(wireless adapter)->(wifi router)->(aqualinkd)->(wifi router)->(wireless adapter)->(panel)</font></li>
-               <li class="tightList">Don't confuse using a ping latency test as accurate way to measure 20ms this on your wifi network</li>
+               <li class="tightList">Don't confuse using a ping latency test as an accurate way to measure 20ms on your wifi network</li>
             </ul>
-            <li>If you have an industrial WiFi network that’s been optimized for iot you can be successful with adapters like EW-11. But this is not something the average home owner can do since your standard home wifi router ie: Google/Asus/Linksys/Tp-link will NOT be good enough.</li>
+            <li>If you have an industrial WiFi network that’s been optimized for iot you can be successful with adapters like EW-11. But, this is not something the average home owner can do since your standard home wifi router ie: Google/Asus/Linksys/Tp-link will NOT be good enough.</li>
             <ul><li>FYI Dev's have only been successful using wireless RS485 adapters using Industrial Cisco wifi hardware and highly optimized Unifi wifi hardware.</li></ul>
           </ul>
         </article>
@@ -169,9 +171,9 @@
         <article name="SMA Antenna" class="faq_article">
           <div id="SMA Antenna"></div>
           <h2>SMA Antenna</h2>
-          <h4>Why do you use SMA connector vs RP-SMA in your kits.</h4>
+          <h4>Why do you use SMA connector vs RP-SMA in your kits?</h4>
           <ul>
-            <li>SMA and RP-SMA are almost identical connectors that will fit together, the difference is which one has a center pin.</li>
+            <li>SMA and RP-SMA are almost identical connectors that will fit together. The difference is which one has a center pin.</li>
             <ul>
                <li class="tightList">SMA Male: Has a protruding center pin.</li>
                <li class="tightList">SMA Female: Has a recessed socket for the pin to plug into.</li>
@@ -179,9 +181,9 @@
                <li class="tightList">RP-SMA Female: Has a protruding pin (like a male connector).</li>
             </ul>
             <br>
-            <li>RP-SMA connectors have become synonymous with consumer WiFi because the FCC didn’t want consumers using (or getting access) to High Gain Antennas for home WiFi, so they mandated RP-SMA for consumer grade WiFi access points.  
-                <br>This mandate is really defunct now since all types of antenna are available to anyone and cheaper pricing.</li>
-            <li>But, there are more quality SMA antennas available, so if anyone want’s to upgrade to an industrial antenna this makes it easier, hence this was the standard selected. </li>
+            <li>RP-SMA connectors have become synonymous with consumer WiFi because the FCC didn’t want consumers using (or getting access to) High Gain Antennas for home WiFi, so they mandated RP-SMA for consumer grade WiFi access points.  
+                <br>This mandate is really defunct now since all types of antenna are available to anyone and with cheaper pricing.</li>
+            <li>There are more quality SMA antennas available, so if anyone wants to upgrade to an industrial antenna this makes it easier, hence this was the standard selected. </li>
           </ul>
         </article>
       </div>
@@ -201,13 +203,13 @@
           <h2>Running other software on the AqualinkD machine</h2>
           <h4>Can I install other software on “AqualinkD Kit” or SBC running AqualinkD.</h4>
           <ul>
-            <li>Yes you can, but it’s not recommended for several reasons.</li>
+            <li>Yes you can, <u>but it’s not recommended</u> for several reasons.</li>
             <li>AqualinkD has been highly optimized and does not need much in the way of system resources like CPU or IO, but it is highly dependent on IO being received and sent in a timely manner. 
               <ul>
                 <li class="tightList">AqualinkD needs to receive RS485 message; process it, and send the reply within 20 milli seconds.</li> 
                 <li class="tightList">Most SBC’s are powerful from a CPU perspective but usually very limited on IO. So anything that slows down the IO will highly affect the stability of these messages.</li>
               </ul>
-            <li>Services like MQTT brokers/HomeBridge/HomeAssistant/Home Automation Hubs are the usual packages people install, and all are very IO intense, and belong on servers of their own hardware. If you install these packages, you may experience problems.</li>
+            <li>Services like MQTT brokers/HomeBridge/HomeAssistant/Home Automation Hubs are the usual packages people install, and all are very IO intense, they belong on servers of their own hardware. If you install these packages, you may experience problems.</li>
         </article>
       </div>
       <div class="unit one-fifth hide-on-mobiles">
