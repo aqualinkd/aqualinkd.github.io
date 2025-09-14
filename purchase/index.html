@@ -5,48 +5,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
-  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <meta name="description"
+    content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
 
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/css/style.css?ver=1.0" as="style">
-  <link rel="stylesheet" href="/css/style.css?ver=1.0">
+  <link rel="preload" href="/css/style.css?ver=1.1" as="style">
+  <link rel="stylesheet" href="/css/style.css?ver=1.1">
   <link rel="icon" type="image/x-icon" href="/img/icon.png">
 
 </head>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const emailButton = document.getElementById('emailButton');
     const emailLinkContainer = document.getElementById('emailLinkContainer');
     const emailLink = document.getElementById('emailLink');
     const noscriptElement = document.querySelector('noscript');
 
     const charCodes = [[106, 112, 105, 115],
-                     [98, 115, 120, 101, 113, 111, 117, 115, 109],
-                     [100, 113, 112]];
-  
-  function assembleEmail() {
-  let email = "";
-  for (let j=0; j< 3; j++) {
-    for (let i = 0; i < charCodes[j].length; i++) {
-      email += String.fromCharCode(charCodes[j][i]-(i+1));
-    }
-    switch(j) {
-      case 0:
-        email += String.fromCharCode(64);
-      break;
-      case 1:
-        email += String.fromCharCode(46);
-      break;
-    }
-  }
-  return email;
-  }
+    [98, 115, 120, 101, 113, 111, 117, 115, 109],
+    [100, 113, 112]];
 
-    emailButton.addEventListener('click', function() {
+    function assembleEmail() {
+      let email = "";
+      for (let j = 0; j < 3; j++) {
+        for (let i = 0; i < charCodes[j].length; i++) {
+          email += String.fromCharCode(charCodes[j][i] - (i + 1));
+        }
+        switch (j) {
+          case 0:
+            email += String.fromCharCode(64);
+            break;
+          case 1:
+            email += String.fromCharCode(46);
+            break;
+        }
+      }
+      return email;
+    }
+
+    emailButton.addEventListener('click', function () {
       const fullEmail = assembleEmail();
       emailLink.href = "mailto:" + fullEmail;
       emailLink.textContent = fullEmail;
@@ -70,12 +71,12 @@
           <h2>How can I get one</h2>
           <li>First you can use any generic hardware listed in the <a href="\details">Details Page</a></li>
           <ul>
-            <li>Remember everything is open source, so you can get any manufacturer to make a HAT & Print the cases.</li>
+            <li>Remember everything is open source, so you can get any manufacturer to make a HAT & Print the cases.
+            </li>
           </ul>
           <li>We get small runs of units made, and offer them at cost to the community, Please Note:-</li>
           <ul>
-            <li>This is not a business, we are not making money, do not expect "business" like support / guarantee /
-              warranty.</li>
+            <li>This is not a business, we are not making money, do not expect "business" like support / guarantee / warranty.</li>
             <li>if you want the above, please purchase elsewhere</li>
           </ul>
           <ul>
@@ -87,35 +88,82 @@
           <!--
           <h4>We are currently sold out, we have more on the way, please contact us to be put on waitlist.</h4>
           -->
-          <h5>Since this is at cost, pricing changes for each order we place with supplier, below prices may change </h5>
-          <ul>
-            <li><b>AqualinkD Serial Hat (all soldered / tested ready to go)</b></li>
-            <ul>
-              <li class="reduceText">Please specify for which form factor (Pi Zero or Full size Pi) </li>
-              <!--<li><s>$25</s> &nbsp Sold Out</li>-->
-              <li>$25</li>
-            </ul>
-            <li><b>AqualinkD Case $15 (Printed in quality PETG includes all hardware needed)</b></li>
-            <ul>
-              <li class="reduceText">Please specify for which Pi Zero (Raspberry, Banana, Orange | Radxa without Antenna | Radxa with Antenna)</li>
-              <li>$15</li>
-            </ul>
-            <li><b>AqualinkD Complete Unit ready to go (Radxa Zero 3W / Hat / Case / OS loaded & AqualinkD installed)</b></li>
-            <ul>
-               <!--<li><s>$150</s> &nbsp Sold Out</li>-->
-              <li>$150</li>
-            </ul>
-            <li><b>Shipping to continental US</b> (USPS Priority Mail, flat rate, irrelevant of what you purchase)</b></li>
-            <ul>
-              <li>$12</li>
-            </ul>
-          </ul>
+          <h5>Since this is at cost, pricing changes for each order we place with supplier, below prices may change
+          </h5>
+          <table class="tight_table">
+            <tr>
+              <td>
+                <ul>
+                  <li><b>AqualinkD Serial Hat (all soldered / tested ready to go)</b></li>
+                  <ul>
+                    <li class="reduceText tightList">Please specify for which form factor (Pi Zero or Full size Pi) </li>
+                    <!--<li><s>$25</s> &nbsp Sold Out</li>-->
+                    <li>$25</li>
+                  </ul>
+              </td>
+              <td align="right">
+                <img class="expandImage" src="/img/AqualinkD HAT.jpg" onclick="expandImage(this)" style="height: 70px;">
+              </td>
+            </tr>
+           </table>
+          <table class="tight_table">
+            <tr>
+              <td>
+                <ul>
+                  <li><b>AqualinkD Case $15 (Printed in quality PETG includes all hardware needed)</b></li>
+                  <ul>
+                    <li class="reduceText tightList">Please specify for which Pi Zero (Raspberry, Banana, Orange | Radxa without Antenna | Radxa with Antenna)</li>
+                    <li>$15</li>
+                  </ul>
+              </td>
+              <td align="right">
+                <img class="expandImage" src="/img/HAT & Case.jpg" onclick="expandImage(this)" style="height: 70px;">
+                <p class="reduceText">Shown with HAT (not included)</p>
+              </td>
+            </tr>
+          </table>
+          <table class="tight_table">
+            <tr>
+              <td>
+                <ul>
+                  <li><b>AqualinkD Complete Unit ready to go (Radxa Zero 3W / Hat / Case / OS loaded & AqualinkD installed)</b></li>
+                  <ul>
+                    <!--<li><s>$150</s> &nbsp Sold Out</li>-->
+                    <li class="reduceText tightList">Radxa Zero 3W ( 8GB eMMC, 1GB Mem )</li>
+                    <li class="reduceText tightList">Unit comes completely assembled, plug-in and go. (Picture is simply showing all parts)</li>
+                    <li>$150</li>
+                  </ul>
+                </ul>
+              <td align="right">
+                <img class="expandImage" src="/img/Full Kit Exploded.jpg" onclick="expandImage(this)" style="height: 70px;">
+              </td>
+            </tr>
+          </table>
+          <table class="tight_table">
+            <tr>
+              <td>
+                <ul>
+                  <li><b>Shipping to continental US</b> (USPS Priority Mail, flat rate, irrelevant of what you purchase)</b>
+                  </li>
+                  <ul>
+                    <li>$12</li>
+                  </ul>
+                </ul>
+            </tr>
+            </td>
+          </table>
           <br>
           Please only purchase from us if you have <b>Jandy Aqualink RS panel</b>.
-          <ul><li>If you have PDA or TCX panel <a href="/details/#Limitations">see limitations</a>.</li></ul>
-          <h5>For questions, please use the <a href="https://github.com/aqualinkd/AqualinkD/discussions">Discussions forum of AqualinkD</a></h5>
+          <ul>
+            <li>If you have PDA or TCX panel <a href="/details/#Limitations">see limitations</a>.</li>
+          </ul>
+          <h5>For questions, please read the
+            <a href="/docs/">Documents</a> 
+             and
+             <a href="/faq/">FAQ </a> 
+            sections, and use the <a href="https://github.com/aqualinkd/AqualinkD/discussions">Discussions forum of AqualinkD</a></h5>
           <h4>To check availability and purchase please contact us below.</h4>
-          
+
           <button id="emailButton">Show Contact Information</button>
           <div id="emailLinkContainer">
             <a id="emailLink" href=""></a>
@@ -127,6 +175,7 @@
   </section>
   <footer id="footer"></footer>
   <script src="/js/header.js"></script>
+  <script src="/js/expandImages.js"></script>
 </body>
 
 </html>

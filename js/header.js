@@ -20,6 +20,7 @@ let psoverview = "";
 let psdetails = "";
 let pspurchase = "";
 let psdocs = "";
+let psfaq = "";
 
 switch (pageName) {
   case "overview":
@@ -33,6 +34,9 @@ switch (pageName) {
     break;
   case "purchase":
     pspurchase = " class='current'";
+    break;
+  case "faq":
+    psfaq = " class='current'";
     break;
   case "":
   default:
@@ -60,6 +64,7 @@ try {
     "<li" + psdocs + "><a href='/docs/'>Docs</a></li>" +
     "<li" + psdetails + "><a href='/details/'>Details</a></li>" +
     "<li" + pspurchase + "><a href='/purchase/'>Purchase</a></li>" +
+    "<li" + psfaq + "><a href='/faq/'>FAQ</a></li>" +
     "<li><a href='https://github.com/aqualinkd' target='_blank' rel='noopener'>GitHub</a></li>" +
     "</ul>" +
     "</nav>" +
@@ -68,10 +73,11 @@ try {
     "<nav class='mobile-nav show-on-mobiles'>" +
     "<ul>" +
     "<li" + pshome + "><a href='/'>Home</a></li>" +
-    "<li" + psoverview + "><a href='/overview/'>Overview</a></li>" +
+    //"<li" + psoverview + "><a href='/overview/'>Overview</a></li>" +
     "<li" + psdocs + "><a href='/docs/'>Docs</a></li>" +
     "<li" + psdetails + "><a href='/details/'>Details</a></li>" +
     "<li" + pspurchase + "><a href='/purchase/'>Purchase</a></li>" +
+    "<li" + psfaq + "><a href='/faq/'>FAQ</a></li>" +
     "<li><a href='https://github.com/aqualinkd' target='_blank' rel='noopener'>GitHub</a></li>" +
     "</ul>" +
     "</nav>";
