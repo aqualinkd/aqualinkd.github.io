@@ -14,20 +14,6 @@
 </head>
 
 
-<!----------------
-
-
-#Document
-# set time zone
-
-# set locals
-
-# USB port has to be #2 port
-
-
--->
-
-
 
 <body class="wrap">
   <header id="header"></header>
@@ -144,7 +130,8 @@
             <li class="tightList"><code>sudo nmcli radio wifi on</code></li>
             <li class="tightList"><code>sudo nmcli device wifi list</code></li>
             <ul><li class="tightList">Make sure your WiFi network is listed.</li></ul>
-            <li class="tightList"><code>sudo nmcli device wifi connect "YOUR_SSID" password "YOUR_PASSWORD"</code></li>
+            <!--<li class="tightList"><code>sudo nmcli device wifi connect "YOUR_SSID" password "YOUR_PASSWORD"</code></li>-->
+            <li class="tightList"><code>sudo nmcli device wifi connect "YOUR_SSID" --ask</code></li>
           </ul>
           </ol>
           <div class="quickstart ssh"">
@@ -184,7 +171,12 @@
               <p class="line">
                 <span class="path">~</span>
                 <span class="prompt">$</span>
-                <span class="command">sudo nmcli device wifi connect "YOUR_SSID" password "YOUR_PASSWORD"</span>
+                <span class="command">sudo nmcli device wifi connect "YOUR_SSID" --ask</span>
+              </p>
+              <p class="line">
+                <span class="path">~</span>
+                <span class="prompt">$</span>
+                <span class="command">Password:</span>
               </p>
               
             </div>  
