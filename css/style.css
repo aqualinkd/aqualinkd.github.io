@@ -3239,6 +3239,11 @@ table {
   min-height: 300px;
 }
 
+.red_text {
+  color: rgb(255, 42, 42);
+  font-weight: bold
+}
+
 /*
 code {
     padding: .2em .4em;

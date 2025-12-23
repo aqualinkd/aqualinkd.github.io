@@ -46,6 +46,7 @@
 <tr><td>4</td><td>Color Logic</td></tr>
 <tr><td>5</td><td>Intellibrite</td></tr>
 <tr><td>6</td><td>Haywood Universal Color</td></tr>
+<tr><td>7</td><td>Jandy Infinite Water Colors (RS485) <a href="#mode7">see notes</a></td></tr>
 <tr><td>10</td><td>Dimmer (0%, 25%,50%,75%,100%)</td></tr>
 <tr><td>11</td><td>Dimmer (full range 0 to 100%)</td></tr>
 </thead>
@@ -56,6 +57,7 @@
         <br>
         <br>
         If you selected <samp>lightmode=0</samp> continue reading, it not go to next step.<br>
+        <hr>
         <h4>AqualinkD programmed light</h4>
 
         All lights work with an on/off pulse to set the mode and advance to the next mode, but the timings of these pulses are different between manufacturers.<br>
@@ -97,7 +99,36 @@
 </thead>
 </table>
           
-        
+        <hr>
+        <h4 id="mode7">Jandy Infinite Water Colors (RS485)</h4>
+        The Jandy Infinite Water Colors is a special light in that is not supported by any standard Aqualink protocol, only iAqualink. So if you have a iAqualink connected, AqualinkD can no control the light. 
+        There is a preliminary workaround that seems to work for many panels that will allow you to change the light modes (but not the full color range).
+
+        <ol>
+        <li>AqualinkTouch protocol must be enabled</li>
+          <ul>
+            <li><samp>extended_device_id=</samp>one of the following (<samp>0x30, 0x31, 0x32, 0x33</samp>)</li>
+          </ul>
+        <li>Create a virtual button with the EXACT name the light shown up on your control panel, and set the type to 7</li>
+          <ul>
+            <li class="tightList"><samp>virtual_button_01_label=</samp>Name of light as it's displayed in iAqualink</li>
+            <li class="tightList"><samp>virtual_button_01_light_mode=7</samp></li>
+            <li class="tightList">Change <samp>01</samp> in the above to the appropriate number for your configuration</li>
+          </ul>
+        </ol>
+
+        <hr>
+        <h4>Hidden options for workarounds</h4>
+        There are a number of bugs/issues in different Jandy panel firmware revisions around colored lights, while AqualinkD will detect and workaround many firmware issues in other areas, the complete range with colored lights has not been found/decoded yet.
+        <br>
+        At present there is a temporary configuration option that can only be set by manually editing aqualinkd's configuration that can be used if you are noticing issues setting light modes through AqualinkD.
+        <br><br>
+        <samp>light_programming_interface=</samp>
+        <ul>
+            <li class="tightList"><samp>0</samp>Let AqualinkD to select the protocol (default)</li>
+            <li class="tightList"><samp>1</samp>Force allbutton protocol</li>
+            <li class="tightList"><samp>3</samp>Force aqualinktouch protocol</li>
+        </ul>
 
         </article>
       </div>

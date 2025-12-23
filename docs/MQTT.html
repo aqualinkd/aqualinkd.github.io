@@ -29,22 +29,16 @@
               <li><samp>mqtt_passwd</samp> Optional password</li>
               <li><samp>mqtt_aq_topic</samp> Topic for AqualinkD, default=<b>aqualinkd</b></li>
             </ul>
-            <li>If you want AqualinkD to configure Homeassistant through discovery, then add the below</li>
+            <li>If you want AqualinkD to configure Homeassistant / Domoticz and other hubs through MQTT discovery, then add the below</li>
             <ul>
-              <li><samp>mqtt_hassio_discover_topic</samp> the HA discovery topic, default=<b>homeassistant</b></li>
-              <li><samp>mqtt_ha_discover_use_mac</samp> In HA you can group entities to one device, this will set that for you</li>
-            </ul>
-            <li>If you use Domoticz, then configure the pub and sub topics</li>
-            <ul>
-              <li><samp>mqtt_dz_pub_topic</samp> Domoticz pub topic, default=<b>domoticz/in</b></li>
-              <li><samp>mqtt_dz_sub_topic</samp> Domoticz sub topic, default=<b>domoticz/out</b></li>
+              <li><samp>mqtt_discovery_topic</samp> the discovery topic, default=<b>homeassistant</b></li>
+              <li><samp>mqtt_discovery_use_mac</samp> In HA (maybe others) you can group entities to one device, this will set that for you using the MAC address</li>
             </ul>
             <li>Most home automation hubs default to receiving units in metric (ie deg C) and will convert to what ever the user has selected. The below will handle this for you</li>
             <ul>
-              <li><samp>convert_mqtt_temp_to_c = yes</samp> REQUIRED for Homekit/bridge, highly desirable for HomeAssistant</li>
-              <li><samp>convert_dz_temp_to_c = yes</samp> For Domoticz depending on it's configuration</li>
+              <li><samp>convert_mqtt_temp_to_c = yes</samp> REQUIRED for Homekit/bridge/domoticz, highly desirable for HomeAssistant</li>
             </ul>
-            <li>Some Automation hubs will consider a device dead if it doesn't frequently get updates. AqualinkD defaults to "don't send update nothing has changed", this setting forces AqualinkD to send ALL information every 5 minutes even if nothing has changed</li>
+            <li>Some Automation hubs will consider a device dead if it doesn't frequently get updates. AqualinkD defaults to "don't send update if nothing has changed", this setting forces AqualinkD to send ALL information every 5 minutes even if nothing has changed</li>
             <ul>
               <li><samp>mqtt_timed_update = yes</samp> REQUIRED for HomeAssistant</li>
             </ul>
