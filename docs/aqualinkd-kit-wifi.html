@@ -26,19 +26,20 @@
           <!--<h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki">AqualinkD wiki</a></h3>-->
           <h3>Configuring WiFi</h3>
           <!-- ADD DETAILS HERE -->
-           If you have bought the <b><i>AqualinkD complete Radxa kit</i></b>: This comes with everything you need pre built & installed, and is ready to go. 
+           If you have bought the <b><i>AqualinkD complete kit</i></b>: This comes with everything you need pre built & installed, and is ready to go. 
            You will however need to connect it to your WiFi!<br><br>
            Since this is a complete Linux computer, you will need some way to get your WiFi information on the device, This can be done in one of three ways :-
            <br><br>
            <ul>
-            <li class="tightList"><a href="#option1">Connect a USB drive with WiFi information to the Radxa</a></li>
+            <li class="tightList"><a href="#option1">Connect a USB drive with WiFi information basic</a></li>
             -or-
-            <li class="tightList"><a href="#option2">Connect a screen and keyboard to the Radxa</a></li>
+            <li class="tightList"><a href="#option2">Connect a USB drive with WiFi information advanced WiFi settings</a></li>
             -or-
-            <li class="tightList"><a href="#option3">Connect a USB 2 Ethernet adapter to the Radxa and plug it into one of your routers/switch ethernet port</a></li>
-           </ul>
-           <h3>WARNING during these steps you may be using different cables & adapter it is VERY important to</h3>
-           <h3 style="color:red">Never connect the Radxa to both USB power and RS485 power at the same time</h3>
+            <li class="tightList"><a href="#option3">Radxa kit only - Connect a screen and keyboard to configure WiFi</a></li>
+            -or-
+            <li class="tightList"><a href="#option4">Connect a USB 2 Ethernet adapter (hardwired to routers/switch ethernet port) to setup WiFi</a></li>
+            
+            </ul>
         </article>
         &nbsp;
         <article id="option1">
@@ -49,7 +50,7 @@
             <li class="tightList">USB-C to USB adapter cable (One should be included in the kit)</li>
           </ul>
           <br>
-          <b><i>AqualinkD complete Radxa kit</i></b> comes with software pre-installed that will detect a USB drive when it's inserted, 
+          <b><i>AqualinkD kit's</i></b> comes with software pre-installed that will detect a USB drive when it's inserted, 
           mount it, look for WiFi configuration files, and when found create a WiFi connection.
           <br><br>
           Steps are as follows
@@ -90,6 +91,7 @@
           <code>http://ip.address/</code> or if your device supports mDNS you can use <code><a href="http://aqualinkd.local">http://aqualinkd.local</a></code>
           <br>
           <br>
+          <!--
           <hr>
           <div id="Alternate"></div>
           <h2>Case without exposed USB port</h2>
@@ -103,11 +105,53 @@
           <li>Insert your USB stick into the Radxa USB-C port (2nd port, show link), and wait 10~20 seconds</li>
           <li>Remove the USB stick</li>
           </ol>
-
+          -->
         </article>
         &nbsp;
+
         <article id="option2">
-          <h3>Connect a screen and keyboard</h3>
+          <h3>Connect a USB drive with WiFi information advanced WiFi settings</h3>
+          If <a href="#option1">option 1</a> does not work, or you have a custom / non-standard WiFi setup, you can use a more advanced configuration file.
+          Steps are as follows
+          <ol>
+          <li>Follow seteps in <a href="#option1">option 1</a>, BUT use a different file for setep #2</li>
+          <li>Download file <a href="/download/nmconnection.conf" download><code>nmconnection.conf</code></a> and copy it to the USB stick.
+          <li>Modify the file to your specific setup.
+            A good referance for this file is <a href="https://networkmanager.dev/docs/api/latest/nm-settings-keyfile.html">here</a>
+            <p><code class="file">
+ [connection]
+  id=preconfigured
+  uuid=b2fc09db-af85-4ddd-aa07-a341f99fe10b
+  type=wifi
+
+[wifi]
+  mode=infrastructure
+  ssid=YOUR_SSID  <----- MUST CHANGE
+  hidden=false
+
+[ipv4]
+  method=auto
+
+[ipv6]
+  addr-gen-mode=default
+  method=auto
+
+[proxy]
+
+[wifi-security]
+  key-mgmt=wpa-psk
+  psk=YOUR_PASSWORD <----- MUST CHANGE
+          </code></p>
+          </li>
+          <li>Note the <code>uuid</code> is needed and is simply a unique identifier, you can leave it as is or create you own with <code>cat /proc/sys/kernel/random/uuid</code></li>
+          <br>
+        </article>
+        &nbsp;
+
+        <article id="option3">
+          <h3>Radxa kit only - Connect a screen and keyboard</h3>
+           <h4>WARNING during these steps you may be using different cables & adapter it is VERY important to</h4>
+           <h3 style="color:red">Never connect the Radxa to both USB power and RS485 power at the same time</h3>
           You will need the following
           <ul class="tightList">
             <li class="tightList">USB Keyboard (USB-C or USB-C adapter)</li>
@@ -184,9 +228,9 @@
         </div>          
         </article>
         &nbsp;
-        <article id="option3">
+        <article id="option4">
           <h3>Connect a USB 2 Ethernet adapter and plug it into your network</h3>
-          You will need the following
+          <h4>Radxa kit</h4>You will need the following
           <ul class="tightList">
             <li class="tightList">USB to Ethernet adapter</li>
             <li class="tightList">Ethernet cable</li>
@@ -201,8 +245,24 @@
               <li class="tightList">You can use either RS485 <B><I>OR</I></B> USB-C to power the board but NEVER both!</li>
               <li class="tightList">See <a href="#boardlayout">Connector information</a> for USB port to use</li>
             </ul>
-            <li>Find the IP address of the radxa from your router</li>
+            <li>Find the IP address of the radxa from your router (hostname will be aqualinkd)</li>
             <li>Use your SSH tool to SSH to the Radxa IP. Login with user / password</li>
+            <li>Follow the <pre>nmcli</pre> commands listed in <a href="#option2">Connect a screen and keyboard to the Radxa</a></li>
+          </ol>
+          <hr>
+          <h4>Raspberry Compute Module kit</h4>You will need the following
+          <ul class="tightList">
+            <li class="tightList">USB to Ethernet adapter</li>
+            <li class="tightList">Ethernet cable</li>
+            <li class="tightList">Computer with a SSH tool</li>
+            <li class="tightList">A way to power the CM-kit if you can't use RS485 connection. Any 9v to 21v DC PSU will work.</li>
+          </ul>
+          
+          <ol>
+            <li>Connect the USB to Ethernet adapter to the Compute Module</li>
+            <li>Power up Compute Module, connect power to the + and - on the green terminal block</li>
+            <li>Find the IP address of the AqualinkD compute module from your router (hostname will be aqualinkd)</li>
+            <li>Use your SSH tool to SSH to the compute module IP. Login with user / password</li>
             <li>Follow the <pre>nmcli</pre> commands listed in <a href="#option2">Connect a screen and keyboard to the Radxa</a></li>
           </ol>
         </article>

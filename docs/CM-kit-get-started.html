@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css?ver=1.1" as="style">
+  <link rel="stylesheet" href="/css/style.css?ver=1.1">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+
+<body class="wrap">
+  <header id="header"></header>
+  <!--<section class="docs">-->
+    <section>
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <!--<h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki">AqualinkD wiki</a></h3>-->
+          <h3>Getting started with the Raspberry Pi Compute Module complete kit</h3>
+          <!-- ADD DETAILS HERE -->
+           If you have bought the <b><i>AqualinkD Raspberry Pi Compute Module kit</i></b>: This comes with everything you need pre built & installed, and is ready to go. 
+           You will however need to connect it to your WiFi!<br><br>
+           Since this is a complete Linux computer, there are a few steps to complete
+           <br><br>
+           <ul>
+            <li class="tightList"><a href="/docs/aqualinkd-kit-panelconnection.html">Connect to your Jandy Panel</a></li>
+   
+            <li class="tightList"><a href="/docs/aqualinkd-kit-wifi.html">Connect to your WiFi</a></li>
+     
+            <li class="tightList"><a href="/docs/aqualinkd-kit-configuration.html">Configure AqualinkD</a></li>
+           </ul>
+        </article>
+         &nbsp;
+        <article id="option1">
+          <h3>General information not covered in above links TLDR; summary</h3>
+          <li>Default user and password are <code>pi</code> and <code>aqualinkd</code></li>
+          <li>root password is not set, can set with <code>sudo passwd root</code></li>
+          <li>As with all systems, please change passwords to your liking</li>
+          <li>LED's (can be seen through the vent holes in case)</li>
+          <ul>
+            <li class="tightList">Solid Red - Power up and booted</li>
+            <li class="tightList">Solid Green - Power up</li>
+            <li class="tightList">Flashing Red/Green - booting</li>
+          </ul>
+          <!--
+          The OS installed on the AqualinkD Compute Module Kit is.<br>
+          Raspberry OS (Debian Trixie) with the minimal changes required for AqualinkD to run with our HAT.
+          -->
+          <hr>
+          <h3>Managing Linux Computer</h3>
+          <h4>If you are familiar with basic linux computer, please ignore the below.</h4>
+          You will need terminal access to the Raspberry Pi Compute Module for time to time to perform tasks. SSH is enabled by default so all you need is an SSH tool.
+          <ul>
+            <li>Apple Mac open a terminal and type <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>Windows 10 and above open a cmd prompt and type <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>All Windows, download a SSH tool like Putty and use <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+          </ul>
+          <h4>Setting Time</h4>
+          <li>The Linux OS will keep perfect time with an online time server (NTP) and AqualinkD will keep the Jandy control panel synced with the Linux OS. 
+              ie Automatically updating for daylight savings, and overcoming the terrible internal clock on the Jandy control panel.</li>
+          <li>By default the AqualinD Kit comes with the time zone set to the address the unit was shipped to, if you need to change that, the easiest way is to SSH to AqualinkD unit and set timezone. 
+            <code>sudo raspi-config</code> select Localization Options->Timezone->(select time zone)</li>
+        </article>
+
+         &nbsp;
+       
+
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>
