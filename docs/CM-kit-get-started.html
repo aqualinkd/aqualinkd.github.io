@@ -28,13 +28,18 @@
            You will however need to connect it to your WiFi!<br><br>
            Since this is a complete Linux computer, there are a few steps to complete
            <br><br>
-           <ul>
+           <ol>
             <li class="tightList"><a href="/docs/aqualinkd-kit-panelconnection.html">Connect to your Jandy Panel</a></li>
    
             <li class="tightList"><a href="/docs/aqualinkd-kit-wifi.html">Connect to your WiFi</a></li>
+            <ul>
+            <br>
+            <li class="tightList">Note: you should configure WiFi before mounting the AqualinkD kit</li>
+            </ul>
+            <li class="tightList"><a href="/docs/CM-kit-mounting.html">Mount AqualinkD in the Jandy Panel / External enclosure</a></li>
      
             <li class="tightList"><a href="/docs/aqualinkd-kit-configuration.html">Configure AqualinkD</a></li>
-           </ul>
+           </ol>
         </article>
          &nbsp;
         <article id="option1">
@@ -55,16 +60,16 @@
           <hr>
           <h3>Managing Linux Computer</h3>
           <h4>If you are familiar with basic linux computer, please ignore the below.</h4>
-          You will need terminal access to the Raspberry Pi Compute Module for time to time to perform tasks. SSH is enabled by default so all you need is an SSH tool.
+          You will need terminal access to the Raspberry Pi Compute Module from time to time to perform tasks. SSH is enabled by default so all you need is an SSH tool.
           <ul>
-            <li>Apple Mac open a terminal and type <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
-            <li>Windows 10 and above open a cmd prompt and type <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
-            <li>All Windows, download a SSH tool like Putty and use <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>Linux / Apple Mac: open a terminal and type <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>Windows 10: and above open a cmd prompt and type <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
+            <li>All Windows: download a SSH tool like Putty and use <code>ssh pi@aqualinkd.local</code> (change aqualinkd.local to IP address if needed)</li>
           </ul>
           <h4>Setting Time</h4>
           <li>The Linux OS will keep perfect time with an online time server (NTP) and AqualinkD will keep the Jandy control panel synced with the Linux OS. 
               ie Automatically updating for daylight savings, and overcoming the terrible internal clock on the Jandy control panel.</li>
-          <li>By default the AqualinD Kit comes with the time zone set to the address the unit was shipped to, if you need to change that, the easiest way is to SSH to AqualinkD unit and set timezone. 
+          <li>By default the AqualinkD Kit comes with the time zone set to the address the unit was shipped to, if you need to change that, the easiest way is to SSH to AqualinkD unit and set timezone. 
             <code>sudo raspi-config</code> select Localization Options->Timezone->(select time zone)</li>
         </article>
 

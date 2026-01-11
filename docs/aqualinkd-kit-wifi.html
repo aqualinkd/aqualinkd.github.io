@@ -31,9 +31,9 @@
            Since this is a complete Linux computer, you will need some way to get your WiFi information on the device, This can be done in one of three ways :-
            <br><br>
            <ul>
-            <li class="tightList"><a href="#option1">Connect a USB drive with WiFi information basic</a></li>
+            <li class="tightList"><a href="#option1">Connect a USB drive with WiFi information (basic)</a></li>
             -or-
-            <li class="tightList"><a href="#option2">Connect a USB drive with WiFi information advanced WiFi settings</a></li>
+            <li class="tightList"><a href="#option2">Connect a USB drive with WiFi information (advanced WiFi settings)</a></li>
             -or-
             <li class="tightList"><a href="#option3">Radxa kit only - Connect a screen and keyboard to configure WiFi</a></li>
             -or-
@@ -43,7 +43,7 @@
         </article>
         &nbsp;
         <article id="option1">
-          <h3>Connect a USB drive with wifi information</h3>
+          <h3>Connect a USB drive with WiFi information</h3>
           You will need the following
           <ul class="tightList">
             <li class="tightList">USB stick or equivalent (ie CF card & CF card reader)</li>
@@ -55,7 +55,7 @@
           <br><br>
           Steps are as follows
           <ol>
-          <li>On a computer, format your USB stick in exFAT or FAT32.</li>
+          <li>On a computer: Format your USB stick in exFAT or FAT32.</li>
           <li>Download file <a href="/download/nmcli.conf" download><code>nmcli.conf</code></a> and copy it to the USB stick.
           <ul>
             <li>Alternatively, create a plain text file on the USB stick called <code>nmcli.conf</code> <font size="smaller">(if using windows make sure .txt is <b>not</b> added to the file name)</font></li>
@@ -71,10 +71,9 @@
           <li>It is important to only change the text inside the quotes YOUR_SSID and YOUR_PASSWORD</li>
             </ul>
           <li>Eject the USB stick from your computer</li>
-          <li>If your case has an exposed USB port, continue, if not go to <a href="#Alternate">Case without exposed USB port</a></li>
           <li>Power up Radxa by connecting the RS485 cable and wait a minute for it to fully boot.</li>
           <li>Insert the USB stick (or USB-C to USB cable with USB stick attached) to the USB port on the side of the case</li>
-          <li>wait 10~20 seconds</li>
+          <li>Wait 10~20 seconds</li>
           <li>Remove the USB stick</li>
           
           </ol>
@@ -117,7 +116,7 @@
           <li>Follow seteps in <a href="#option1">option 1</a>, BUT use a different file for setep #2</li>
           <li>Download file <a href="/download/nmconnection.conf" download><code>nmconnection.conf</code></a> and copy it to the USB stick.
           <li>Modify the file to your specific setup.
-            A good referance for this file is <a href="https://networkmanager.dev/docs/api/latest/nm-settings-keyfile.html">here</a>
+            A good reference for this file is <a href="https://networkmanager.dev/docs/api/latest/nm-settings-keyfile.html">here</a>
             <p><code class="file">
  [connection]
   id=preconfigured
@@ -150,7 +149,7 @@
 
         <article id="option3">
           <h3>Radxa kit only - Connect a screen and keyboard</h3>
-           <h4>WARNING during these steps you may be using different cables & adapter it is VERY important to</h4>
+           <h4>WARNING during these steps you may be using different cables & adapter it is VERY important to:</h4>
            <h3 style="color:red">Never connect the Radxa to both USB power and RS485 power at the same time</h3>
           You will need the following
           <ul class="tightList">

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css?ver=1.1" as="style">
+  <link rel="stylesheet" href="/css/style.css?ver=1.1">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <h3>AqualinkD Compute Module Kit mounting</a></h3>
+          The Compute Module kit can be mounted inside the Jandy Control Panel (Power center), or in its own box.
+          <br>
+          If you have a Jandy Salt Water Generator, then the recommendation is to mount in a separate box, but there are options for mounting in the panel if you desire.
+          <br>
+          <ul>
+            <li class="tightList"><a href="#panelmount">Jandy Panel Mount</a></li>
+   
+            <li class="tightList"><a href="#externalbox">External Enclosure</a></li>
+           </ul>
+          Below are the parts in the kit.
+          <br>
+          <img src="/img/CM Kit parts labeled.jpg">
+          <ol>
+            <li class="tightList">AqualinkD CM module & Mounting Frame</li>
+            <li class="tightList">External Antenna mount & cable</li>
+            <li class="tightList">External enclosure mount (option)</li>
+            <li class="tightList">Antenna</li>
+            <li class="tightList">RS485 connector</li>
+            <li class="tightList">Jandy Panel mounting screws</li>
+          </ol>
+        </article>
+         &nbsp;
+        <article id="panelmount">
+          <h3>Jandy Panel Mount</h3>
+          Below is a typical Jandy Control Panel.
+          <ul>
+            <li class="tightList">CM Kit - if this area is free, the CM Kit should be mounted in this spot with supplied screws</li>
+            <li class="tightList">RS485 - This is the 4 pin connector you need to wire the CM kit to</li>
+            <li class="tightList">Low Voltage - CM Kit can be mounted / placed anywhere in this area</li>
+            <li class="tightList">High Voltage - Never mount anything in this area, and keep clear of it.</li>
+          </ul>
+          <img src="/img/Jandy Panel.jpg">
+          <br>
+          <br>
+          The AqualinkD CM Kit mounts in the bezel of the Jandy Control board as shown below.
+          <img src="/img/CM panel mount.jpeg" style="height: 400px;">
+          <br>
+          <br>
+          The External Antenna is mounted to the outside of the Jandy box with the supplied adhesive tape.
+          <img src="/img/Antenna on panel.jpg" style="height: 400px;">
+          <br>
+        <h4 id="installinstructions"> Install instructions</h4>
+        <ol>
+            <li class="tightList">Cut the RS485 cable to length (depending on mounting option), and wire it <a href="docs/aqualinkd-kit-panelconnection.html">as shown here</a></li>
+            <li class="tightList">Connect the AqualinkD CM module to the RS485 wires, it should now boot up. Just leave it dangling for the next step as you need access to the USB port</li>
+            <li class="tightList">Load WiFi information <a href="aqualinkd-kit-wifi.html">as detailed here</a></li>
+            <li class="tightList">Mount the AqualinkD CM module & mounting frame in the panel</li>
+            <ul>
+              <li class="tightList">If you don't have a SWG, then use the screws to mount in the control board bezel as shown above</li>
+              <li class="tightList">If you do have a SWG, then you can mount it in any area of the low voltage part of the panel</li>
+              <li class="tightList">There are multiple mounting options for the antenna pigtail as shown <a href="#pigtailmountoptions">here (location #1 or #2)</a>, you may need to move this around depending on wires and other</li>
+            </ul>
+            <li class="tightList">Stick the external antenna mount to the outside of the Jandy panel.</li>
+            <li class="tightList">Run the Antenna cable through one of the open holes in the bottom on the panel, and connect to the CM</li>
+        </ol>
+        </article>
+        
+         &nbsp;
+        <article id="externalbox">
+          <h3>Mounting in an enclosure</h3>
+           <div align="center">
+            <img class="expandImage" src="/img/CM External Mounting.jpg" onclick="expandImage(this)" style="height: 200px;">
+           </div>
+           <br>
+            AqualinkD CM Kit is designed with multiple mounting options that will suit most installations / enclosures
+           <ul>
+            <li class="tightList">Our prefered case is the <a href="https://www.amazon.com/dp/B0BP7C5JDC">LeMotech Electrical Box 5.9"x3.9"x2.8"</a></li>
+            <li class="tightList">Any case with internal dimensions of around 6"x4"x3" should give you enough room, go slightly larger if you want to mount the antenna inside the enclosure</a></li>
+            <br>
+            <li>It's <span class="red_text">IMPORTANT</span> to note when selecting an enclosure that you DO want it water tight, but you DO NOT want it air tight. The two are at odds with each other I know.
+              <ul>
+              <li class="tightList">If the enclosure is air tight, then any temperature changes will cause pressure build up inside the box, which will not let CPU to cool, and also lead to water being sucked inside the box when it rains</li>
+              <li class="tightList">Simplest solution is to not make the cable holes air tight. Alternatively you can drill a few small vent holes in the bottom of the box</li>
+              <li class="tightList">The cable gland that comes with the above mentioned box are water tight, we simply don't screw the gland tight against the cables and that provides enough airflow</li>
+              </ul>
+           </ul>
+           Below (left) you can see our preferred way to mount in an external enclosure, Another option is shown on the (right).
+           <br>
+           <table>
+            <tr>
+              <td align="left">
+                <img class="expandImage" src="/img/CM External Mounting 2.jpg" onclick="expandImage(this)" style="height: 400px;">
+              </td>
+              <td align="right">
+                <img class="expandImage" src="/img/CM External Mounting 3.jpg" onclick="expandImage(this)" style="height: 400px;">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                Click above pic to expand
+              </td>
+            </tr>
+           </table>
+           <hr>
+           <br>
+           Steps to mount in external enclosure.
+           <ol>
+            <li class="tightList">Remove the antenna pigtail mount from the frame by removing the M2.5 allen bolt.
+              <ul><li class="tightList">Be very careful not to disconnect the pigtail wire from the CM4 board, it can be very hard to get back on</li></ul>
+            <li class="tightList">Attach the External enclosure mount <a href="#externalframemount">as shown here</a></li>
+            <li class="tightList">Attach the antenna pigtail mount so <a href="#pigtailmountoptions">location #3</a></li>
+            <li class="tightList">If you are using a plastic box, the antenna can be mounted inside if the box is large enough, this will NOT effect the antenna performance</li>
+              <ul><li class="tightList">If you are using a metal box, the antenna MUST be mounted on the outside</li></ul>
+              <ul><li class="tightList">The antenna can be mounted directly to the pigtail mounting inside the box</li></ul>
+            <li class="tightList">Attach the external antenna mount to outside of box (if needed) and run the cable to the inside of the box and connect to pigtail inside the box</li>
+            <li class="tightList">Follow instructions <a href="#installinstructions">here</a></li>
+          </ol>
+
+           <p id="externalframemount">
+           External Frame mount.
+           <br>
+           <img class="expandImage" src="/img/CM External Frame mount.jpg" onclick="expandImage(this)" style="height: 400px;">
+           <br>
+
+           <p id="pigtailmountoptions">
+           Antenna Pigtail Mount options.
+           <img src="/img/Pigtail mount options.jpg" style="height: 400px;">
+           </p>
+           <br>
+           Below is an example of everything mounted
+           <img class="expandImage" src="/img/CM External Mounting.jpg" onclick="expandImage(this)" style="height: 800px;">
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+  <script src="/js/expandImages.js"></script>
+</body>
+</html>

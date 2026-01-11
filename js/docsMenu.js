@@ -9,6 +9,7 @@
 let kitMenu = [
                [ "Radxa Kit: Start", "/docs/radxa-kit-get-started.html" ],
                [ "CM Kit: Start", "/docs/CM-kit-get-started.html" ],
+               [ "CM Kit: Mounting", "/docs//CM-kit-mounting.html" ],
                [ "Connecting to Panel", "/docs/aqualinkd-kit-panelconnection.html" ],
                [ "Configure WiFi", "/docs/aqualinkd-kit-wifi.html" ],
                [ "AqualinkD Configuration", "/docs/aqualinkd-kit-configuration.html" ],
@@ -38,8 +39,8 @@ let cfgMenu = [[ "Configuration", "/docs/opening-config.html" ],
               ];
 
 var menuitems = {};
-menuitems["AqualinkD Kit"] = kitMenu;
-menuitems["Getting Started"] = gsMenu;
+menuitems["AqualinkD Kit's"] = kitMenu;
+menuitems["DIY Getting Started"] = gsMenu;
 menuitems["Configuration"] = cfgMenu;
 
 //const pageName = currentPathname.split("/").slice(-2, -1).toString();
