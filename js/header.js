@@ -94,8 +94,10 @@ try {
     "alt='Donate' data-canonical-src='https://img.shields.io/badge/Donate-PayPal-green.svg'" +
     "style='max-width: 100%;'></a>" +
     "</p>" +
+       "<p><a href='/safety-and-legal/'>Safety & Legal</a></p>" +
     "</div>" +
     "<div class='unit two-thirds center-on-mobiles'>" +
+ 
     "<p>AqualinkD is actively maintained in <a href='https://github.com/aqualinkd/'>core repos</a> free under the " +
     "terms of the <a href='https://github.com/aqualinkd/AqualinkD/blob/master/LICENSE.md'>GPLv2 licensing</a>.</p>" +
     "</div>" +
