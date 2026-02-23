@@ -90,8 +90,8 @@ try {
     "<div class='unit whole center-on-mobiles''>" +
     "<p>If you like this project, please consider donating <a href=' https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=SEGN9UNS38TXJ'" +
     "rel='nofollow'><img " +
-    "src='https://camo.githubusercontent.com/2b3b3f38604d749b543e8577afdc6bd9fab25244f6cb16bfb713273a74350fd7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d50617950616c2d677265656e2e737667'" +
-    "alt='Donate' data-canonical-src='https://img.shields.io/badge/Donate-PayPal-green.svg'" +
+    "src='https://img.shields.io/badge/Donate-PayPal-blue.svg'" +
+    "alt='Donate' data-canonical-src='/img/paypal.svg'" +
     "style='max-width: 100%;'></a>" +
     "</p>" +
        "<p><a href='/safety-and-legal/'>Safety & Legal</a></p>" +
