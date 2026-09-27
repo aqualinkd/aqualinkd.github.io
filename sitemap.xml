@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
   <url>
-    <loc>https://aqualinkd.github.io/</loc>
-    <lastmod>2025-05-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- additional pages -->
-  <url>
-    <loc>https://aqualinkd.github.io/overview</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://aqualinkd.com/</loc>
   </url>
 
   <url>
-    <loc>https://aqualinkd.github.io/docs</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://aqualinkd.com/overview/</loc>
   </url>
 
   <url>
-    <loc>https://aqualinkd.github.io/details</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://aqualinkd.com/docs/</loc>
   </url>
+
+  <url>
+    <loc>https://aqualinkd.com/details/</loc>
+  </url>
+
+  <url>
+    <loc>https://aqualinkd.com/faq/</loc>
+  </url>
+
+  <url>
+    <loc>https://aqualinkd.com/purchase/</loc>
+  </url>
+
+  <url>
+    <loc>https://aqualinkd.com/safety-and-legal/</loc>
+  </url>
+
+  <!-- individual documentation pages -->
+
+  <url>
+  <loc>https://aqualinkd.com/docs/installation.html</loc>
+</url>
+
+<url>
+  <loc>https://aqualinkd.com/docs/MQTT.html</loc>
+</url>
+
+<url>
+  <loc>https://aqualinkd.com/docs/lights.html</loc>
+</url>
+
+<url>
+  <loc>https://aqualinkd.com/docs/variable-speed-pumps.html</loc>
+</url>
 
 </urlset>
