@@ -10,6 +10,75 @@ console.log("Pathname:", currentPathname);
 console.log("Page name:", pageName);
 */
 
+
+const items = [
+  { directory: "/",          text: "Home" },
+  { directory: "/overview", text: "Overview" },
+  { directory: "/docs",     text: "Documentation" },
+  { directory: "/details",  text: "Details" },
+  { directory: "/purchase", text: "Purchase" },
+  { directory: "/faq",      text: "FAQ" }
+];
+
+
+function getDirectoryPath(pathname) {
+  pathname = pathname.replace(/\/$/, "");
+
+  if (pathname === "") {
+    return "/";
+  }
+
+  const lastSlash = pathname.lastIndexOf("/");
+  const lastPart = pathname.substring(lastSlash + 1);
+
+  return lastPart.includes(".")
+    ? pathname.substring(0, lastSlash)
+    : pathname;
+}
+
+
+const currentPath = getDirectoryPath(window.location.pathname);
+
+
+/*
+ * *******************************************
+ * Add Header information
+ *
+ */
+
+try {
+  const header = document.getElementById("header");
+
+  let navlinks = "";
+
+  for (const item of items) {
+    const current = item.directory === currentPath;
+
+    navlinks += "<a" +
+      (current ? " class=\"navlink-current\"" : "") +
+      " href=\"" + item.directory + "\">" +
+      item.text +
+      "</a>";
+  }
+
+  navlinks += "<a href=\"https://github.com/aqualinkd/AqualinkD\">GitHub</a>";
+  navlinks += "<a href=\"https://aquadaemon.org\">AquaDaemon</a>";
+
+  header.innerHTML =
+    "<div class=\"wrap nav\">" +
+      "<div class=\"brand-group\">" +
+        "<img src=\"/img/icon.png\" alt=\"\" class=\"brand-logo\">" +
+        "<a class=\"brand\" href=\"/\">AqualinkD</a>" +
+      "</div>" +
+      "<nav class=\"navlinks\">" +
+        navlinks +
+      "</nav>" +
+    "</div>";
+
+} catch (e) { }
+
+
+/*
 const currentPathname = window.location.pathname;
 //const pageName = currentPathname.split("/").pop();
 
@@ -82,6 +151,9 @@ try {
     "</ul>" +
     "</nav>";
 } catch (e) { }
+*/
+
+
 
 try {
   const footer = document.getElementById('footer');

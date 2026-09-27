@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AqualinkD: Open Source Control for Jandy RS Pool Equipment</title>
+  <meta name="description" content="Take control of your Jandy RS pool system with AqualinkD, an open-source project for enhanced automation and scheduling.">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/style.css?ver=1.1" as="style">
+  <link rel="stylesheet" href="/css/style.css?ver=1.1">
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+</head>
+
+<body class="wrap">
+  <header id="header"></header>
+  <section class="docs">
+    <div class="grid">
+      <div id="mobilemenu" class="docs-nav-mobile unit whole show-on-mobiles"><!-- MOBILE MENU HERE --></div>
+      <div class="unit four-fifths">
+        <article>
+          <!--<h3>Complete details are in <a href="https://github.com/aqualinkd/AqualinkD/wiki#RS485">AqualinkD wiki</a></h3>-->
+
+
+    <h2>AqualinkD Hardware Platform Comparison</h2>
+
+    <p>AqualinkD is designed to run on any Linux-capable SBC and comes pre-compiled for Raspberry Pi, but the choice of platform has meaningful implications for long-term reliability, OS maturity, and how you connect to the Jandy RS485 bus.</p>
+
+    <hr>
+
+    <h3>RS485 Connectivity — A Hard Requirement</h3>
+
+    <p>Before choosing an SBC, it's important to understand that AqualinkD requires an RS485 interface to connect to your Jandy control panel. There are three ways to achieve this:</p>
+
+    <p><strong>1. Generic USB-to-RS485 adapter</strong> — The most universal option. For off-the-shelf hardware, you can use a USB2RS485 adapter; the FTDI-based unit is highly recommended. This works on any Linux device with a USB port.</p>
+
+    <p><strong>2. AqualinkD RS485 HAT</strong> (for GPIO-based SBCs) — The AqualinkD HAT is purpose-built for use with AqualinkD and allows you to easily connect an SBC to the Aqualink Serial bus via GPIO pins 8 and 10 (TX/RX). It can also power the SBC directly from the Jandy RS485 bus, providing up to 3 amps at 5v. It has the same footprint as a Raspberry Pi Zero but also works on full-size Pi boards like the Pi 3, 4, 5, etc.</p>
+
+    <p><strong>3. AqualinkD RS485 Carrier Board</strong> (for Pi Compute Module) — This is a fundamentally different product from the HAT, but provides the same functionality. The CM4 complete unit includes the AqualinkD RS485 carrier board, which provides RS485 and power to the Compute Module.</p>
+
+    <hr>
+
+    <h3>Platform Option 1: Raspberry Pi (any version)</h3>
+
+    <p>The Raspberry Pi — particularly the Pi Zero — is the perfect device for DIY builds, and AqualinkD ships pre-compiled for it, making initial setup very straightforward. It does have one problem though (below).</p>
+
+    <p><strong>The CF Card Problem</strong></p>
+    <p>The core challenge with all Raspberry Pi variants running off a microSD/CF card is storage reliability. All Raspberry Pis are inherently unstable devices to run 24/7/365 in default Linux configurations, because a power outage and general use will generally cause CF card corruption.</p>
+
+    <p><strong>Read-Only Root as a Mitigation</strong></p>
+    <p>The recommended approach to make a CF-based Pi extremely stable is a "read only root" installation of Linux. There are two methods: one uses <code>overlayfs</code> (easier for those not experienced with Linux), and the preferred method uses <code>tmpfs</code> on its own without overlayfs. A Pi Zero running AqualinkD in this configuration has been reported running 24/7/365 for over 8 years without a single failure or CF corruption.</p>
+
+    <p><strong>The Better Alternative: Boot from SSD</strong></p>
+    <p>If your hardware supports booting from something other than a CF card (like the Pi 3), it's strongly suggested to use that option with some form of SSD, as it's a lot easier than implementing RO root.</p>
+
+    <p><strong>OS Maturity — A Key Advantage</strong></p>
+    <p>Raspberry Pi OS (Raspbian) is the most mature and well-supported OS in this context.</p>
+
+    <hr>
+
+    <h3>Platform Option 2: Radxa Zero 3W</h3>
+
+    <p>The Radxa Zero 3W combines the Raspberry Pi Zero device footprint with eMMC storage, overcoming all the CF card issues listed above and offering far greater stability.</p>
+
+    <p><strong>eMMC — Why It's Preferred</strong></p>
+    <p>Unlike a microSD/CF card, eMMC is a soldered, chip-based storage solution that behaves much more like an SSD. It is inherently more resilient to power-loss corruption, meaning you don't need to implement RO root filesystem tricks to achieve long-term reliability. For a device running 24/7 with potential power interruptions, this is a meaningful practical advantage.</p>
+
+    <p><strong>OS Maturity — The Trade-Off</strong></p>
+    <p>The Radxa's OS ecosystem is noticeably less mature than Raspberry Pi OS. Configuring the UART for the AqualinkD HAT on a Radxa requires multiple manual steps: disabling U-Boot's serial console wait, disabling kernel debug/console output on the TTY serial, and enabling the appropriate UART overlay. A dedicated setup script exists in the <code>aqualinkd-radxa</code> repo to automate this, but it's more involved than the Pi equivalent.</p>
+
+    <hr>
+
+    <h3>Platform Option 3: Raspberry Pi Compute Module (CM4)</h3>
+
+    <p>The Compute Module series offers high-performance hardware and a full Linux operating system in a minimal form factor suitable for industrial and embedded applications. Compute Module models feature hardware equivalent to flagship models but with fewer ports and no on-board GPIO pins — instead, users connect them to a separate carrier board.</p>
+
+    <p>In short: same Pi brain, no built-in connectors — you plug it into a custom carrier board (like the AqualinkD RS485 carrier board) that provides exactly what your application needs and nothing more.</p>
+
+    <p>The CM4 is the premium option in the ecosystem. It is an industrial-strength SBC with <strong>eMMC</strong> and runs Raspberry OS. It is not designed as a DIY product like the other Pis, but more of an embedded device, hence the need for a specifically designed carrier board.</p>
+
+    <hr>
+
+    <h3>AqualinkD Support</h3>
+
+    <p>AqualinkD will run perfectly fine on any SBC; there are no performance gains to be had by picking the fastest CPU, most memory, or largest storage. It is specifically designed and highly optimized to keep it small and stable. It takes very little resources, is renowned for its rock-solid stability, and runs for years without any issues.</p>
+
+    <h3>Summary Comparison</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Raspberry Pi (CF)</th>
+                <th>Raspberry Pi w/ external (SSD/eMMC)</th>
+                <th>Radxa Zero 3W</th>
+                <th>Pi Compute Module CM4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Storage type</strong></td>
+                <td>microSD/CF</td>
+                <td>SSD or eMMC</td>
+                <td>eMMC (soldered)</td>
+                <td>eMMC (soldered)</td>
+            </tr>
+            <tr>
+                <td><strong>Corruption risk</strong></td>
+                <td>High without mitigation</td>
+                <td>Low</td>
+                <td>Very low</td>
+                <td>Very low</td>
+            </tr>
+            <tr>
+                <td><strong>RO root needed?</strong></td>
+                <td>Yes (recommended)</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td><strong>OS maturity</strong></td>
+                <td>Excellent</td>
+                <td>Excellent</td>
+                <td>Moderate</td>
+                <td>Excellent</td>
+            </tr>
+            <tr>
+                <td><strong>HAT/RS485 option</strong></td>
+                <td>AqualinkD HAT or USB</td>
+                <td>AqualinkD HAT or USB</td>
+                <td>AqualinkD HAT or USB</td>
+                <td>RS485 Carrier Board only</td>
+            </tr>
+            <tr>
+                <td><strong>Setup complexity</strong></td>
+                <td>Low</td>
+                <td>Low–Medium</td>
+                <td>Medium</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td><strong>Form factor</strong></td>
+                <td>Various</td>
+                <td>Various</td>
+                <td>Pi Zero footprint</td>
+                <td>Industrial</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="bottom-line">Bottom line: eMMC-based platforms are all we will supply (Radxa Zero 3W or CM4) due to their inherent storage reliability over CF/SD-based systems. If you are doing a DIY build, then all options are supported, but we will not supply a device with an inherent design flaw for a novice end user.</p>
+
+</html>
+        </article>
+      </div>
+      <div id="menu" class="unit one-fifth hide-on-mobiles"><!-- JS WILL ADD MENU HERE --></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+  <script src="/js/header.js"></script>
+  <script src="/js/docsMenu.js"></script>
+</body>
+</html>
