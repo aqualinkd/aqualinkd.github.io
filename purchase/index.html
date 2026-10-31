@@ -19,6 +19,28 @@
 </head>
 
 <script>
+  // === CONFIGURE PARTS WITH DESCRIPTIVE IDs ===
+  const itemStatuses = [
+    { id: "serial-hat",     soldOut: false, price: "$25",  date: "" },
+    { id: "radxa-kit",      soldOut: true,  price: "$170", date: "Radxa has been hit with memory shortages, no ETA, sorry" },
+    { id: "cm4-kit",        soldOut: true,  price: "$270", date: "Expected late Nov" },
+    { id: "cm4-indoor-kit", soldOut: true,  price: "$270", date: "Expected late Nov" }
+  ];
+
+  // In stock / sold out elements
+  document.addEventListener("DOMContentLoaded", () => {
+    itemStatuses.forEach(item => {
+      const container = document.getElementById(item.id);
+      if (!container) return;
+        if (item.soldOut) {
+          container.innerHTML = `<li><s>${item.price}</s>   <span class="red_text">Sold Out</span> (${item.date})</li>`;
+        } else {
+          container.innerHTML = `<li>${item.price}</li>`;
+      }
+    });
+  });
+
+  // Email element
   document.addEventListener('DOMContentLoaded', function () {
     const emailButton = document.getElementById('emailButton');
     const emailLinkContainer = document.getElementById('emailLinkContainer');
@@ -99,7 +121,8 @@
                   <ul>
                     <li class="reduceText tightList">Please specify for which form factor (Pi Zero or Full size Pi) </li>
                     <!--<li><s>$25</s> &nbsp <span class="red_text">Sold Out</span> (Expected late Sept)</li>-->
-                    <li>$25</li>
+                    <!--<li>$25</li>-->
+                    <li id="serial-hat"></li>
                   </ul>
               </td>
               <td align="right">
@@ -136,7 +159,8 @@
                     <li class="reduceText tightList">Radxa Zero 3W ( 8GB eMMC / 1GB Mem --OR-- 16GB eMMC / 2GB Mem, WiFi ) depending on stock & availability</li>
                     <li class="reduceText tightList">Unit comes completely assembled, plug-in and go. (Picture is simply showing all parts)</li>
                     <!--<li>$170 <span class="red_text">--(Only a few in stock)--</span> no ETA on when we will get more, Radxa has been hit with memory shortage</li>>-->
-                    <li><s>$170</s> &nbsp <span class="red_text">Sold Out</span> ---- Radxa has been hit with memory shortages, no ETA, sorry</li>
+                    <!--<li><s>$170</s> &nbsp <span class="red_text">Sold Out</span> ---- Radxa has been hit with memory shortages, no ETA, sorry</li>-->
+                    <li id="radxa-kit"></li>
                   </ul>
                 </ul>
               <td align="right">
@@ -159,8 +183,9 @@
                       <li  class="reduceText tightList">Includes AqualinkD RS485 carrier board. <b>This is very different to the AqualinkD Serial Hat</b></li>
                     </ul>
                     <li class="reduceText tightList">Unit comes completely assembled, plug-in and go.</li>
-                    <li><s>$270</s> &nbsp <span class="red_text">Sold Out</span> (Expected late Nov)</li>
+                    <!--<li><s>$270</s> &nbsp <span class="red_text">Sold Out</span> (Expected late Nov)</li>-->
                     <!--<li>$270</li>-->
+                    <li id="cm4-kit"></li>
                     <ul>
                       <li  class="reduceText tightList">Unit comes ready to mount inside the Jandy panel (Power center). Can also be mounted in your supplied outdoor case</li>
                       <li  class="reduceText tightList">Please see <a href="/docs/CM-kit-mounting.html">install instructions</a> for mounting & limitations</li>
@@ -183,8 +208,9 @@
                       <li  class="reduceText tightList">Includes AqualinkD RS485 carrier board. <b>This is very different to the AqualinkD Serial Hat</b></li>
                     </ul>
                     <li class="reduceText tightList">Unit comes completely assembled, plug-in and go.</li>
-                    <li><s>$270</s> &nbsp <span class="red_text">Sold Out</span> (Expected late Nov)</li>
+                    <!--<li><s>$270</s> &nbsp <span class="red_text">Sold Out</span> (Expected late Nov)</li>-->
                     <!--<li>$270</li>-->
+                    <li id="cm4-indoor-kit"></li>
                   </ul>
                 </ul>
               <td align="right">
