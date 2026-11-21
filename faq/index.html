@@ -120,50 +120,219 @@
       &nbsp;
 
       <!--
-      ******** Placing outside ********      
+      ******** Ethernet ********      
       -->
       <div class="unit four-fifths">
-        <article name="AqualinkD Outside" class="faq_article">
-          <div id="AqualinkD Outside"></div>
-          <h2>Running AqualinkD hardware outside</h2>
-          <h4>Not recommended due to climate exposure....but....</h4>
-            <ul><li>We are currently testing a kit designed for outdoors based on an industrial SBC, These will probably end up being double the price of normal Radxa kit (so not a cheap option)</li></ul>
-          <h4>I don’t have RS485 wires inside, can I place a unit outside?</h4>
-            <ul>
-            <li>Highly recommended to run wires inside the house.</li>
-            <li>From our complete kit perspective we only support inside installations</li>
-            <li>Many people have SBC’s running AqualinkD outside. There are however a few things to consider.  Needs to be in a weather proof box, but also allow airflow. External temperatures in hot states like AZ/TX/NM etc can get too high without active cooling, Cool extremes also have a similar problem. <Add links to examples></li>
-            <li>Here are some links to external DIY solutions <a href="https://www.troublefreepool.com/threads/aqualink-improvements.266077/#post-2330551">Link1</a> 
-                                                              <a href="https://www.reddit.com/r/pools/comments/1ijo7gt/my_aqualinkd_setup/">Link2</a> 
-                                                              <a href="https://github.com/aqualinkd/AqualinkD/issues/19">Link3</a> </li>
-
-            <li>Thermal specifications/considerations on the Radxa Zero 3W (SBC that comes with the AqualinkD full kit) are below. These might sound high, but CPU temperature limits can easily be reached when placed outside in hot climates with poor ventilation. </li>
-              <ul>
-                <li class="tightList">Recommended ambient operating temperature range is 0 to 50 degrees celsius (32 to 122f)</li>
-                <li class="tightList">Normal operating temperature max 60c (140f)</li>
-                <li class="tightList">Max operating temperature 80c (176f)</li>
-                <li class="tightList">At 80c The internal governor will throttle back both the CPU speed and voltage to make sure the CPU temperature never exceeds 85 degrees C.</li>
-              </ul>
-            </ul>
-          <h4>What about wireless RS485 adapters</h4>
+        <article name="Ethernet" class="faq_article">
+          <div id="Ethernet"></div>
+          <h2>Ethernet</h2>
+          Can the AqualinkD units to be connected to the Ethernet vs WiFi network?
           <ul>
-            <li>Wireless RS485 adapters are not recommended as they introduce too much latency and will create issues.</li>
-            <ul><li class="tightList">The Jandy panel will send a message and expect a reply in under 20 milliseconds. This is a lot when you consider the chain of devices.<br>
-               <font size="-1">(panel)->(wireless adapter)->(wifi router)->(aqualinkd)->(wifi router)->(wireless adapter)->(panel)</font></li>
-               <li class="tightList">Don't confuse using a ping latency test as an accurate way to measure 20ms on your wifi network</li>
-            </ul>
-            <li>If you have an industrial WiFi network that’s been optimized for iot you can be successful with adapters like EW-11. But, this is not something the average home owner can do since your standard home wifi router ie: Google/Asus/Linksys/Tp-link will NOT be good enough.</li>
-            <ul><li>FYI Dev's have only been successful using wireless RS485 adapters using Industrial Cisco wifi hardware and highly optimized Unifi wifi hardware.</li></ul>
+            <li>By default all kits are WiFi only, but you can add an Ethernet module if needed.</li>
+              <ul>
+                <li>Numerous USB-C to Ethernet adapters are available from various retailers, and any that are supported by linux will work without any additional configuration or drivers.</li>
+                <li>Simply plug the USB-C to Ethernet adapter into the AqualinkD unit and connect the Ethernet cable to your network.</li>
+                <li>We recommend using <a href="https://www.amazon.com/dp/B082K62S48">this adapter</a>, since it's cheap and performs exceptionally well, we test each unit with this adapter before shipping</li>
+              </ul>
           </ul>
         </article>
       </div>
       <div class="unit one-fifth hide-on-mobiles">
         <aside>
-          <div menuid="AqualinkD Outside" name="menu"></div> <!--Auto Generated-->
+          <div menuid="Ethernet" name="menu"></div> <!--Auto Generated-->
         </aside>
       </div>
       &nbsp;
 
+      <!--
+      ******** Wifi Dropping out ********      
+      -->
+      <div class="unit four-fifths">
+        <article name="WiFi Dropping Out" class="faq_article">
+          <div id="WiFi Dropping Out"></div>
+          <h2>WiFi Dropping Out</h2>
+          Why does my outdoor AqualinkD unit keep dropping off the Wi-Fi network?<br>
+          <br>
+          Some routers and access points (APs) aggressively push dual-band devices onto the 5 GHz band. This can cause an outdoor AqualinkD unit to repeatedly disconnect from your network.<br>
+          <br>
+          <b>Why this happens:</b><br>
+          <p style="margin-left: 2em;">
+          Outdoor AqualinkD units are often far from the nearest AP. At that distance, 2.4 GHz usually gives a stronger, more reliable signal than 5 GHz, because lower frequencies travel further and penetrate obstacles better.<br>
+          Because the unit is a dual-band device (2.4 GHz and 5 GHz), an AP with aggressive band steering will try to move it onto 5 GHz. The unit’s Wi-Fi client (Raspberry Pi OS) follows the AP’s instruction and connects to the weaker 5 GHz signal. It then decides the signal is too poor and tries to roam back to 2.4 GHz, and the cycle starts again. Depending on the AP, this may repeat indefinitely, or the AP may eventually refuse the 2.4 GHz connection altogether, leaving the unit offline.<br>
+          </p>
+          <br>
+          <b>Note</b>: This is a Wi-Fi/AP behavior combined with how Raspberry Pi OS handles roaming. It is not caused by the AqualinkD software. AqualinkD units are Raspberry Pi Compute Module (CM) devices running Raspberry Pi OS, and any similar Wi-Fi client would behave the same way on such a network.<br>
+         <br>
+         <b>How to fix it</b><br>
+         <ul>
+           <li>Either of these will resolve the problem:</li>
+           <ul>
+             <li>Disable or relax band steering on your router/AP. The setting may be called something different depending on the manufacturer (e.g., “Smart Connect,” “Band Steering,” “Fast Roaming,” or “Prefer 5 GHz”). Alternatively, give the 2.4 GHz and 5 GHz bands separate SSIDs so the unit can be pointed at 2.4 GHz only.</li>
+             <li>Disable 5 GHz on the AqualinkD unit, so it only connects on 2.4 GHz.</li>
+           </ul>
+         </ul>
+
+         <br>
+         <b>How to Disable or relax band steering on your router/AP</b><br>
+         <ul>
+          <li>Open up your router/AP's configuration page and look for a setting that controls band steering. This may be under Wi-Fi settings, advanced settings, or similar.</li>
+             <li>The setting may be called something different depending on the manufacturer (e.g., “Smart Connect,” “Band Steering,” “Fast Roaming,” or “Prefer 5 GHz”).</li>
+         </ul>
+
+         <br>
+         <b>How to Disable 5GHz on your AqualinkD unit</b><br>
+          <ul>
+            <li>SSH to the Pi and run the following steps: (information on how to ssh to AqualinkD Kit / pi is in the wiki, <a href="https://aqualinkd.github.io/docs/CM-kit-get-started.html" target="_blank">https://aqualinkd.github.io/docs/CM-kit-get-started.html</a>)</li>
+            <li>Check your current Wi-Fi connection name</li>
+            <ul>
+              <li class="tightList">run <code>sudo nmcli connection show</code></li>
+              <li class="tightList">Look under the NAME column for your Wi-Fi network. <i>Note: If your network name has spaces or special characters, you will need to put it in quotes for the next steps.</i></li>
+            </ul>
+            <br>
+            <li><i>Optional</i> check the signal strengths</li>
+            <ul>
+            <!--<li>Run the following command to see what the Pi actually sees in the air:</li>-->
+              <li class="tightList">Run <code> sudo nmcli device wifi list </code></li>
+              <li class="tightList">This will list all nearby signals. Look for your SSID. You will likely see two entries for it:</li>
+              <ul>
+                <li class="tightList">One on a lower channel (like 1-11) which is 2.4GHz (usually shows a high signal strength).</li>
+                <li class="tightList">One on a higher channel (like 36-165) which is 5GHz (likely shows a very low signal strength).</li>
+              </ul>
+            </ul>
+
+          <br>
+          <li><b>Force the Pi to use 2.4GHz only</b></li>
+          <ul>
+            <li>To stop the router from bouncing the Pi around, modify the network profile to only use bg bands (which limits it to 2.4GHz).</li>
+            <li>Replace &lt;Your_SSID_Name&gt; with the exact name you found in Step 1:</li>
+            <ul>
+              <li class="tightList"><code>sudo nmcli connection modify "&lt;Your_SSID_Name&gt;" wifi.band bg && sudo reboot</code></li>
+            </ul>
+          </ul>
+
+        </article>
+      </div>
+      <div class="unit one-fifth hide-on-mobiles">
+        <aside>
+          <div menuid="WiFi Dropping Out" name="menu"></div> <!--Auto Generated-->
+        </aside>
+      </div>
+      &nbsp;
+           
+
+      <!--
+      ******** Placing outside ********      
+      -->
+      
+      <div class="unit four-fifths">
+        <article name="AqualinkD Outside" class="faq_article">
+          <div id="AqualinkD Outside"></div>
+          <h2>Running AqualinkD hardware outside</h2>
+          <h4>We only recommended using our CM kit's outside, these are industrial SBCs (Raspberry Pi Compute Module 4) with
+            built in EMMC</h4>
+          <br>
+          <h4>I don’t have RS485 wires inside, can I place a unit outside?</h4>
+          DIY unit / install
+          <ul>
+            <li>Highly recommended to run wires inside the house.</li>
+            <li>Many people have SBC’s running AqualinkD outside. There are however a few things to consider. Needs to be in a
+              weather proof box, but also allow airflow. External temperatures in hot states like AZ/TX/NM etc can get too
+              high without active cooling, Cool extremes also have a similar problem. <Add links to examples>
+            </li>
+            <li>Here are some links to external DIY solutions <a
+                href="https://www.troublefreepool.com/threads/aqualink-improvements.266077/#post-2330551">Link1</a>
+              <a href="https://www.reddit.com/r/pools/comments/1ijo7gt/my_aqualinkd_setup/">Link2</a>
+              <a href="https://github.com/aqualinkd/AqualinkD/issues/19">Link3</a>
+            </li>
+            <li>Most DIY installs are CF cards, don't forget to use a high quality card, and make sure you have a good backup
+              plan in case of SD card failure. CF cards do not do well in extreme temperatures. </li>
+            <li>Thermal specifications/considerations These might sound high, but CPU temperature limits can easily be reached
+              when placed outside in hot climates with poor ventilation.
+              <table border="1" cellpadding="0" cellspacing="0" class="tightTable">
+                <thead>
+                  <tr>
+                    <th>Board</th>
+                    <th>SoC</th>
+                    <th>Typical Idle Temp (Bare)</th>
+                    <th>Typical Load Temp (Bare)</th>
+                    <th>Throttling / Max Limit</th>
+                    <th>Ambient Operating Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Radxa Zero 3W</strong></td>
+                    <td>Rockchip RK3566</td>
+                    <td>40°C–55°C (104°F–131°F)</td>
+                    <td>65°C–80°C+ (149°F–176°F+)</td>
+                    <td>~80°C throttle / 85°C governor cap</td>
+                    <td>0°C to 50°C (32°F to 122°F)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Raspberry Pi Zero W (v1.1)</strong></td>
+                    <td>Broadcom BCM2835</td>
+                    <td>30°C–40°C (86°F–104°F)</td>
+                    <td>35°C–50°C (95°F–122°F)</td>
+                    <td>80°C throttle / 85°C max</td>
+                    <td>-40°C to 85°C (SoC) / 0°C to 50°C (board)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Raspberry Pi Zero 2 W</strong></td>
+                    <td>Broadcom BCM2710A1</td>
+                    <td>30°C–45°C (86°F–113°F)</td>
+                    <td>45°C–73°C (113°F–163°F)</td>
+                    <td>80°C throttle / 85°C max</td>
+                    <td>-20°C to 70°C (-4°F to 158°F)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Raspberry Pi 4 Model B</strong></td>
+                    <td>Broadcom BCM2711</td>
+                    <td>40°C–55°C (104°F–131°F)</td>
+                    <td>65°C–82°C (149°F–180°F)</td>
+                    <td>80°C soft throttle / 85°C hard limit</td>
+                    <td>0°C to 50°C (32°F to 122°F)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Raspberry Pi 5</strong></td>
+                    <td>Broadcom BCM2712</td>
+                    <td>45°C–60°C (113°F–140°F)</td>
+                    <td>70°C–85°C (158°F–185°F)</td>
+                    <td>80°C soft throttle / 85°C hard limit</td>
+                    <td>0°C to 50°C (32°F to 122°F)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4>What about wireless RS485 adapters</h4>
+          <ul>
+            <li>Wireless RS485 adapters are not recommended as they introduce too much latency and will create issues.</li>
+            <ul>
+              <li class="tightList">The Jandy panel will send a message and expect a reply in under 20 milliseconds. This is a
+                lot when you consider the chain of devices.<br>
+                <font size="-1">(panel)->(wireless adapter)->(wifi router)->(aqualinkd)->(wifi router)->(wireless
+                  adapter)->(panel)</font>
+              </li>
+              <li class="tightList">Don't confuse using a ping latency test as an accurate way to measure 20ms on your wifi
+                network</li>
+            </ul>
+            <li>If you have an industrial WiFi network that’s been optimized for iot you can be successful with adapters like
+              EW-11. But, this is not something the average home owner can do since your standard home wifi router ie:
+              Google/Asus/Linksys/Tp-link will NOT be good enough.</li>
+            <ul>
+              <li>FYI Dev's have only been successful using wireless RS485 adapters using Industrial Cisco wifi hardware and
+                highly optimized Unifi wifi hardware.</li>
+            </ul>
+          </ul>
+        </article>
+      </div>
+      <div class="unit one-fifth hide-on-mobiles">
+        <aside>
+          <div menuid="AqualinkD Outside" name="menu"></div> 
+        </aside>
+      </div>
+      &nbsp;
+    
       <!--
       ******** SMA ********      
       -->
