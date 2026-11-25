@@ -22,9 +22,9 @@
   // === CONFIGURE PARTS WITH DESCRIPTIVE IDs ===
   const itemStatuses = [
     { id: "serial-hat",     soldOut: false, price: "$25",  date: "" },
-    { id: "radxa-kit",      soldOut: true,  price: "$170", date: "Radxa has been hit with memory shortages, no ETA, sorry" },
-    { id: "cm4-kit",        soldOut: true,  price: "$270", date: "Expected late Nov" },
-    { id: "cm4-indoor-kit", soldOut: true,  price: "$270", date: "Expected late Nov" }
+    { id: "radxa-kit",      soldOut: true,  price: "$170", date: "Radxa has been hit with memory shortages, and no longer seems to be manufacturing this specific board" },
+    { id: "cm4-kit",        soldOut: true,  price: "$270", date: "Expected late Dec" },
+    { id: "cm4-indoor-kit", soldOut: true,  price: "$270", date: "Expected late Dec" }
   ];
 
   // In stock / sold out elements
@@ -161,6 +161,7 @@
                     <!--<li>$170 <span class="red_text">--(Only a few in stock)--</span> no ETA on when we will get more, Radxa has been hit with memory shortage</li>>-->
                     <!--<li><s>$170</s> &nbsp <span class="red_text">Sold Out</span> ---- Radxa has been hit with memory shortages, no ETA, sorry</li>-->
                     <li id="radxa-kit"></li>
+                    <li class="reduceText tightList">Currently, the price of any alternative manufacturers board puts these at a premium, and it's not worth it over the CM4 units below.</li>
                   </ul>
                 </ul>
               <td align="right">
