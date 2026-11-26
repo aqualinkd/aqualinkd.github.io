@@ -138,23 +138,26 @@
           <b>Radxa Zero 3W with eMMC is no longer available, so the next best option is a Raspberry Pi Zero W</b><br>
           <br>
           All other Pi zero clones that have eMMC are silly prices and not worth the money when you consider the OS & boot issues to overcome.<br>
+          <br>
+          <b>NOTE:-</b> Most ZERO form factor SBC's have an option for with or without GPIO pins, if using our HAT please remember to order the version with GPIO pins (unless you want to solder your own set to the board) 
+          
           <h4>The Pi Zero W is the best option for AqualinkD, and is the easiest to setup and maintain.</h4>
 
-          <p>Raspberry Pi Zero W is currently preferred HW, <b><i>but like all Raspberry Pi’s and clones is can suffer from CF
+          <p>Raspberry Pi Zero W is currently preferred HW, <b><i>but like all Raspberry Pi’s and clones it can suffer from CF
             card corruption.</i></b> This can be solved using a RO Root file system.</p>
           <ul>
             <li>
-              There is plenty of information on the net about RO Root filesystem in a Pi, so the details on now to do
+              There is plenty of information on the net about RO Root filesystem on a Pi, so the details on how to do
               that are not in any AqualinkD documentation.
             </li>
             <li>
-              If you do use a RO root filesystem, AqualinkD will detect this and change the RO to RW root on the very
+              If you do use a RO root filesystem, AqualinkD will detect this and change the RO to RW root, on the very
               few occasions it does write to the filesystem, it will obviously change it back.
             </li>
             <li>
               Pi zero W is the smallest and least powerful of all SBC's (1GHz, single-core CPU with 512MB RAM), This
               is way more than enough for AqualinkD, so if you are going Raspberry Pi (or clone) route there is no need
-              for anything more powerful. ie you don't need to Pi Zero 2W / Pi 3, 4, 5 etc. 64bit over 32bit also has no
+              for anything more powerful. ie you don't need a Pi Zero 2W / Pi 3, 4, 5 etc. 64bit over 32bit also has no
               advantage for AqualinkD</li>
           </ul>
           </p>
