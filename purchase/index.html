@@ -21,15 +21,29 @@
 <script>
   // === CONFIGURE PARTS WITH DESCRIPTIVE IDs ===
   const itemStatuses = [
-    { id: "serial-hat",     soldOut: true, price: "$25",  date: "Expected early Dec" },
+    { id: "serial-hat",     soldOut: true,  price: "$25",  date: "Expected early Dec" },
     { id: "radxa-kit",      soldOut: true,  price: "$170", date: "Radxa has been hit with memory shortages, and no longer seems to be manufacturing this specific board" },
     { id: "cm4-kit",        soldOut: true,  price: "$270", date: "Expected late Dec" },
-    { id: "cm4-indoor-kit", soldOut: true,  price: "$270", date: "Expected late Dec" }
+    { id: "cm4-indoor-kit", soldOut: true,  price: "$270", date: "Expected late Dec" },
+    { id: "cm4-kit-spec",   textContent: "(16GB eMMC, 2GB Mem, WiFi)"}
   ];
 
-  const cm4KitElements = [
-    { id: "cm4-kit-spec", spec: "(16GB eMMC, 2GB Mem, WiFi)"}
-  ];
+  // In stock / sold out / text elements
+  document.addEventListener("DOMContentLoaded", () => {
+    itemStatuses.forEach(item => {
+      document.querySelectorAll('#' + item.id).forEach((container) => {
+        if (item.textContent) {
+          container.innerHTML = item.textContent;
+        } else if (item.soldOut) {
+          container.innerHTML = `<li><s>${item.price}</s>   <span class="red_text">Sold Out</span> (${item.date})</li>`;
+        } else if (item.price) {
+          container.innerHTML = `<li>${item.price}</li>`;
+        }
+      });
+    });
+  });
+
+  /*
 
   // In stock / sold out elements
   document.addEventListener("DOMContentLoaded", () => {
@@ -43,15 +57,8 @@
       }
     });
   });
+*/
 
-  document.addEventListener("DOMContentLoaded", () => {
-    cm4KitElements.forEach(element => {
-      document.querySelectorAll('#' + element.id).forEach((el) => {
-        //el.classList.add('highlighted');
-        el.innerHTML = element.spec;
-      });  
-    });
-  });
 
   // Email element
   document.addEventListener('DOMContentLoaded', function () {
@@ -191,7 +198,7 @@
                 <ul>
                   <li><b>AqualinkD CM4 Complete Unit (Industrial strength SBC, outdoor unit)</b></li>
                   <ul>
-                    <li class="reduceText tightList">Raspberry Pi Compute Module CM4 <span id="cm4-kit-spec"></span> <i>spec may change depending on stock & availability</i></li>
+                    <li class="tightList">Raspberry Pi Compute Module CM4 <span id="cm4-kit-spec">(8GB eMMC, 1GB Mem, WiFi)</span> <span class="reduceText"><i>spec may change depending on stock & availability</i></span></li>
                     <ul>
                       <li class="reduceText tightList">This is an industrial strength SBC. These units can withstand outdoor climates.</li>
                       <li  class="reduceText tightList">Includes AqualinkD RS485 carrier board. <b>This is very different to the AqualinkD Serial Hat</b></li>
@@ -217,7 +224,7 @@
                 <ul>
                   <li><b>AqualinkD CM4 Complete Unit (Industrial strength SBC, indoor unit)</b></li>
                   <ul>
-                    <li class="reduceText tightList">Raspberry Pi Compute Module CM4 <span id="cm4-kit-spec"></span> <i>spec may change depending on stock & availability</i></li>
+                    <li class="tightList">Raspberry Pi Compute Module CM4 <span id="cm4-kit-spec">(8GB eMMC, 1GB Mem, WiFi)</span> <span class="reduceText"><i>spec may change depending on stock & availability</i></span></li>
                     <ul>
                       <li  class="reduceText tightList">Includes AqualinkD RS485 carrier board. <b>This is very different to the AqualinkD Serial Hat</b></li>
                     </ul>
@@ -244,7 +251,7 @@
                   <li><b>Shipping to continental US</b> (USPS Priority Mail, flat rate, irrelevant of what you purchase)</b>
                   </li>
                   <ul>
-                    <li>$12</li>
+                    <li>$13</li>
                   </ul>
                 </ul>
             </tr>
